@@ -17,6 +17,6 @@ public class Main{
 public static void main(String[] args) {
     Principal interfaz_Inicial = new Principal();
     interfaz_Inicial.setVisible(true);
-    JOptionPane.showInputDialog("kkita");
+    JOptionPane.showInputDialog("carlos");
 }
 }
