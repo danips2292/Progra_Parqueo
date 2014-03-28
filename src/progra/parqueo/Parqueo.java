@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
  * @author Gato
  */
 public class Parqueo {
+    private static Parqueo _ParqueoInstance;
     private boolean abierto;
     //private String nombreLocal;
     //private String eslogan;
@@ -17,7 +18,6 @@ public class Parqueo {
     //private String cedulaJuridica;
     //private String horaAtencion;
     private int tarifaHora;
-    private int numeroFactura;
     //private int minimoCaja;
     private String contrasenaEncriptada;
     private String contrasena;
@@ -35,14 +35,19 @@ public class Parqueo {
     
     
 
-    public Parqueo(boolean pAbierto,int pTarifaHora,int pNumeroFacutura,String pContrasena,int pHora,int pCantEspacios) {
+    public Parqueo(boolean pAbierto,int pTarifaHora,String pContrasena,int pHora,int pCantEspacios) {
         abierto=pAbierto;
         tarifaHora = pTarifaHora;
-        numeroFactura = pNumeroFacutura;
         contrasena = pContrasena;
         hora = pHora;
         cantEspacios = pCantEspacios;
         espaciosLibres = cantEspacios;
+    }
+    
+    public static Parqueo getInstance(){
+        if(_ParqueoInstance == null)
+            _ParqueoInstance = new Parqueo(true, 0,"hola",0,0);
+        return _ParqueoInstance;
     }
 
     public boolean isAbierto() {
@@ -105,14 +110,6 @@ public class Parqueo {
 
     public void setTarifaHora(int pTarifaHora) {
         tarifaHora = pTarifaHora;
-    }
-
-    public int getNumeroFactura() {
-        return numeroFactura;
-    }
-
-    public void setNumeroFactura(int pNumeroFactura) {
-        numeroFactura = pNumeroFactura;
     }
 
     /*public int getMinimoCaja() {

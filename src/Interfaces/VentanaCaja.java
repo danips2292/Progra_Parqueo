@@ -4,17 +4,19 @@
  */
 package Interfaces;
 
-import progra.parqueo.Reloj;
+import progra.parqueo.*;
 
 /**
  *
  * @author Gato
  */
-public class Caja extends javax.swing.JFrame {
+public class VentanaCaja extends javax.swing.JFrame {
 
    
     Reloj reloj=new Reloj(0, 0, 0, 0);
-    public Caja() {
+    
+    private int contrasena=0;
+    public VentanaCaja() {
         reloj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         reloj.setFont(new java.awt.Font("Arial",1,18));
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -35,20 +37,28 @@ public class Caja extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbAgregarDinero = new javax.swing.JButton();
+        jbRetirarDinero = new javax.swing.JButton();
+        jbVerDinero = new javax.swing.JButton();
+        jbCobrar = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Agergar Dinero");
+        jbAgregarDinero.setText("Agregar Dinero");
+        jbAgregarDinero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAgregarDineroActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Retirar Dinero");
+        jbRetirarDinero.setText("Retirar Dinero");
 
-        jButton3.setText("Ver Dinero");
+        jbVerDinero.setText("Ver Dinero");
 
-        jButton4.setText("Cobrar");
+        jbCobrar.setText("Cobrar");
+
+        jbSalir.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,28 +67,35 @@ public class Caja extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(156, 156, 156)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbAgregarDinero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbRetirarDinero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbVerDinero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbCobrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(139, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jButton1)
+                .addComponent(jbAgregarDinero)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(jbRetirarDinero)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(jbVerDinero)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addComponent(jbCobrar)
+                .addGap(18, 18, 18)
+                .addComponent(jbSalir)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbAgregarDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarDineroActionPerformed
+        
+    }//GEN-LAST:event_jbAgregarDineroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,27 +114,28 @@ public class Caja extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Caja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Caja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Caja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Caja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Caja().setVisible(true);
+                new VentanaCaja().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jbAgregarDinero;
+    private javax.swing.JButton jbCobrar;
+    private javax.swing.JButton jbRetirarDinero;
+    private javax.swing.JButton jbSalir;
+    private javax.swing.JButton jbVerDinero;
     // End of variables declaration//GEN-END:variables
 }

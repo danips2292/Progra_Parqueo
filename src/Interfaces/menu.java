@@ -10,7 +10,7 @@ import Interfaces.*;
  * @author dani
  */
 public class menu extends javax.swing.JFrame {
-    Caja VentanaCaja = new Caja();
+    VentanaCaja VentanaCaja = new VentanaCaja();
     public menu() {
         
         this.setSize(1378, 766);

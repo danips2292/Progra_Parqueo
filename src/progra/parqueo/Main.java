@@ -16,7 +16,7 @@ public class Main {
     int pNumeroFacutura=0;
     String contrasena="";
     int pHora=0;
-    Parqueo prueba= new Parqueo(true, pTarifaHora, pNumeroFacutura, null, pHora,15);
+    Parqueo prueba= new Parqueo(true, pTarifaHora, null, pHora,15);
 
     public void setContrasena(String contrasena) {
         this.contrasena = "hola";
