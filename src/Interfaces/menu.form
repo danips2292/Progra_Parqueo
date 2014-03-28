@@ -72,9 +72,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Caja"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEntrarCajaActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbSalir">
       <Properties>

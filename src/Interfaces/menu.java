@@ -10,7 +10,7 @@ import Interfaces.Principal;
  * @author dani
  */
 public class menu extends javax.swing.JFrame {
-    Caja VentanaCaja = new Caja();
+
     /**
      * Creates new form menu
      */
@@ -48,11 +48,6 @@ public class menu extends javax.swing.JFrame {
         jbSacarCarro.setText("Sacar Vehiculo");
 
         jbEntrarCaja.setText("Caja");
-        jbEntrarCaja.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEntrarCajaActionPerformed(evt);
-            }
-        });
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -104,11 +99,6 @@ public class menu extends javax.swing.JFrame {
     private void jbMeterCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMeterCarroActionPerformed
         
     }//GEN-LAST:event_jbMeterCarroActionPerformed
-
-    private void jbEntrarCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarCajaActionPerformed
-        VentanaCaja.setVisible(true);
-        this.setVisible(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jbEntrarCajaActionPerformed
 
     /**
      * @param args the command line arguments
