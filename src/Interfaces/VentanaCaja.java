@@ -314,7 +314,6 @@ public class VentanaCaja extends javax.swing.JFrame {
     private javax.swing.JButton jbRetirarDinero;
     private javax.swing.JButton jbSalir;
     private javax.swing.JButton jbVerDinero;
->>>>>>> branch 'master' of https://github.com/danips2292/Progra_Parqueo.git
     // End of variables declaration//GEN-END:variables
 
 }*/

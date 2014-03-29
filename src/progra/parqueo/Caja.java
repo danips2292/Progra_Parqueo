@@ -62,8 +62,11 @@ public class Caja {
         }
     }
     
-    public void redondear(){
-        
+    public int redondear(int tEstacionado){
+        int n= tEstacionado%15;
+        n=15-n;
+        tEstacionado=tEstacionado+n;
+        return tEstacionado;
     }
     public int getPagoCliente() {
         return pagoCliente;
