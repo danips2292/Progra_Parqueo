@@ -10,6 +10,7 @@ package progra.parqueo;
  */
 public class Espacio {
     private boolean ocupado;
+    private Vehiculo vehiculo;
     //private int cantidadLugares;
     //private int cantidadLugaresDisponibles;
     
@@ -50,4 +51,12 @@ public class Espacio {
     public void mostrarPlaca(){
         
     }*/
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo pVehiculo) {
+        vehiculo = pVehiculo;
+    }
 }

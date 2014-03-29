@@ -11,17 +11,19 @@ package progra.parqueo;
  * @author Gilberto
  */
 public class Main {
+
+  
     boolean abierto;
     int pTarifaHora=0;
     int pNumeroFacutura=0;
     String contrasena="";
     int pHora=0;
-    Parqueo prueba= new Parqueo(true, pTarifaHora, pNumeroFacutura, null, pHora,15);
+   
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = "hola";
+
+    
     }
 
         
     
-}
+

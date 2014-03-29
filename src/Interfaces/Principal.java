@@ -6,18 +6,27 @@ import progra.parqueo.*;
 import javax.swing.JOptionPane.*;
 
 public class Principal extends javax.swing.JFrame {
-  Parqueo userParqueo= new Parqueo(true,0,0,"",0,15);
+
+
+  //Parqueo userParqueo= new Parqueo(true,0,"",0,15);
+
   //Caja userCaja= new Caja(0,0,0,0,0,0,"hola",0,0);
+
   //Espacio userEspacio = new Espacio();*/
-  menu Ventana_Menu = new menu();
+    private menu Ventana_Menu = new menu(this);
+
+  //Espacio userEspacio = new Espacio();*
+
     private String contrasena;
+    
         
     public Principal() {
+        
         initComponents();
         this.setVisible(rootPaneCheckingEnabled);
         this.setSize(1378, 766);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,19 +81,19 @@ public class Principal extends javax.swing.JFrame {
 
     private void jbAbrirParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAbrirParqueoActionPerformed
         contrasena=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
-        if(userParqueo.getUserCaja().getContrasena().equals(contrasena)){
+        if(Parqueo.getInstance().getUserCaja().getContrasena().equals(contrasena)){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
             Ventana_Menu.setVisible(true);
             this.setVisible(false);
         }
         else{
-            JOptionPane.showMessageDialog(rootPane,userParqueo.getUserCaja().getContrasena());
+            JOptionPane.showMessageDialog(rootPane,Parqueo.getInstance().getUserCaja().getContrasena());
             JOptionPane.showMessageDialog(rootPane,"Contrasena incorrecta.");
         }
     }//GEN-LAST:event_jbAbrirParqueoActionPerformed
 
     private void jbCerrarParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarParqueoActionPerformed
-        userParqueo.cerrarParqueo();
+        Parqueo.getInstance().cerrarParqueo();
     }//GEN-LAST:event_jbCerrarParqueoActionPerformed
 
     /**

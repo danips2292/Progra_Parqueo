@@ -10,13 +10,29 @@ import Interfaces.*;
  * @author dani
  */
 public class menu extends javax.swing.JFrame {
+
+
+    /**
+     * Creates new form menu
+     */
+    private Principal vPrincipal;
+
     VentanaCaja VentanaCaja = new VentanaCaja();
+
     public menu() {
         
         this.setSize(1378, 766);
         this.setVisible(rootPaneCheckingEnabled);
         initComponents();
     }
+    public menu(Principal pPrincipal)
+    {
+        vPrincipal = pPrincipal;
+        this.setSize(1378, 766);
+        this.setVisible(rootPaneCheckingEnabled);
+        initComponents();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -99,7 +115,9 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbMeterCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMeterCarroActionPerformed
-        
+        //Parqueo.getInstance().llenarEspacio();
+        DetallesVehiculo vDetallesVehiculo = new DetallesVehiculo();
+        vDetallesVehiculo.show();
     }//GEN-LAST:event_jbMeterCarroActionPerformed
 
     private void jbEntrarCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarCajaActionPerformed
