@@ -132,7 +132,7 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jbEntrarCajaActionPerformed
 
     private void jbSacarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSacarCarroActionPerformed
-        Parqueo.getInstance().vaciarEspacio();
+         Parqueo.getInstance().vaciarEspacio();
     }//GEN-LAST:event_jbSacarCarroActionPerformed
 
     /**

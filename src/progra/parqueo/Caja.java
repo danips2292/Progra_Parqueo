@@ -62,8 +62,11 @@ public class Caja {
         }
     }
     
-    public void redondear(){
-        
+    public int redondear(int tEstacionado){
+        int n= tEstacionado%15;
+        n=15-n;
+        tEstacionado=tEstacionado+n;
+        return tEstacionado;
     }
     public int getPagoCliente() {
         return pagoCliente;
@@ -122,28 +125,28 @@ public class Caja {
         return contrasenaCaja;
     }
     
-    public void agregarDinero(String pContraseña,int dineroAgregado){
-        contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
-        if(contrasenaUsuario==contrasenaCaja){//funciona comparacion?
+    public void agregarDinero(int dineroAgregado){
+        //contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
+        //if(contrasenaUsuario==contrasenaCaja){//funciona comparacion?
             setDineroAgregado(this.dineroAgregado);
             setDineroCaja(getDineroCaja()+this.dineroAgregado);
             JOptionPane.showMessageDialog(null, "Se ha agregado:"+getDineroAgregado()+"a la caja exitosamente");
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Contrasena Invalida");
-        }
+        //}
+        //else{
+          //  JOptionPane.showMessageDialog(null, "Contrasena Invalida");
+        //}
     }
     
-    public void retirarDinero(String pContrasena,int dineroRetirado){
-        contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
-        if(contrasenaUsuario==contrasenaCaja){
+    public void retirarDinero(int dineroRetirado){
+        //contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
+        //if(contrasenaUsuario==contrasenaCaja){
             setDineroRetirado(this.dineroRetirado);
             setDineroCaja(getDineroCaja()-this.dineroRetirado);
             JOptionPane.showMessageDialog(null, "Se ha retirado:"+getDineroRetirado()+"de la caja exitosamente");
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Contrasena Invalida");
-        }
+        //}
+        //else{
+          //  JOptionPane.showMessageDialog(null, "Contrasena Invalida");
+        //}
     }
     
     public void recibirTiquete(){
