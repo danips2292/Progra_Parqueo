@@ -1,6 +1,7 @@
 //CAT CODE
 package progra.parqueo;
 
+import Interfaces.DetallesVehiculo;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -10,6 +11,7 @@ import javax.swing.JOptionPane;
  * @author Gato
  */
 public class Parqueo {
+    private static Parqueo parqueoInstance;
     private boolean abierto;
     //private String nombreLocal;
     //private String eslogan;
@@ -27,7 +29,7 @@ public class Parqueo {
     //private String direccion;
     //private int cantidadLugares;
     private int cantEspacios;
-    private Espacio espacios[]= new Espacio[cantEspacios];//chequear el for
+    private Espacio espacios[];//chequear el for
     private int espaciosLibres; // siempre que se inicie el programa se asume que el parqueo esta vacio
     //Espacio userEspacio= new Espacio(abierto, tarifaHora, tarifaHora);
     private int numEspacio;//numero de espacio con el cual se trabajara
@@ -35,16 +37,20 @@ public class Parqueo {
     
     
 
-    public Parqueo(boolean pAbierto,int pTarifaHora,int pNumeroFacutura,String pContrasena,int pHora,int pCantEspacios) {
+    public Parqueo(boolean pAbierto,int pTarifaHora,String pContrasena,int pCantEspacios) {
         abierto=pAbierto;
         tarifaHora = pTarifaHora;
-        numeroFactura = pNumeroFacutura;
         contrasena = pContrasena;
-        hora = pHora;
         cantEspacios = pCantEspacios;
+        espacios= new Espacio[cantEspacios];
         espaciosLibres = cantEspacios;
+        setEspacios();
     }
-
+    public static Parqueo getInstance(){
+        if (parqueoInstance == null)
+            parqueoInstance = new Parqueo(false,1000,"hola",15);
+        return parqueoInstance;
+    }
     public boolean isAbierto() {
         return abierto;
     }
@@ -52,9 +58,9 @@ public class Parqueo {
         this.abierto = abierto;
     }
 
-    public void setEspacios(Espacio[] espacios) {
+    public void setEspacios() {
         int i = 0;
-        for (i=0;i<=15;i++){        
+        for (i=0;i<cantEspacios;i=i+1){        
             espacios[i]=new Espacio(false);
         }
     }
@@ -170,14 +176,21 @@ public class Parqueo {
         return userCaja;
     }
     //Terminar esta funcio falta ponerle el else
-    public void llenarEspacio()
+    public void llenarEspacio(Vehiculo vehiculo)
     {
-        numEspacio = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de espacio"));
-        if (espacios[numEspacio].isOcupado()==false)
+       // numEspacio = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de espacio"));
+        if (espacios[vehiculo.getEspacioOcupado()].isOcupado()==false)
         {
-            espacios[numEspacio].setOcupado(true);
+            espacios[vehiculo.getEspacioOcupado()].setOcupado(true);
+            //espacios[numEspacio].setVehiculo(new Vehiculo());
+            espacios[vehiculo.getEspacioOcupado()].setVehiculo(vehiculo);
             espaciosLibres-=1;//comprobar que siempre sea mayor a cero
             System.out.println(espaciosLibres);
+            System.out.println(espacios[vehiculo.getEspacioOcupado()].getVehiculo().getColor());
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"El espacio esta ocupado");
         }
     }
     /*public String getDireccion() {
