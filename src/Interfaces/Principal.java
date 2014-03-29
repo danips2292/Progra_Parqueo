@@ -6,12 +6,22 @@ import progra.parqueo.*;
 import javax.swing.JOptionPane.*;
 
 public class Principal extends javax.swing.JFrame {
+
+
+  //Parqueo userParqueo= new Parqueo(true,0,"",0,15);
+
   //Caja userCaja= new Caja(0,0,0,0,0,0,"hola",0,0);
+
   //Espacio userEspacio = new Espacio();*/
     private menu Ventana_Menu = new menu(this);
+
+  //Espacio userEspacio = new Espacio();*
+
     private String contrasena;
+    
         
     public Principal() {
+        
         initComponents();
         this.setVisible(rootPaneCheckingEnabled);
         this.setSize(1378, 766);

@@ -4,17 +4,21 @@
  */
 package Interfaces;
 import progra.parqueo.Parqueo;
-import Interfaces.Principal;
+import Interfaces.*;
 /**
  *
  * @author dani
  */
 public class menu extends javax.swing.JFrame {
 
+
     /**
      * Creates new form menu
      */
     private Principal vPrincipal;
+
+    VentanaCaja VentanaCaja = new VentanaCaja();
+
     public menu() {
         
         this.setSize(1378, 766);
@@ -57,6 +61,11 @@ public class menu extends javax.swing.JFrame {
         jbSacarCarro.setText("Sacar Vehiculo");
 
         jbEntrarCaja.setText("Caja");
+        jbEntrarCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEntrarCajaActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +119,12 @@ public class menu extends javax.swing.JFrame {
         DetallesVehiculo vDetallesVehiculo = new DetallesVehiculo();
         vDetallesVehiculo.show();
     }//GEN-LAST:event_jbMeterCarroActionPerformed
+
+    private void jbEntrarCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarCajaActionPerformed
+
+        VentanaCaja.setVisible(true);
+        this.setVisible(false);  
+    }//GEN-LAST:event_jbEntrarCajaActionPerformed
 
     /**
      * @param args the command line arguments

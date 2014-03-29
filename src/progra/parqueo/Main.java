@@ -11,7 +11,15 @@ package progra.parqueo;
  * @author Gilberto
  */
 public class Main {
+
   
+    boolean abierto;
+    int pTarifaHora=0;
+    int pNumeroFacutura=0;
+    String contrasena="";
+    int pHora=0;
+   
+
 
     
     }

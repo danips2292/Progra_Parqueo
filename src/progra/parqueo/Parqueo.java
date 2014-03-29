@@ -19,7 +19,6 @@ public class Parqueo {
     //private String cedulaJuridica;
     //private String horaAtencion;
     private int tarifaHora;
-    private int numeroFactura;
     //private int minimoCaja;
     private String contrasenaEncriptada;
     private String contrasena;
@@ -37,7 +36,11 @@ public class Parqueo {
     
     
 
+
+    
     public Parqueo(boolean pAbierto,int pTarifaHora,String pContrasena,int pCantEspacios) {
+
+
         abierto=pAbierto;
         tarifaHora = pTarifaHora;
         contrasena = pContrasena;
@@ -46,10 +49,12 @@ public class Parqueo {
         espaciosLibres = cantEspacios;
         setEspacios();
     }
+    
     public static Parqueo getInstance(){
-        if (parqueoInstance == null)
-            parqueoInstance = new Parqueo(false,1000,"hola",15);
+        if(parqueoInstance == null)
+            parqueoInstance = new Parqueo(true, 0,"hola",15);
         return parqueoInstance;
+
     }
     public boolean isAbierto() {
         return abierto;
@@ -111,14 +116,6 @@ public class Parqueo {
 
     public void setTarifaHora(int pTarifaHora) {
         tarifaHora = pTarifaHora;
-    }
-
-    public int getNumeroFactura() {
-        return numeroFactura;
-    }
-
-    public void setNumeroFactura(int pNumeroFactura) {
-        numeroFactura = pNumeroFactura;
     }
 
     /*public int getMinimoCaja() {
