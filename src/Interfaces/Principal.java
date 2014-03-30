@@ -87,7 +87,7 @@ public class Principal extends javax.swing.JFrame {
             this.setVisible(false);
         }
         else{
-            JOptionPane.showMessageDialog(rootPane,Parqueo.getInstance().getUserCaja().getContrasena());
+            //JOptionPane.showMessageDialog(rootPane,Parqueo.getInstance().getUserCaja().getContrasena());
             JOptionPane.showMessageDialog(rootPane,"Contrasena incorrecta.");
         }
     }//GEN-LAST:event_jbAbrirParqueoActionPerformed

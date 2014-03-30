@@ -18,8 +18,7 @@ import Interfaces.*;
  * @author Gato
  */
 public class VentanaCaja extends javax.swing.JFrame {
-    Caja caja = new Caja(0,0,0,0,0,0,"hola",0,0);
-    Parqueo userParqueo2 =new Parqueo(true,0,"",15);
+    //Caja caja = new Caja(0,0,0,0,0,0,0,"hola",0,0);
     Reloj reloj=new Reloj(0, 0, 0, 0);
     Vehiculo vehiculo = new Vehiculo("","","","","",0,0);
     private String contrasena2;
@@ -110,32 +109,35 @@ public class VentanaCaja extends javax.swing.JFrame {
 
     private void btnAgregarDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDineroActionPerformed
         contrasena2=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
-        if(userParqueo2.getUserCaja().getContrasena().equals(contrasena2)){
+        if(Parqueo.getInstance().getUserCaja().getContrasena().equals(contrasena2)){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
             montoAgregar=JOptionPane.showInputDialog("Ingrese el monto a ingresar: ");
             int monto2 = Integer.parseInt(montoAgregar);
-            caja.agregarDinero( monto2);
-            //setCaja
+            Parqueo.getInstance().getUserCaja().setDineroAgregado(monto2);
+            Parqueo.getInstance().getUserCaja().agregarDinero( monto2);
+            Parqueo.getInstance().getUserCaja().setDineroCaja(Parqueo.getInstance().getUserCaja().getDineroCaja()+monto2);
             
         }
         else{
-            JOptionPane.showMessageDialog(rootPane,userParqueo2.getUserCaja().getContrasena());
+            //JOptionPane.showMessageDialog(rootPane,Parqueo.getInstance().getUserCaja().getContrasena());
             JOptionPane.showMessageDialog(rootPane,"Contrasena incorrecta.");
         }
     }//GEN-LAST:event_btnAgregarDineroActionPerformed
 
     private void btnRetirarDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirarDineroActionPerformed
         contrasena2=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
-        if(userParqueo2.getUserCaja().getContrasena().equals(contrasena2)){
+        if(Parqueo.getInstance().getUserCaja().getContrasena().equals(contrasena2)){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
             montoRetirar=JOptionPane.showInputDialog("Ingrese el monto a retirar: ");
             int monto3 = Integer.parseInt(montoRetirar);
-            caja.retirarDinero( monto3);
+            Parqueo.getInstance().getUserCaja().setDineroRetirado(monto3);
+            Parqueo.getInstance().getUserCaja().retirarDinero( monto3);
+            Parqueo.getInstance().getUserCaja().setDineroCaja(Parqueo.getInstance().getUserCaja().getDineroCaja()-monto3);
             
             //setCaja
         }
         else{
-            JOptionPane.showMessageDialog(rootPane,userParqueo2.getUserCaja().getContrasena());
+            //JOptionPane.showMessageDialog(rootPane,Parqueo.getInstance().getUserCaja().getContrasena());
             JOptionPane.showMessageDialog(rootPane,"Contrasena incorrecta.");
         }
     }//GEN-LAST:event_btnRetirarDineroActionPerformed
@@ -179,7 +181,7 @@ public class VentanaCaja extends javax.swing.JFrame {
     private javax.swing.JButton btnCobrar;
     private javax.swing.JButton btnRetirarDinero;
     private javax.swing.JButton btnVerDinero;
-}
+
 /*
 import progra.parqueo.*;
 
@@ -234,8 +236,18 @@ public class VentanaCaja extends javax.swing.JFrame {
         jbVerDinero.setText("Ver Dinero");
 
         jbCobrar.setText("Cobrar");
+        jbCobrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCobrarActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -269,10 +281,18 @@ public class VentanaCaja extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+*/
     private void jbAgregarDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarDineroActionPerformed
-        
+        JOptionPane.showMessageDialog(rootPane,Parqueo.getInstance().getUserCaja().getDineroCaja());
     }//GEN-LAST:event_jbAgregarDineroActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCobrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCobrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,3 +337,4 @@ public class VentanaCaja extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 }*/
+}

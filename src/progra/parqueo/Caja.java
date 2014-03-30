@@ -26,11 +26,14 @@ public class Caja {
     private String contrasenaCaja;
     private int minimoCaja;
     private int totalGanacia;
+    private int tarifa;
+    private int montoCobro;
     //Parqueo usuario = new Parqueo(true, dineroCaja, dineroCaja, contrasena, vuelto);
-    public Caja(int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,int pMinimoCaja,int pTotalGanacias){
+    public Caja(int pTarifa,int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,int pMinimoCaja,int pTotalGanacias){
      dineroCaja = pDineroCaja;
      pagoCliente = pPagoCliente;
      vuelto = pVuelto;
+     tarifa = pTarifa;
      dineroInicial = pDineroInicial;
      dineroAgregado = pDineroAgregado;
      dineroRetirado =pDineroRetirado;
@@ -39,6 +42,14 @@ public class Caja {
      totalGanacia=pTotalGanacias;
     }
 
+    public int getTarifa() {
+        return tarifa;
+    }
+
+    public void setTarifa(int pTarifa) {
+        tarifa = pTarifa;
+    }
+    
     public void setMinimoCaja(int pMinimoCaja){
         minimoCaja= pMinimoCaja;
     }
@@ -62,11 +73,17 @@ public class Caja {
         }
     }
     
-    public int redondear(int tEstacionado){
-        int n= tEstacionado%15;
-        n=15-n;
-        tEstacionado=tEstacionado+n;
-        return tEstacionado;
+    public int calcularTarifa(int tEstacionado){
+        if(tEstacionado%15!=0){
+            int n= tEstacionado/15;
+            setMontoCobro((getTarifa()*n)+getTarifa());
+            return getMontoCobro();
+        }
+        else{
+            int n= tEstacionado/15;
+            setMontoCobro(getTarifa()*n);
+            return getMontoCobro();
+        }
     }
     public int getPagoCliente() {
         return pagoCliente;
@@ -155,5 +172,19 @@ public class Caja {
     
     public void mostrarEfectivo(){
         JOptionPane.showMessageDialog(null, "Efectivo:"+getDineroCaja());
+    }
+
+    /**
+     * @return the montoCobro
+     */
+    public int getMontoCobro() {
+        return montoCobro;
+    }
+
+    /**
+     * @param montoCobro the montoCobro to set
+     */
+    public void setMontoCobro(int montoCobro) {
+        this.montoCobro = montoCobro;
     }
 }
