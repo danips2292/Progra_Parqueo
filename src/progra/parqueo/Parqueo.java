@@ -18,7 +18,6 @@ public class Parqueo {
     //private String telefono;
     //private String cedulaJuridica;
     //private String horaAtencion;
-    private int tarifaHora;
     //private int minimoCaja;
     private String contrasenaEncriptada;
     private String contrasena;
@@ -32,17 +31,16 @@ public class Parqueo {
     private int espaciosLibres; // siempre que se inicie el programa se asume que el parqueo esta vacio
     //Espacio userEspacio= new Espacio(abierto, tarifaHora, tarifaHora);
     private int numEspacio;//numero de espacio con el cual se trabajara
-    Caja userCaja = new Caja(0, 0, 0,0,0, 0, "hola", 0, 0);
+    Caja userCaja = new Caja(0, 0, 0,0,0,0,0, "hola", 0, 0);
     
     
 
 
     
-    public Parqueo(boolean pAbierto,int pTarifaHora,String pContrasena,int pCantEspacios) {
+    public Parqueo(boolean pAbierto,String pContrasena,int pCantEspacios) {
 
 
         abierto=pAbierto;
-        tarifaHora = pTarifaHora;
         contrasena = pContrasena;
         cantEspacios = pCantEspacios;
         espacios= new Espacio[cantEspacios];
@@ -52,7 +50,7 @@ public class Parqueo {
     
     public static Parqueo getInstance(){
         if(parqueoInstance == null)
-            parqueoInstance = new Parqueo(true, 0,"hola",15);
+            parqueoInstance = new Parqueo(true,"hola",15);
         return parqueoInstance;
 
     }
@@ -110,13 +108,7 @@ public class Parqueo {
         this.horaAtencion = horaAtencion;
     }*/
 
-    public int getTarifaHora() {
-        return tarifaHora;
-    }
-
-    public void setTarifaHora(int pTarifaHora) {
-        tarifaHora = pTarifaHora;
-    }
+    
 
     /*public int getMinimoCaja() {
         return minimoCaja;
