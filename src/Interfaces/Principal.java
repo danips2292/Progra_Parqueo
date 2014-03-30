@@ -81,6 +81,12 @@ public class Principal extends javax.swing.JFrame {
 
     private void jbAbrirParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAbrirParqueoActionPerformed
         contrasena=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
+        char array[]= contrasena.toCharArray();
+        for(int i=0;i<array.length;i++){
+            array[i]=(char)(array[i]+(char)5);
+        }
+        String encriptado = String.valueOf(array);
+        JOptionPane.showMessageDialog(rootPane,encriptado);
         if(Parqueo.getInstance().getUserCaja().getContrasena().equals(contrasena)){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
             Ventana_Menu.setVisible(true);
