@@ -9,18 +9,16 @@ import progra.parqueo.*;
 import Interfaces.*;
 
 public class VentanaCaja extends javax.swing.JFrame {
-    //menu venMenu = new menu();
-    Reloj reloj=new Reloj(0, 0, 0, 0);
-    Vehiculo vehiculo = new Vehiculo("","","","","",0,0);
+    
     private String contrasena2;
     private String montoAgregar;
     private String montoRetirar;
     public VentanaCaja() {
-        reloj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        reloj.setFont(new java.awt.Font("Arial",1,18));
+        Reloj.getInstance().setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Reloj.getInstance().setFont(new java.awt.Font("Arial",1,18));
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.setBounds(0,0,200,100);
-        this.getContentPane().add(reloj);
+        this.getContentPane().add(Reloj.getInstance());
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         DateFormat df = new SimpleDateFormat("HHmm");//si se pone : o espacio falla pues no es lo q espera el programa

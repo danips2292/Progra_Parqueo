@@ -209,7 +209,7 @@ public class DetallesVehiculo extends javax.swing.JFrame {
         color = campoColor.getText();
         horaIngreso = campoHora.getText() +":"+ campoMinutos.getText();
         espacioOcupado = Integer.parseInt(campoEspacio.getText());
-        Vehiculo vehiculo = new Vehiculo(placa,marca,color,modelo,horaIngreso,0,espacioOcupado);
+        Vehiculo vehiculo = new Vehiculo(placa,marca,color,modelo,0,espacioOcupado);
         Parqueo.getInstance().llenarEspacio(vehiculo);
         this.hide();
     }//GEN-LAST:event_bAceptarActionPerformed

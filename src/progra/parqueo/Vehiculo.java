@@ -13,7 +13,7 @@ public class Vehiculo {
     private String marca;
     private String color;
     private String modelo;
-    private String horaIngreso;
+    private int horaIngreso;
     private int horaSalida;
     private int tiempoEstacionado;
     private int espacioOcupado;
@@ -23,12 +23,11 @@ public class Vehiculo {
      * @return the placa
      */
     
-    public Vehiculo(String pPlaca, String pMarca, String pColor, String pModelo, String pHoraIngreso, int pTiempoEstacionado, int pEspacioOcupado) {
+    public Vehiculo(String pPlaca, String pMarca, String pColor, String pModelo, int pTiempoEstacionado, int pEspacioOcupado) {
         placa = pPlaca;
         marca = pMarca;
         color = pColor;
         modelo = pModelo;
-        horaIngreso = pHoraIngreso;
         tiempoEstacionado = pTiempoEstacionado;
         espacioOcupado = pEspacioOcupado;
     }
@@ -90,14 +89,14 @@ public class Vehiculo {
     /**
      * @return the horaIngreso
      */
-    public String getHoraIngreso() {
+    public int getHoraIngreso() {
         return horaIngreso;
     }
 
     /**
      * @param horaIngreso the horaIngreso to set
      */
-    public void setHoraIngreso(String pHoraIngreso) {
+    public void setHoraIngreso(int pHoraIngreso) {
         horaIngreso = pHoraIngreso;
     }
 

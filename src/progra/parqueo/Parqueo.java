@@ -15,23 +15,13 @@ public class Parqueo {
     private static Parqueo parqueoInstance;
     private boolean abierto;
     private String encriptado;
-    //private String nombreLocal;
-    //private String eslogan;
-    //private String telefono;
-    //private String cedulaJuridica;
-    //private String horaAtencion;
-    //private int minimoCaja;
     private String contrasenaEncriptada;
     private String contrasena;
-    //private int lugaresDisponibles;
     private int hora;
     private Calendar fecha;
-    //private String direccion;
-    //private int cantidadLugares;
     private int cantEspacios;
     private Espacio espacios[];//chequear el for
     private int espaciosLibres; // siempre que se inicie el programa se asume que el parqueo esta vacio
-    //Espacio userEspacio= new Espacio(abierto, tarifaHora, tarifaHora);
     private int numEspacio;//numero de espacio con el cual se trabajara
     Caja userCaja = new Caja(0, 0, 0,0,0,0,0, "hola", 0, 0);
     JPasswordField jpf= new JPasswordField();
@@ -175,6 +165,8 @@ public class Parqueo {
     public Caja getUserCaja() {
         return userCaja;
     }
+    
+    
     //Terminar esta funcio falta ponerle el else
     public void llenarEspacio(Vehiculo vehiculo)
     {
@@ -206,23 +198,7 @@ public class Parqueo {
             
             JOptionPane.showMessageDialog(null,"El espacio ya está vacío");
         }
-    }
-    /*public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public int getCantidadLugares() {
-        return cantidadLugares;
-    }
-
-    public void setCantidadLugares(int cantidadLugares) {
-        this.cantidadLugares = cantidadLugares;
-    }*/
-    
+    } 
     public void abrirParqueo(){
         //cargarParametrosIniciales();
         if(espacios.length > 0){
@@ -255,42 +231,4 @@ public class Parqueo {
     public void encriptarContrasena(){
         
     }
-    
-    /*public void cambiarContrasena(String contrasena,String nuevaContrasena,String copiaNuevaContrasena){
-        if(this.contrasena==getContrasena()){
-            if(this.nuevaContrasena==this.copiaNuevaContrasena){
-                setContrasena(this.nuevaContrasena);
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "La nueva contraseña y su repetición no coinciden");
-            }
-        }
-    }*/
-    
-    /*public void cargarParametrosIniciales(){
-        
-    }*/
-
-    /*public void configurarParametros(String nombreLocal,String eslogan, String telefono, String cedulaJuridica,String horaAtencion,int tarifaHora, int numeroFactura, int minimoCaja,String contrasena ){
-        setNombreLocal(this.nombreLocal);
-        setEslogan(this.eslogan);
-        setTelefono(this.telefono);
-        setCedulaJuridica(this.cedulaJuridica);
-        setHoraAtencion(this.horaAtencion);
-        setTarifaHora(this.tarifaHora);
-        setNumeroFactura(this.numeroFactura);
-        setMinimoCaja(this.minimoCaja);
-        setContrasena(this.contrasena);
-    }*/ //que es esto??
-    
-    /*public void salir(){
-        if(getDineroCaja()==0){
-            ventana.close();
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe retirar el dinero de la caja");                
-        }
-    }*/ //no se q hace
-
-    
 }

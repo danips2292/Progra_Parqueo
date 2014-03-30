@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
 import javax.swing.JLabel; 
 
 public class Reloj extends JLabel implements Runnable { 
-
+private static Reloj relojInstance;
 private String dia, mes, año, hora, minutos, segundos; 
 private Calendar calendario = new GregorianCalendar(); 
 Thread hilo; 
@@ -43,6 +43,11 @@ Thread hilo;
 
 } 
 
+    public static  Reloj getInstance(){
+        if(relojInstance == null)
+            relojInstance = new Reloj(0,0,0,0);
+        return relojInstance;
+    }
 
     public void actualiza() { 
 

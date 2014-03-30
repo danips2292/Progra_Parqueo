@@ -28,6 +28,7 @@ public class Caja {
     private int totalGanacia;
     private int tarifa;
     private int montoCobro;
+    private int numFactura;
     //Parqueo usuario = new Parqueo(true, dineroCaja, dineroCaja, contrasena, vuelto);
     public Caja(int pTarifa,int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,int pMinimoCaja,int pTotalGanacias){
      dineroCaja = pDineroCaja;
