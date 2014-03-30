@@ -5,6 +5,7 @@
 package Interfaces;
 import progra.parqueo.Parqueo;
 import Interfaces.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author dani
@@ -17,7 +18,7 @@ public class menu extends javax.swing.JFrame {
      */
     private Principal vPrincipal;
 
-    VentanaCaja VentanaCaja = new VentanaCaja();
+    VentanaCaja VentanaCaja1 = new VentanaCaja();
 
     public menu() {
         
@@ -127,7 +128,8 @@ public class menu extends javax.swing.JFrame {
 
     private void jbEntrarCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarCajaActionPerformed
 
-        VentanaCaja.setVisible(true);
+        VentanaCaja1.setVisible(true);
+        //JOptionPane.showInputDialog("hola");
         this.setVisible(false);  
     }//GEN-LAST:event_jbEntrarCajaActionPerformed
 
