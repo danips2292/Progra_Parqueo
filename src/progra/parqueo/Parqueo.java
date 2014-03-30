@@ -5,6 +5,7 @@ import Interfaces.DetallesVehiculo;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 
 /**
  *
@@ -13,6 +14,7 @@ import javax.swing.JOptionPane;
 public class Parqueo {
     private static Parqueo parqueoInstance;
     private boolean abierto;
+    private String encriptado;
     //private String nombreLocal;
     //private String eslogan;
     //private String telefono;
@@ -32,7 +34,7 @@ public class Parqueo {
     //Espacio userEspacio= new Espacio(abierto, tarifaHora, tarifaHora);
     private int numEspacio;//numero de espacio con el cual se trabajara
     Caja userCaja = new Caja(0, 0, 0,0,0,0,0, "hola", 0, 0);
-    
+    JPasswordField jpf= new JPasswordField();
     
 
 
@@ -118,11 +120,20 @@ public class Parqueo {
         this.minimoCaja = minimoCaja;
     }*/
     public String getContrasenaEncriptada() {
-        return contrasenaEncriptada;
+        return encriptado;
     }
 
-    public void setContrasenaEncriptada(String contrasenaEncriptada) {
-        this.contrasenaEncriptada = contrasenaEncriptada;
+    public void setContrasenaEncriptada(String pEncriptado) {
+        encriptado=pEncriptado;
+        JOptionPane.showConfirmDialog (null, new Object[]{"Digite la contrasena", jpf}, "Inicio de sesión", JOptionPane.OK_CANCEL_OPTION);
+        pEncriptado=jpf.getText();
+        char array[]= pEncriptado.toCharArray();
+        for(int i=0;i<array.length;i++){
+            array[i]=(char)(array[i]+(char)5);
+        }
+        encriptado =  String.valueOf(array);
+        JOptionPane.showMessageDialog(null,encriptado);
+        
     }
     
     public String getContrasena() {

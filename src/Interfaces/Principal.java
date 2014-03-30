@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import progra.parqueo.*;
 import javax.swing.JOptionPane.*;
+import javax.swing.JPasswordField;
 
 public class Principal extends javax.swing.JFrame {
 
@@ -18,7 +19,7 @@ public class Principal extends javax.swing.JFrame {
   //Espacio userEspacio = new Espacio();*
 
     private String contrasena;
-    
+    JPasswordField jpf = new JPasswordField();
         
     public Principal() {
         
@@ -80,14 +81,10 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAbrirParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAbrirParqueoActionPerformed
-        contrasena=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
-        char array[]= contrasena.toCharArray();
-        for(int i=0;i<array.length;i++){
-            array[i]=(char)(array[i]+(char)5);
-        }
-        String encriptado = String.valueOf(array);
-        JOptionPane.showMessageDialog(rootPane,encriptado);
-        if(Parqueo.getInstance().getUserCaja().getContrasena().equals(contrasena)){
+        Parqueo.getInstance().setContrasenaEncriptada(contrasena);
+        System.out.println(Parqueo.getInstance().getContrasenaEncriptada());
+        System.out.println(Parqueo.getInstance().getUserCaja().getContrasena());
+        if(Parqueo.getInstance().getUserCaja().getContrasena()== Parqueo.getInstance().getContrasena()){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
             Ventana_Menu.setVisible(true);
             this.setVisible(false);
