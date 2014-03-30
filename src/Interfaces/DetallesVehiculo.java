@@ -211,7 +211,7 @@ public class DetallesVehiculo extends javax.swing.JFrame {
         espacioOcupado = Integer.parseInt(campoEspacio.getText());
         Vehiculo vehiculo = new Vehiculo(placa,marca,color,modelo,horaIngreso,0,espacioOcupado);
         Parqueo.getInstance().llenarEspacio(vehiculo);
-        this.hide();
+        this.dispose();
     }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
