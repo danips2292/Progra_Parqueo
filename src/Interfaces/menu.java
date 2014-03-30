@@ -59,6 +59,11 @@ public class menu extends javax.swing.JFrame {
         });
 
         jbSacarCarro.setText("Sacar Vehiculo");
+        jbSacarCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSacarCarroActionPerformed(evt);
+            }
+        });
 
         jbEntrarCaja.setText("Caja");
         jbEntrarCaja.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +130,10 @@ public class menu extends javax.swing.JFrame {
         VentanaCaja.setVisible(true);
         this.setVisible(false);  
     }//GEN-LAST:event_jbEntrarCajaActionPerformed
+
+    private void jbSacarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSacarCarroActionPerformed
+         Parqueo.getInstance().vaciarEspacio();
+    }//GEN-LAST:event_jbSacarCarroActionPerformed
 
     /**
      * @param args the command line arguments

@@ -182,6 +182,20 @@ public class Parqueo {
             JOptionPane.showMessageDialog(null,"El espacio esta ocupado");
         }
     }
+    public void vaciarEspacio()
+    {
+        numEspacio = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de espacio a vaciar"));
+        if (espacios[numEspacio].isOcupado()== true)
+        {
+            espacios[numEspacio].setOcupado(false);
+            espaciosLibres+=1;
+        }
+        else
+        {
+            
+            JOptionPane.showMessageDialog(null,"El espacio ya está vacío");
+        }
+    }
     /*public String getDireccion() {
         return direccion;
     }
