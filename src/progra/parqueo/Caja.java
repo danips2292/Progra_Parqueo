@@ -78,12 +78,14 @@ public class Caja {
         if(tEstacionado%15!=0){
             int n= tEstacionado/15;
             setMontoCobro((getTarifa()*n)+getTarifa());
-            return getMontoCobro();
+            System.out.println("monto:" + montoCobro);
+            return montoCobro;
         }
         else{
             int n= tEstacionado/15;
             setMontoCobro(getTarifa()*n);
-            return getMontoCobro();
+            System.out.println("monto:" + montoCobro);
+            return montoCobro;
         }
     }
     public int getPagoCliente() {
@@ -179,6 +181,7 @@ public class Caja {
      * @return the montoCobro
      */
     public int getMontoCobro() {
+        
         return montoCobro;
     }
 

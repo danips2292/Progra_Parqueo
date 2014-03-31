@@ -15,7 +15,7 @@ public class Principal extends javax.swing.JFrame {
 
   //Espacio userEspacio = new Espacio();*/
     private menu Ventana_Menu = new menu(this);
-
+    
   //Espacio userEspacio = new Espacio();*
 
     private String contrasena;
@@ -26,6 +26,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setVisible(rootPaneCheckingEnabled);
         this.setSize(1378, 766);
+        
     }
     
     /**
@@ -90,7 +91,7 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jbAbrirParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAbrirParqueoActionPerformed
         Parqueo.getInstance().setContrasenaEncriptada(contrasena);
         System.out.println(Parqueo.getInstance().getContrasenaEncriptada());

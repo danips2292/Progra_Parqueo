@@ -2,6 +2,7 @@
 package progra.parqueo;
 
 import Interfaces.DetallesVehiculo;
+import com.sun.jmx.snmp.BerDecoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -23,7 +24,7 @@ public class Parqueo {
     private Espacio espacios[];//chequear el for
     private int espaciosLibres; // siempre que se inicie el programa se asume que el parqueo esta vacio
     private int numEspacio;//numero de espacio con el cual se trabajara
-    Caja userCaja = new Caja(0, 0, 0,0,0,0,0, "hola", 0, 0);
+    Caja userCaja = new Caja(10, 0, 0,0,0,0,0, "hola", 0, 0);
     JPasswordField jpf= new JPasswordField();
     
 
@@ -33,7 +34,7 @@ public class Parqueo {
 
 
         abierto=pAbierto;
-        contrasena = pContrasena;
+        contrasena = pContrasena; 
         cantEspacios = pCantEspacios;
         espacios= new Espacio[cantEspacios];
         espaciosLibres = cantEspacios;
@@ -175,10 +176,12 @@ public class Parqueo {
         {
             espacios[vehiculo.getEspacioOcupado()].setOcupado(true);
             //espacios[numEspacio].setVehiculo(new Vehiculo());
+            vehiculo.setHoraIngreso(Integer.parseInt(Reloj.getInstance().getHora())*100 + Integer.parseInt(Reloj.getInstance().getMinutos()));
             espacios[vehiculo.getEspacioOcupado()].setVehiculo(vehiculo);
             espaciosLibres-=1;//comprobar que siempre sea mayor a cero
             System.out.println(espaciosLibres);
             System.out.println(espacios[vehiculo.getEspacioOcupado()].getVehiculo().getColor());
+            
         }
         else
         {
@@ -190,8 +193,12 @@ public class Parqueo {
         numEspacio = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de espacio a vaciar"));
         if (espacios[numEspacio].isOcupado()== true)
         {
+            espacios[numEspacio].getVehiculo().setHoraSalida(Integer.parseInt(Reloj.getInstance().getHora())*100 + Integer.parseInt(Reloj.getInstance().getMinutos()));
             espacios[numEspacio].setOcupado(false);
             espaciosLibres+=1;
+            espacios[numEspacio].getVehiculo().setTiempoEstacionado(espacios[numEspacio].getVehiculo().getHoraSalida() -
+                                                                    espacios[numEspacio].getVehiculo().getHoraIngreso());
+            userCaja.calcularTarifa(espacios[numEspacio].getVehiculo().getTiempoEstacionado());
         }
         else
         {
