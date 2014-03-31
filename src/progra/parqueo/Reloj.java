@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
 import javax.swing.JLabel; 
 
 public class Reloj extends JLabel implements Runnable { 
-
+private static Reloj relojInstance;
 private String dia, mes, año, hora, minutos, segundos,fecha; 
 private Calendar calendario = new GregorianCalendar(); 
 Thread hilo; 
@@ -22,14 +22,7 @@ Thread hilo;
     hilo.start(); 
 
 } //fin constructor 
-    
-public String getFecha(){
-      return fecha; 
-   }
 
-public void setFecha(String pFecha){
-    fecha=pFecha;
-}
 @ Override 
     public void run() { 
     Thread ct = Thread.currentThread(); 
@@ -50,7 +43,14 @@ public void setFecha(String pFecha){
 
 } 
 
+    public static  Reloj getInstance(){
+        if(relojInstance == null)
+            relojInstance = new Reloj(0,0,0,0);
+        return relojInstance;
+    }
 
+    
+    
     public void actualiza() { 
 
     Date fechaHoraActual = new Date(); 
@@ -59,11 +59,10 @@ public void setFecha(String pFecha){
     hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)); 
     minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE); 
 //segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND); 
-        setDia(calendario.get(Calendar.DATE) > 9 ? "" + calendario.get(Calendar.DATE) : "0" + calendario.get(Calendar.DATE)); 
-        setMes(calendario.get(Calendar.MONTH) > 9 ? "" + calendario.get(Calendar.MONTH) : "0" + calendario.get(Calendar.MONTH)); 
-        setAño(calendario.get(Calendar.YEAR) > 9 ? "" + calendario.get(Calendar.YEAR) : "0" + calendario.get(Calendar.YEAR)); 
-   setFecha(getDia()+"/"+getMes()+"/"+getAño());
-   
+setDia(calendario.get(Calendar.DATE) > 9 ? "" + calendario.get(Calendar.DATE) : "0" + calendario.get(Calendar.DATE)); 
+setMes(calendario.get(Calendar.MONTH) > 9 ? "" + calendario.get(Calendar.MONTH) : "0" + calendario.get(Calendar.MONTH)); 
+setAño(calendario.get(Calendar.YEAR) > 9 ? "" + calendario.get(Calendar.YEAR) : "0" + calendario.get(Calendar.YEAR));
+setFecha(getDia()+"/"+getMes()+"/"+getAño());
     } 
 
     /**
@@ -107,4 +106,19 @@ public void setFecha(String pFecha){
     public void setAño(String año) {
         this.año = año;
     }
+
+    /**
+     * @return the fecha
+     */
+    public String getFecha() {
+        return fecha;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 } 
+

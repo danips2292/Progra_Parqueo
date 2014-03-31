@@ -9,17 +9,16 @@ import progra.parqueo.*;
 import Interfaces.*;
 
 public class VentanaCaja extends javax.swing.JFrame {
-    Reloj reloj=new Reloj(0, 0, 0, 0);
-    Vehiculo vehiculo = new Vehiculo("","","","","",0,0);
+    
     private String contrasena2;
     private String montoAgregar;
     private String montoRetirar;
     public VentanaCaja() {
-        reloj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        reloj.setFont(new java.awt.Font("Arial",1,18));
+        Reloj.getInstance().setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Reloj.getInstance().setFont(new java.awt.Font("Arial",1,18));
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.setBounds(0,0,200,100);
-        this.getContentPane().add(reloj);
+        this.getContentPane().add(Reloj.getInstance());
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         DateFormat df = new SimpleDateFormat("HHmm");//si se pone : o espacio falla pues no es lo q espera el programa
@@ -110,13 +109,15 @@ public class VentanaCaja extends javax.swing.JFrame {
 
     private void jbAgregarDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarDineroActionPerformed
         // TODO add your handling code here:
-        contrasena2=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
-        if(Parqueo.getInstance().getUserCaja().getContrasena().equals(contrasena2)){
+        Parqueo.getInstance().setContrasenaEncriptada(contrasena2);
+        //contrasena2=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
+        if(Parqueo.getInstance().getUserCaja().getContrasena()==Parqueo.getInstance().getContrasena()){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
             montoAgregar=JOptionPane.showInputDialog("Ingrese el monto a ingresar: ");
             int monto2 = Integer.parseInt(montoAgregar);
             Parqueo.getInstance().getUserCaja().setDineroAgregado(monto2);
             Parqueo.getInstance().getUserCaja().agregarDinero( monto2);
+            
             
         }
         else{
@@ -126,14 +127,16 @@ public class VentanaCaja extends javax.swing.JFrame {
 
     private void jbRetirarDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRetirarDineroActionPerformed
         // TODO add your handling code here:
-        contrasena2=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
-        if(Parqueo.getInstance().getUserCaja().getContrasena().equals(contrasena2)){
+        //contrasena2=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
+        Parqueo.getInstance().setContrasenaEncriptada(contrasena2);
+        if(Parqueo.getInstance().getUserCaja().getContrasena()==Parqueo.getInstance().getContrasena()){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
             montoRetirar=JOptionPane.showInputDialog("Ingrese el monto a retirar: ");
             int monto3 = Integer.parseInt(montoRetirar);
             Parqueo.getInstance().getUserCaja().setDineroRetirado(monto3);
             Parqueo.getInstance().getUserCaja().retirarDinero( monto3);
-             
+            
+            
         }
         else{
             JOptionPane.showMessageDialog(rootPane,"Contrasena incorrecta.");
@@ -147,7 +150,7 @@ public class VentanaCaja extends javax.swing.JFrame {
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
-        
+        //venMenu.setVisible(true);
         VentanaCaja.this.setVisible(false);
         
           
@@ -194,4 +197,5 @@ public class VentanaCaja extends javax.swing.JFrame {
     private javax.swing.JButton jbSalir;
     private javax.swing.JButton jbVerDinero;
     // End of variables declaration//GEN-END:variables
+
 }

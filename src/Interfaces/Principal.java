@@ -39,6 +39,7 @@ public class Principal extends javax.swing.JFrame {
 
         jbAbrirParqueo = new javax.swing.JButton();
         jbCerrarParqueo = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,6 +57,13 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -64,7 +72,8 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(441, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jbCerrarParqueo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbAbrirParqueo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbAbrirParqueo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(445, 445, 445))
         );
         layout.setVerticalGroup(
@@ -74,7 +83,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jbAbrirParqueo)
                 .addGap(33, 33, 33)
                 .addComponent(jbCerrarParqueo)
-                .addContainerGap(373, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jbSalir)
+                .addContainerGap(307, Short.MAX_VALUE))
         );
 
         pack();
@@ -98,6 +109,16 @@ public class Principal extends javax.swing.JFrame {
     private void jbCerrarParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarParqueoActionPerformed
         Parqueo.getInstance().cerrarParqueo();
     }//GEN-LAST:event_jbCerrarParqueoActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+        if(Parqueo.getInstance().getUserCaja().getDineroCaja()==0){
+            System.exit(WIDTH);
+        }
+        else{
+            JOptionPane.showMessageDialog(Ventana_Menu, "La caja debe ser vaciada");
+        }
+    }//GEN-LAST:event_jbSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,5 +157,6 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbAbrirParqueo;
     private javax.swing.JButton jbCerrarParqueo;
+    private javax.swing.JButton jbSalir;
     // End of variables declaration//GEN-END:variables
 }
