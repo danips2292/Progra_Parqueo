@@ -6,6 +6,9 @@
 
 package Interfaces;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import progra.parqueo.*;
 
 /**
@@ -210,7 +213,11 @@ public class DetallesVehiculo extends javax.swing.JFrame {
         espacioOcupado = Integer.parseInt(campoEspacio.getText());
         Vehiculo vehiculo = new Vehiculo(placa,marca,color,modelo,0,espacioOcupado);
         Parqueo.getInstance().llenarEspacio(vehiculo);
-        ArchivosXml.getInstance().CrearXml(placa);
+        try {
+            ArchivosXml.getInstance().CrearXml(placa);
+        } catch (IOException ex) {
+            Logger.getLogger(DetallesVehiculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.hide();
     }//GEN-LAST:event_bAceptarActionPerformed
 
