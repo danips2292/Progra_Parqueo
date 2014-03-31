@@ -31,6 +31,7 @@
                   <Component id="jbMeterCarro" alignment="1" max="32767" attributes="0"/>
                   <Component id="jbSalir" alignment="1" max="32767" attributes="0"/>
                   <Component id="jbVerParqueo" max="32767" attributes="0"/>
+                  <Component id="btnConfigurar" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="739" max="32767" attributes="0"/>
           </Group>
@@ -47,9 +48,11 @@
               <Component id="jbVerParqueo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jbEntrarCaja" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnConfigurar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="282" max="32767" attributes="0"/>
+              <EmptySpace pref="245" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,6 +94,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver Parqueo"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnConfigurar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Configurar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfigurarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
