@@ -19,6 +19,7 @@ public class menu extends javax.swing.JFrame {
     private Principal vPrincipal;
 
     VentanaCaja VentanaCaja1 = new VentanaCaja();
+    VentanaConfiguracion ventanaConfiguracion = new VentanaConfiguracion();
 
     public menu() {
         
@@ -49,6 +50,7 @@ public class menu extends javax.swing.JFrame {
         jbEntrarCaja = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jbVerParqueo = new javax.swing.JButton();
+        btnConfigurar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +84,13 @@ public class menu extends javax.swing.JFrame {
 
         jbVerParqueo.setText("Ver Parqueo");
 
+        btnConfigurar.setText("Configurar");
+        btnConfigurar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfigurarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,7 +102,8 @@ public class menu extends javax.swing.JFrame {
                     .addComponent(jbSacarCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbMeterCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbVerParqueo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbVerParqueo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConfigurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(739, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -107,9 +117,11 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(jbVerParqueo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbEntrarCaja)
+                .addGap(14, 14, 14)
+                .addComponent(btnConfigurar)
                 .addGap(18, 18, 18)
                 .addComponent(jbSalir)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,6 +148,10 @@ public class menu extends javax.swing.JFrame {
     private void jbSacarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSacarCarroActionPerformed
          Parqueo.getInstance().vaciarEspacio();
     }//GEN-LAST:event_jbSacarCarroActionPerformed
+
+    private void btnConfigurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarActionPerformed
+        ventanaConfiguracion.setVisible(true);
+    }//GEN-LAST:event_btnConfigurarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,6 +188,7 @@ public class menu extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConfigurar;
     private javax.swing.JButton jbEntrarCaja;
     private javax.swing.JButton jbMeterCarro;
     private javax.swing.JButton jbSacarCarro;
