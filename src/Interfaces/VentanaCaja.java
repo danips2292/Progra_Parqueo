@@ -197,5 +197,4 @@ public class VentanaCaja extends javax.swing.JFrame {
     private javax.swing.JButton jbSalir;
     private javax.swing.JButton jbVerDinero;
     // End of variables declaration//GEN-END:variables
-
 }

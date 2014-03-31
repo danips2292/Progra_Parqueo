@@ -9,6 +9,7 @@ package progra.parqueo;
  * @author Gato
  */
 public class Vehiculo {
+    
     private String placa;
     private String marca;
     private String color;
@@ -31,7 +32,8 @@ public class Vehiculo {
         tiempoEstacionado = pTiempoEstacionado;
         espacioOcupado = pEspacioOcupado;
     }
-
+    
+    
     
     public String getPlaca() {
         return placa;

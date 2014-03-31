@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 
 public class Reloj extends JLabel implements Runnable { 
 private static Reloj relojInstance;
-private String dia, mes, año, hora, minutos, segundos,fecha; 
+private String dia, mes, año, hora, minutos, segundos, fecha; 
 private Calendar calendario = new GregorianCalendar(); 
 Thread hilo; 
 
@@ -49,8 +49,6 @@ Thread hilo;
         return relojInstance;
     }
 
-    
-    
     public void actualiza() { 
 
     Date fechaHoraActual = new Date(); 
@@ -59,66 +57,60 @@ Thread hilo;
     hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)); 
     minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE); 
 //segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND); 
-setDia(calendario.get(Calendar.DATE) > 9 ? "" + calendario.get(Calendar.DATE) : "0" + calendario.get(Calendar.DATE)); 
-setMes(calendario.get(Calendar.MONTH) > 9 ? "" + calendario.get(Calendar.MONTH) : "0" + calendario.get(Calendar.MONTH)); 
-setAño(calendario.get(Calendar.YEAR) > 9 ? "" + calendario.get(Calendar.YEAR) : "0" + calendario.get(Calendar.YEAR));
-setFecha(getDia()+"/"+getMes()+"/"+getAño());
+    setDia(calendario.get(Calendar.DATE) > 9 ? "" + calendario.get(Calendar.DATE) : "0" + calendario.get(Calendar.DATE)); 
+    setMes(calendario.get(Calendar.MONTH) > 9 ? "" + calendario.get(Calendar.MONTH) : "0" + calendario.get(Calendar.MONTH)); 
+    setAño(calendario.get(Calendar.YEAR) > 9 ? "" + calendario.get(Calendar.YEAR) : "0" + calendario.get(Calendar.YEAR)); 
+    setFecha(getDia()+"/"+getMes()+"/"+getAño());
     } 
 
-    /**
-     * @return the dia
-     */
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getMinutos() {
+        return minutos;
+    }
+
+    public void setMinutos(String minutos) {
+        this.minutos = minutos;
+    }
+    
     public String getDia() {
         return dia;
     }
 
-    /**
-     * @param dia the dia to set
-     */
     public void setDia(String dia) {
         this.dia = dia;
     }
 
-    /**
-     * @return the mes
-     */
     public String getMes() {
         return mes;
     }
 
-    /**
-     * @param mes the mes to set
-     */
     public void setMes(String mes) {
         this.mes = mes;
     }
 
-    /**
-     * @return the año
-     */
     public String getAño() {
         return año;
     }
 
-    /**
-     * @param año the año to set
-     */
     public void setAño(String año) {
         this.año = año;
     }
-
-    /**
-     * @return the fecha
-     */
+    
+    
+    
     public String getFecha() {
         return fecha;
     }
 
-    /**
-     * @param fecha the fecha to set
-     */
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+    
 } 
-

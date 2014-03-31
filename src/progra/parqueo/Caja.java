@@ -28,7 +28,7 @@ public class Caja {
     private int totalGanacia;
     private int tarifa;
     private int montoCobro;
-    
+    private int numFactura;
     //Parqueo usuario = new Parqueo(true, dineroCaja, dineroCaja, contrasena, vuelto);
     public Caja(int pTarifa,int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,int pMinimoCaja,int pTotalGanacias){
      dineroCaja = pDineroCaja;
@@ -78,12 +78,14 @@ public class Caja {
         if(tEstacionado%15!=0){
             int n= tEstacionado/15;
             setMontoCobro((getTarifa()*n)+getTarifa());
-            return getMontoCobro();
+            System.out.println("monto:" + montoCobro);
+            return montoCobro;
         }
         else{
             int n= tEstacionado/15;
             setMontoCobro(getTarifa()*n);
-            return getMontoCobro();
+            System.out.println("monto:" + montoCobro);
+            return montoCobro;
         }
     }
     public int getPagoCliente() {
@@ -185,6 +187,7 @@ public class Caja {
      * @return the montoCobro
      */
     public int getMontoCobro() {
+        
         return montoCobro;
     }
 
