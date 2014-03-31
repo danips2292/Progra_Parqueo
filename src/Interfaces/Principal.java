@@ -113,7 +113,12 @@ public class Principal extends javax.swing.JFrame {
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
-        System.exit(WIDTH);
+        if(Parqueo.getInstance().getUserCaja().getDineroCaja()==0){
+            System.exit(WIDTH);
+        }
+        else{
+            JOptionPane.showMessageDialog(Ventana_Menu, "La caja debe ser vaciada");
+        }
     }//GEN-LAST:event_jbSalirActionPerformed
 
     /**

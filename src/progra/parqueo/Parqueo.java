@@ -24,7 +24,9 @@ public class Parqueo {
     private Espacio espacios[];//chequear el for
     private int espaciosLibres; // siempre que se inicie el programa se asume que el parqueo esta vacio
     private int numEspacio;//numero de espacio con el cual se trabajara
-    Caja userCaja = new Caja(10, 0, 0,0,0,0,0, "hola", 0, 0);
+    Caja userCaja = new Caja(0, 0, 0,0,0,0,0, "hola", 0, 0);
+    Factura factura= new Factura(0,"","","","","","");
+    private Vehiculo vehiculo=new Vehiculo("", "", "", "", 0, 0);
     JPasswordField jpf= new JPasswordField();
     
 
@@ -228,7 +230,7 @@ public class Parqueo {
             setAbierto(false);
             JOptionPane.showMessageDialog(null, "El parqueo esta cerrado ahora");
             userCaja.getGanancia();
-            JOptionPane.showMessageDialog(null, "El dinero en caja es:"+userCaja.getDineroCaja()+",y su ganancia fue de:"+userCaja.getGanancia()); 
+            JOptionPane.showMessageDialog(null, "El dinero en caja es:"+Parqueo.getInstance().getUserCaja().getDineroCaja()+",y su ganancia fue de:"+Parqueo.getInstance().getUserCaja().calcularGanancia()); 
         }
         else{
             JOptionPane.showMessageDialog(null, "El parqueo debe estar vacio");
@@ -237,5 +239,47 @@ public class Parqueo {
     
     public void encriptarContrasena(){
         
+    }
+
+    /**
+     * @return the factura
+     */
+    public Factura getFactura() {
+        return factura;
+    }
+
+    /**
+     * @param factura the factura to set
+     */
+    public void setFactura(Factura factura) {
+        this.factura = factura;
+    }
+
+    /**
+     * @return the vehiculo
+     */
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    /**
+     * @param vehiculo the vehiculo to set
+     */
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    /**
+     * @return the cantEspacios
+     */
+    public int getCantEspacios() {
+        return cantEspacios;
+    }
+
+    /**
+     * @param cantEspacios the cantEspacios to set
+     */
+    public void setCantEspacios(int cantEspacios) {
+        this.cantEspacios = cantEspacios;
     }
 }
