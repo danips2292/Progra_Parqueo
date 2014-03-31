@@ -19,7 +19,7 @@ public class Parqueo {
     private String contrasenaEncriptada;
     private String contrasena;
     private int hora;
-    private Calendar fecha;
+    private Calendar fecha;   
     private int cantEspacios;
     private Espacio espacios[];//chequear el for
     private int espaciosLibres; // siempre que se inicie el programa se asume que el parqueo esta vacio
@@ -29,7 +29,7 @@ public class Parqueo {
     
 
 
-    
+    //comment
     public Parqueo(boolean pAbierto,String pContrasena,int pCantEspacios) {
 
 
