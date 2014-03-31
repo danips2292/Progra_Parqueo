@@ -18,5 +18,7 @@ public static void main(String[] args) {
     Principal interfaz_Inicial = new Principal();
     interfaz_Inicial.setVisible(true);
     //JOptionPane.showInputDialog("carlos");
+    ArchivosXml prueba = new ArchivosXml();
+    prueba.AbrirXml();
 }
 }
