@@ -7,7 +7,7 @@
 package Main;
 import Interfaces.Principal;
 import javax.swing.JOptionPane;
-import progra.parqueo.Parqueo;
+import progra.parqueo.*;
 /**
  *
  * @author Gilberto
