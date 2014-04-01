@@ -15,7 +15,7 @@ public class Factura {
     private String direccion= "Costado norte del Parque Morazán, San José";
     private String direccionCompleto= "Dirección:"+getDireccion();
     private String fechaComplato= "Fecha:"+Reloj.getInstance().getFecha();
-    private String horario="Abierto de 7 a.m. a 7 p.pm.";
+    private String horario="Abierto de 7 a.m. a 7 p.m.";
     private int numFactura;
     
     public Factura(int pNumFactura,String pTitulo,String pSlogan,String pNumTelefono,String pCedulaJuridica,String pDireccion,String pHorario ){

@@ -28,7 +28,6 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jbAgregarDinero" max="32767" attributes="0"/>
                   <Component id="jbRetirarDinero" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jbCobrarDinero" alignment="0" max="32767" attributes="0"/>
                   <Component id="jbVerDinero" alignment="0" max="32767" attributes="0"/>
                   <Component id="jbSalir" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -45,11 +44,9 @@
               <Component id="jbRetirarDinero" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jbVerDinero" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jbCobrarDinero" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="96" max="32767" attributes="0"/>
+              <EmptySpace pref="130" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,11 +75,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbVerDineroActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbCobrarDinero">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cobrar"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbSalir">
       <Properties>

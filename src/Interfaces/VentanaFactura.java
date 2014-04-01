@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package Interfaces;
+import javax.swing.JOptionPane;
 import progra.parqueo.*;
 
 /**
@@ -28,6 +29,8 @@ public class VentanaFactura extends javax.swing.JFrame {
         lblTotalNum.setText(x);
         int y=Integer.parseInt(txtPagacon.getText());
         Parqueo.getInstance().getUserCaja().setPagoCliente(y);
+        String w=String.valueOf(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado())-y);
+        JOptionPane.showMessageDialog(null,"Su vuelto es de:"+w+",gracias por su visita");
     }
 
     /**

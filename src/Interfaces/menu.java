@@ -17,9 +17,11 @@ public class menu extends javax.swing.JFrame {
      * Creates new form menu
      */
     private Principal vPrincipal;
-
+    //VentanaFactura ventanaFactura = new VentanaFactura();
     VentanaCaja VentanaCaja1 = new VentanaCaja();
+    
     VentanaConfiguracion ventanaConfiguracion = new VentanaConfiguracion();
+    //VentanaFactura ventanaFactura = new VentanaFactura();
 
     public menu() {
         
@@ -147,6 +149,8 @@ public class menu extends javax.swing.JFrame {
 
     private void jbSacarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSacarCarroActionPerformed
          Parqueo.getInstance().vaciarEspacio();
+         //ventanaFactura.setVisible(true);
+         
     }//GEN-LAST:event_jbSacarCarroActionPerformed
 
     private void btnConfigurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarActionPerformed
