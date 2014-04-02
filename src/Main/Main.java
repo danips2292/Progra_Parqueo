@@ -18,8 +18,7 @@ public class Main{
 public static void main(String[] args) throws IOException {
     Principal interfaz_Inicial = new Principal();
     interfaz_Inicial.setVisible(true);
-    ArchivosXml pr=new ArchivosXml();
-    pr.CrearXml(null);
+ 
     //JOptionPane.showInputDialog("carlos");
    
 }

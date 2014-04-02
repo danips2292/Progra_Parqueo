@@ -63,7 +63,6 @@ public class DetallesVehiculo extends javax.swing.JFrame {
 
         jLabel2.setText("Marca");
 
-        campoMarca.setText("jTextField1");
         campoMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoMarcaActionPerformed(evt);
@@ -72,7 +71,6 @@ public class DetallesVehiculo extends javax.swing.JFrame {
 
         jLabel3.setText("Color");
 
-        campoModelo.setText("jTextField1");
         campoModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoModeloActionPerformed(evt);
@@ -81,14 +79,12 @@ public class DetallesVehiculo extends javax.swing.JFrame {
 
         jLabel4.setText("Modelo");
 
-        campoColor.setText("jTextField1");
         campoColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoColorActionPerformed(evt);
             }
         });
 
-        campoPlaca.setText("jTextField1");
         campoPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoPlacaActionPerformed(evt);
@@ -97,15 +93,9 @@ public class DetallesVehiculo extends javax.swing.JFrame {
 
         jLabel5.setText("Hora Ingreso");
 
-        campoHora.setText("jTextField6");
-
-        campoMinutos.setText("jTextField7");
-
         jLabel6.setText(":");
 
         jLabel7.setText("Espacio Ocupado");
-
-        campoEspacio.setText("jTextField8");
 
         bAceptar.setText("Aceptar");
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +136,7 @@ public class DetallesVehiculo extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(campoMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
-                    .addComponent(campoEspacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoEspacio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -212,6 +202,7 @@ public class DetallesVehiculo extends javax.swing.JFrame {
         horaIngreso = campoHora.getText() +":"+ campoMinutos.getText();
         espacioOcupado = Integer.parseInt(campoEspacio.getText());
         Vehiculo vehiculo = new Vehiculo(placa,marca,color,modelo,0,espacioOcupado);
+        Parqueo.getInstance().setVehiculo(vehiculo);
         Parqueo.getInstance().llenarEspacio(vehiculo);
         this.hide();
     }//GEN-LAST:event_bAceptarActionPerformed

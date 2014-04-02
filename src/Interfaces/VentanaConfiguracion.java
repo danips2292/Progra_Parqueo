@@ -4,7 +4,7 @@
  */
 package Interfaces;
 
-import progra.parqueo.Parqueo;
+import progra.parqueo.*;
 
 /**
  *
@@ -176,6 +176,8 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         Parqueo.getInstance().setContrasena(txtContraseña.getText());
         int i=Integer.parseInt(txtEspaciosParqueo.getText());
         Parqueo.getInstance().setCantEspacios(i);
+        
+        ArchivosXml.getInstance().CrearXml(Parqueo.getInstance());
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**

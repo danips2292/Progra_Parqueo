@@ -201,6 +201,8 @@ public class Parqueo {
             espacios[numEspacio].getVehiculo().setTiempoEstacionado(espacios[numEspacio].getVehiculo().getHoraSalida() -
                                                                     espacios[numEspacio].getVehiculo().getHoraIngreso());
             userCaja.calcularTarifa(espacios[numEspacio].getVehiculo().getTiempoEstacionado());
+            JOptionPane.showMessageDialog(null,"El espacio ha sido vaciado, cancele la cuenta por favor");
+            Parqueo.getInstance().getFactura().setNumFactura((Parqueo.getInstance().getFactura().getNumFactura())+1);
         }
         else
         {

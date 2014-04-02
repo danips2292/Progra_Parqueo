@@ -34,7 +34,7 @@ import javax.swing.JOptionPane;
 
     }
     
-    public void CrearXml(Factura fac) {
+    public void CrearXml(Parqueo prueba) {
          try {
              //creo el objeto JespXML con el archivo que quiero crear
              JespXML archivo = new JespXML("Parqueo2014.xml");
@@ -53,7 +53,7 @@ import javax.swing.JOptionPane;
              direccion = new Tag("Direccion");
              //montoApagar = new Tag();
              
-             direccion.addContenido(fac.getDireccion());
+             direccion.addContenido("holaaa");
              
              //agrego el Tag nombre y apellido al Tag cliente
              parqueo.addTagHijo(direccion);
