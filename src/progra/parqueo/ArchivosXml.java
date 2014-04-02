@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
 
  public class ArchivosXml {
      private static ArchivosXml XmlInstance; 
+     Factura prueba = new Factura(0, null, null, null, null, null, null);
      //Vehiculo  carro1= new Vehiculo(null, null, null, null, 0, 0);
      
      public static ArchivosXml getInstance(){
@@ -53,7 +54,7 @@ import javax.swing.JOptionPane;
              direccion = new Tag("Direccion");
              //montoApagar = new Tag();
              
-             direccion.addContenido("holaaa");
+             direccion.addContenido(prueba.getFactura().getDireccion());
              
              //agrego el Tag nombre y apellido al Tag cliente
              parqueo.addTagHijo(direccion);
@@ -111,8 +112,8 @@ import javax.swing.JOptionPane;
             } catch (IOException ex) {
              Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
          }
-     }
-     
      }*/
+     
+     
 
           
