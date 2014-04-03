@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Clientes>
 <Parqueo>
-<Direccion>garben palace</Direccion>
+<Nombre_del_Parqueo>juan</Nombre_del_Parqueo>
+<Direccion>cartgao</Direccion>
+<Telefono_Fijo>12554</Telefono_Fijo>
+<Slogan>tu vida puede mejorar</Slogan>
+<Contrasena/>
+<Cedula_jurudica>515fef</Cedula_jurudica>
 </Parqueo>
 </Clientes>

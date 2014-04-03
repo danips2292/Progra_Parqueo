@@ -21,12 +21,13 @@ import javax.swing.JOptionPane;
  import org.jespxml.excepciones.AtributoNotFoundException;
  import org.jespxml.excepciones.TagHijoNotFoundException;
  import org.xml.sax.SAXException;
+import progra.parqueo.*;
  
 
  public class ArchivosXml {
      private static ArchivosXml XmlInstance; 
      Factura prueba = new Factura(0, null, null, null, null, null, null);
-     //Vehiculo  carro1= new Vehiculo(null, null, null, null, 0, 0);
+     //Vehiculo  ca1= new Vehiculo(null, null, null, null, 0, 0);
      
      public static ArchivosXml getInstance(){
         if(XmlInstance == null)
@@ -48,20 +49,52 @@ import javax.swing.JOptionPane;
              //creo el Tag cliente, que va a tener un nombre y un apellido
              Tag parqueo = new Tag("Parqueo");
              Tag direccion;
-             //Tag montoApagar;
+             Tag nombre;
+             Tag telefono;
+             Tag slogan;
+             //Tag montoMinimo;
+             Tag contrasena;
+             //Tag espaciosParqueo;
+             Tag cedulaJuridica;
              
              //construyo los Tags nombre y apellido y le agrego contenido
+             nombre= new Tag("Nombre_del_Parqueo");
              direccion = new Tag("Direccion");
-             //montoApagar = new Tag();
+             telefono= new Tag("Telefono_Fijo");
+             slogan=new Tag("Slogan");
+             //montoMinimo = new Tag("Monto minimo para abrir el parqueo");
+             contrasena = new Tag("Contrasena");
+             //espaciosParqueo = new Tag("Cantidad_de_espacios_de_parqueo");
+             cedulaJuridica = new Tag("Cedula_jurudica");
              
-             direccion.addContenido(prueba.getFactura().getDireccion());
+             nombre.addContenido(prueba.factura.getTitulo());
+             direccion.addContenido(prueba.factura.getDireccion());
+             telefono.addContenido(prueba.factura.getNumTelefono());
+             slogan.addContenido(prueba.factura.getSlogan());
+             //String min=String.valueOf(prueba.userCaja.getMontoCobro());
+             //montoMinimo.addContenido("holaaaaaaaaaaa");
+             contrasena.addContenido(prueba.getContrasenaEncriptada());
+             //String converCantidadEspacios = String.valueOf(prueba.getCantEspacios());
+             //espaciosParqueo.addContenido(converCantidadEspacios);
+             cedulaJuridica.addContenido(prueba.factura.getCedulaJuridica());
+             
              
              //agrego el Tag nombre y apellido al Tag cliente
+             parqueo.addTagHijo(nombre);
              parqueo.addTagHijo(direccion);
-             //vehiculo.addTagHijo(montoApagar);
+             parqueo.addTagHijo(telefono);
+             parqueo.addTagHijo(slogan);
+             //parqueo.addTagHijo(montoMinimo);
+             parqueo.addTagHijo(contrasena);
+             //parqueo.addTagHijo(espaciosParqueo);
+             parqueo.addTagHijo(cedulaJuridica);
              
              //finalmente agrego al Tag bd, el tag cliente
+             
              par.addTagHijo(parqueo);
+             
+             //y escribo el archivo XML
+
              //y escribo el archivo XML
              archivo.escribirXML(par);
          } catch (ParserConfigurationException ex) {

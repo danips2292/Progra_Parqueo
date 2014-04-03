@@ -24,7 +24,7 @@ public class Parqueo {
     private Espacio espacios[];//chequear el for
     private int espaciosLibres; // siempre que se inicie el programa se asume que el parqueo esta vacio
     private int numEspacio;//numero de espacio con el cual se trabajara
-    Caja userCaja = new Caja(0, 0, 0,0,0,0,0, "hola", 0, 0);
+    Caja userCaja = new Caja(0, 0, 0,0,0,0,0, "hola", "", 0);
     Factura factura= new Factura(0,"","","","","","");
     private Vehiculo vehiculo=new Vehiculo("", "", "", "", 0, 0);
     JPasswordField jpf= new JPasswordField();
@@ -212,8 +212,9 @@ public class Parqueo {
     } 
     public void abrirParqueo(){
         //cargarParametrosIniciales();
+        int min=Integer.parseInt(userCaja.getMinimoCaja());
         if(espacios.length > 0){
-            if(userCaja.getDineroCaja()>=userCaja.getMinimoCaja()){
+            if(userCaja.getDineroCaja()>=min){
                 setAbierto(true);
                 JOptionPane.showMessageDialog(null, "El parqueo ha sido abierto");
             }

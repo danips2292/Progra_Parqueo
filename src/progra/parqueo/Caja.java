@@ -24,13 +24,13 @@ public class Caja {
     private int dineroRetirado;
     private String contrasenaUsuario;
     private String contrasenaCaja;
-    private int minimoCaja;
+    private String minimoCaja="";
     private int totalGanacia;
     private int tarifa;
     private int montoCobro;
     private int numFactura;
     //Parqueo usuario = new Parqueo(true, dineroCaja, dineroCaja, contrasena, vuelto);
-    public Caja(int pTarifa,int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,int pMinimoCaja,int pTotalGanacias){
+    public Caja(int pTarifa,int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,String pMinimoCaja,int pTotalGanacias){
      dineroCaja = pDineroCaja;
      pagoCliente = pPagoCliente;
      vuelto = pVuelto;
@@ -51,12 +51,12 @@ public class Caja {
         tarifa = pTarifa;
     }
     
-    public void setMinimoCaja(int pMinimoCaja){
-        minimoCaja= pMinimoCaja;
-    }
-    
-    public int getMinimoCaja(){
+     public String getMinimoCaja() {
+        
         return minimoCaja;
+     }
+    public void setMinimoCaja(String minimoCaja) {
+        this.minimoCaja = minimoCaja;
     }
     public int getDineroCaja() {
         return dineroCaja;
@@ -124,7 +124,8 @@ public class Caja {
     }
     
     public int calcularGanancia(){
-        int n=getDineroCaja()-getMinimoCaja();
+        int min = Integer.parseInt(minimoCaja);
+        int n=getDineroCaja()-min;
         return n;
     }
 
