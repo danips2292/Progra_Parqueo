@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Clientes>
 <Parqueo>
-<Nombre_del_Parqueo>gato</Nombre_del_Parqueo>
-<Direccion>puntarenas</Direccion>
-<Telefono_Fijo>25917788</Telefono_Fijo>
-<Slogan>ya funcionaa</Slogan>
-<Monto_minimo_para_abrir_la_Caja>85500</Monto_minimo_para_abrir_la_Caja>
-<Contrasena>mtqf</Contrasena>
+<Nombre_del_Parqueo>barby</Nombre_del_Parqueo>
+<Direccion>cartagi</Direccion>
+<Telefono_Fijo>25697</Telefono_Fijo>
+<Slogan>jajaja</Slogan>
+<Monto_minimo_para_abrir_la_Caja>855</Monto_minimo_para_abrir_la_Caja>
+<Contrasena>uwzjgf</Contrasena>
 <Cantidad_de_espacios_de_parqueo>15</Cantidad_de_espacios_de_parqueo>
-<Cedula_jurudica>12gga</Cedula_jurudica>
+<Cedula_jurudica>12134</Cedula_jurudica>
 </Parqueo>
 </Clientes>

@@ -24,7 +24,7 @@ public class Parqueo {
     private Espacio espacios[];//chequear el for
     private int espaciosLibres; // siempre que se inicie el programa se asume que el parqueo esta vacio
     private int numEspacio;//numero de espacio con el cual se trabajara
-    Caja userCaja = new Caja(0, 0, 0,0,0,0,0, "hola", "", 0);
+    Caja userCaja = new Caja(0, 0, 0,0,0,0,0, "prueba", "", 0);
     Factura factura= new Factura(0,"","","","","","");
     private Vehiculo vehiculo=new Vehiculo("", "", "", "", 0, 0);
     JPasswordField jpf= new JPasswordField();
@@ -45,7 +45,7 @@ public class Parqueo {
     
     public static Parqueo getInstance(){
         if(parqueoInstance == null)
-            parqueoInstance = new Parqueo(true,"hola",15);
+            parqueoInstance = new Parqueo(true,null,15);
         return parqueoInstance;
 
     }
@@ -63,63 +63,12 @@ public class Parqueo {
         }
     }
     
-    /*public String getNombreLocal() {
-        return nombreLocal;
-    }
-
-    public void setNombreLocal(String nombreLocal) {
-        this.nombreLocal = nombreLocal;
-    }
-
-    public String getEslogan() {
-        return eslogan;
-    }
-
-    public void setEslogan(String eslogan) {
-        this.eslogan = eslogan;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getCedulaJuridica() {
-        return cedulaJuridica;
-    }
-
-    public void setCedulaJuridica(String cedulaJuridica) {
-        this.cedulaJuridica = cedulaJuridica;
-    }
-
-    public String getHoraAtencion() {
-        return horaAtencion;
-    }
-
-    public void setHoraAtencion(String horaAtencion) {
-        this.horaAtencion = horaAtencion;
-    }*/
-
-    
-
-    /*public int getMinimoCaja() {
-        return minimoCaja;
-    }
-
-    public void setMinimoCaja(int minimoCaja) {
-        this.minimoCaja = minimoCaja;
-    }*/
     public String getContrasenaEncriptada() {
         return encriptado;
     }
 
     public void setContrasenaEncriptada(String pEncriptado) {
         encriptado=pEncriptado;
-        JOptionPane.showConfirmDialog (null, new Object[]{"Digite la contrasena", jpf}, "Inicio de sesión", JOptionPane.OK_CANCEL_OPTION);
-        pEncriptado=jpf.getText();
         char array[]= pEncriptado.toCharArray();
         for(int i=0;i<array.length;i++){
             array[i]=(char)(array[i]+(char)5);
@@ -134,6 +83,9 @@ public class Parqueo {
     }
 
     public void setContrasena(String pContrasena) {
+        JOptionPane.showConfirmDialog (null, new Object[]{"Digite la contrasena", jpf}, "Inicio de sesión", JOptionPane.OK_CANCEL_OPTION);
+        pContrasena=jpf.getText();
+        setContrasenaEncriptada(pContrasena);
         contrasena = pContrasena;
     }
 
