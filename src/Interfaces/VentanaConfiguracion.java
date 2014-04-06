@@ -15,9 +15,20 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
     /**
      * Creates new form VentanaConfiguracion
      */
+    private static VentanaConfiguracion VenConfig;
     public VentanaConfiguracion() {
         initComponents();
         
+        
+        
+        
+    }
+    
+     public static VentanaConfiguracion getInstance(){
+        if(VenConfig == null)
+            VenConfig = new VentanaConfiguracion();
+        return VenConfig;
+
     }
 
     /**
@@ -171,18 +182,13 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         Parqueo.getInstance().getFactura().setNumTelefono(txtTelefono.getText());
         Parqueo.getInstance().getFactura().setSlogan(txtEslogan.getText());
         Parqueo.getInstance().getFactura().setCedulaJuridica(txtCedulaJuridica.getText());
-        //int u=Integer.parseInt(c);
+        //int u=Integer.parseInt(txtMontoMinimo.getText());
         Parqueo.getInstance().getUserCaja().setMinimoCaja(txtMontoMinimo.getText());
         Parqueo.getInstance().setContrasena(txtContraseña.getText());
-        //int i=Integer.parseInt(txtEspaciosParqueo.getText());
-        //Parqueo.getInstance().setCantEspacios(i);
-        
-        System.out.println(Parqueo.getInstance().getFactura().getDireccion());
-        System.out.println(Parqueo.getInstance().getUserCaja().getMinimoCaja());
-        this.setVisible(false);
-        
+        int i=Integer.parseInt(txtEspaciosParqueo.getText());
+        Parqueo.getInstance().setCantEspacios(i);
+        System.out.println(txtDireccion);
         ArchivosXml.getInstance().CrearXml(Parqueo.getInstance());
-        ArchivosXml.getInstance().AbrirXml();
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**

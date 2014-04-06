@@ -5,11 +5,7 @@
 package progra.parqueo;
 
 import javax.swing.JOptionPane;
-import progra.parqueo.Parqueo;
-import progra.parqueo.Espacio;
-import progra.parqueo.Factura;
-import progra.parqueo.Vehiculo;
-import progra.parqueo.PrograParqueo;
+
 
 /**
  *
