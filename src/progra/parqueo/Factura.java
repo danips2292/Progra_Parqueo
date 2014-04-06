@@ -17,6 +17,7 @@ public class Factura {
     private String fechaComplato= "Fecha:"+Reloj.getInstance().getFecha();
     private String horario="Abierto de 7 a.m. a 7 p.m.";
     private int numFactura;
+    private int cobro;
     
     public Factura(int pNumFactura,String pTitulo,String pSlogan,String pNumTelefono,String pCedulaJuridica,String pDireccion,String pHorario ){
         titulo=pTitulo;
@@ -27,6 +28,15 @@ public class Factura {
         horario=pHorario;
         numFactura=pNumFactura;
     }
+
+    public int getCobro() {
+        return cobro;
+    }
+
+    public void setCobro(int cobro) {
+        this.cobro = cobro;
+    }
+    
     
     public int getNumFactura() {
         return numFactura;

@@ -9,7 +9,7 @@ import progra.parqueo.*;
 import Interfaces.*;
 
 public class VentanaCaja extends javax.swing.JFrame {
-    
+    private static VentanaCaja VenCaja;
     private String contrasena2;
     private String montoAgregar;
     private String montoRetirar;
@@ -26,6 +26,13 @@ public class VentanaCaja extends javax.swing.JFrame {
         String reportDate = df.format(today);
         int horaActual = Integer.valueOf(reportDate);//hora actual ya es un int
         initComponents();
+    }
+    
+    public static VentanaCaja getInstance(){
+        if(VenCaja == null)
+            VenCaja = new VentanaCaja();
+        return VenCaja;
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -145,7 +152,7 @@ public class VentanaCaja extends javax.swing.JFrame {
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
         //venMenu.setVisible(true);
-        VentanaCaja.this.setVisible(false);
+        this.show(false);
         
           
     }//GEN-LAST:event_jbSalirActionPerformed

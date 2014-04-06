@@ -14,7 +14,7 @@ public class Principal extends javax.swing.JFrame {
   //Caja userCaja= new Caja(0,0,0,0,0,0,"hola",0,0);
 
   //Espacio userEspacio = new Espacio();*/
-    private menu Ventana_Menu = new menu(this);
+   // private menu Ventana_Menu = new menu(this);
     
   //Espacio userEspacio = new Espacio();*
 
@@ -99,8 +99,8 @@ public class Principal extends javax.swing.JFrame {
         ArchivosXml.getInstance().AbrirXml();
         if(Parqueo.getInstance().getUserCaja().getContrasena().equals(Parqueo.getInstance().getContrasena())){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
-            Ventana_Menu.setVisible(true);
-            this.setVisible(false);
+            menu.getInstance().show(true);
+            this.show(false);
         }
         else{
             //JOptionPane.showMessageDialog(rootPane,Parqueo.getInstance().getUserCaja().getContrasena());
@@ -110,6 +110,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jbCerrarParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarParqueoActionPerformed
         Parqueo.getInstance().cerrarParqueo();
+        this.show(false);
     }//GEN-LAST:event_jbCerrarParqueoActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
@@ -118,7 +119,7 @@ public class Principal extends javax.swing.JFrame {
             System.exit(WIDTH);
         }
         else{
-            JOptionPane.showMessageDialog(Ventana_Menu, "La caja debe ser vaciada");
+            JOptionPane.showMessageDialog(menu.getInstance(), "La caja debe ser vaciada");
         }
     }//GEN-LAST:event_jbSalirActionPerformed
 

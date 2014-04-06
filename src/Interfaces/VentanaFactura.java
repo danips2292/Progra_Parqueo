@@ -11,6 +11,7 @@ import progra.parqueo.*;
  * @author Gato
  */
 public class VentanaFactura extends javax.swing.JFrame {
+    private static VentanaFactura VentanaFact;
     
     /**
      * Creates new form VentanaFactura
@@ -35,6 +36,12 @@ public class VentanaFactura extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Su vuelto es de:"+w+",gracias por su visita");
         Factura factura= new Factura(Parqueo.getInstance().getFactura().getNumFactura(),Parqueo.getInstance().getFactura().getTitulo(),Parqueo.getInstance().getFactura().getSlogan(),Parqueo.getInstance().getFactura().getNumTelefono(),Parqueo.getInstance().getFactura().getCedulaJuridica(),Parqueo.getInstance().getFactura().getDireccion(),Parqueo.getInstance().getFactura().getHorario());
         Parqueo.getInstance().setHistorialFacturas(factura);
+    }
+    public static VentanaFactura getInstance(){
+        if(VentanaFact == null)
+            VentanaFact = new VentanaFactura();
+        return VentanaFact;
+
     }
 
     /**

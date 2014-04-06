@@ -19,11 +19,8 @@ public class menu extends javax.swing.JFrame {
      * Creates new form menu
      */
     private Principal vPrincipal;
+    private static menu VentanaMenu;
     //private VentanaEstadoParqueo estadoParqueo = new VentanaEstadoParqueo();
-    VentanaCaja VentanaCaja1 = new VentanaCaja();
-    //VentanaFactura ventanaFactura;
-    VentanaConfiguracion ventanaConfiguracion = new VentanaConfiguracion();
-    //VentanaFactura ventanaFactura = new VentanaFactura();
 
     public menu() {
         
@@ -37,6 +34,13 @@ public class menu extends javax.swing.JFrame {
         this.setSize(1378, 766);
         this.setVisible(rootPaneCheckingEnabled);
         initComponents();
+    }
+    
+      public static menu getInstance(){
+        if(VentanaMenu == null)
+            VentanaMenu = new menu();
+        return VentanaMenu;
+
     }
     
 
@@ -55,6 +59,7 @@ public class menu extends javax.swing.JFrame {
         jbSalir = new javax.swing.JButton();
         jbVerParqueo = new javax.swing.JButton();
         jbConfigurar = new javax.swing.JButton();
+        btnHistorialFac = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +105,13 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
+        btnHistorialFac.setText("Historial");
+        btnHistorialFac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistorialFacActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,7 +124,8 @@ public class menu extends javax.swing.JFrame {
                     .addComponent(jbMeterCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbVerParqueo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbConfigurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbConfigurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnHistorialFac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(739, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -130,7 +143,9 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(jbConfigurar)
                 .addGap(14, 14, 14)
                 .addComponent(jbSalir)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnHistorialFac)
+                .addContainerGap(211, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,7 +165,7 @@ public class menu extends javax.swing.JFrame {
 
     private void jbEntrarCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarCajaActionPerformed
 
-        VentanaCaja1.setVisible(true);
+        VentanaCaja.getInstance().show(true);
         //JOptionPane.showInputDialog("hola");
         this.setVisible(false);  
     }//GEN-LAST:event_jbEntrarCajaActionPerformed
@@ -158,8 +173,8 @@ public class menu extends javax.swing.JFrame {
     private void jbSacarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSacarCarroActionPerformed
          Parqueo.getInstance().vaciarEspacio();
          
-         VentanaFactura ventanaFactura = new VentanaFactura();
-         ventanaFactura.show();
+         VentanaFactura.getInstance().show(true);
+         this.hide();
          
          //Parqueo.getInstance().getVentanaFactura().show();
          
@@ -175,6 +190,12 @@ public class menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         VentanaConfiguracion.getInstance().setVisible(true);
     }//GEN-LAST:event_jbConfigurarActionPerformed
+
+    private void btnHistorialFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialFacActionPerformed
+        // TODO add your handling code here:
+        VentanaHistorialFacturas.getInstance().show(true);
+        this.show(false);
+    }//GEN-LAST:event_btnHistorialFacActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +232,7 @@ public class menu extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHistorialFac;
     private javax.swing.JButton jbConfigurar;
     private javax.swing.JButton jbEntrarCaja;
     private javax.swing.JButton jbMeterCarro;
