@@ -44,7 +44,7 @@ public class Parqueo {
     
 
 
-    
+    //comment
     public Parqueo(boolean pAbierto,String pContrasena,int pCantEspacios) {
 
 
@@ -281,6 +281,8 @@ public class Parqueo {
             espacios[numEspacio].getVehiculo().setTiempoEstacionado(espacios[numEspacio].getVehiculo().getHoraSalida() -
                                                                     espacios[numEspacio].getVehiculo().getHoraIngreso());
             userCaja.calcularTarifa(espacios[numEspacio].getVehiculo().getTiempoEstacionado());
+            JOptionPane.showMessageDialog(null,"El espacio ha sido vaciado, cancele la cuenta por favor");
+            Parqueo.getInstance().getFactura().setNumFactura((Parqueo.getInstance().getFactura().getNumFactura())+1);
         }
         else
         {
@@ -290,8 +292,9 @@ public class Parqueo {
     } 
     public void abrirParqueo(){
         //cargarParametrosIniciales();
+        int min=Integer.parseInt(userCaja.getMinimoCaja());
         if(espacios.length > 0){
-            if(userCaja.getDineroCaja()>=Integer.valueOf(userCaja.getMinimoCaja())){
+            if(userCaja.getDineroCaja()>=min){
                 setAbierto(true);
                 JOptionPane.showMessageDialog(null, "El parqueo ha sido abierto");
             }
@@ -310,15 +313,56 @@ public class Parqueo {
             setAbierto(false);
             JOptionPane.showMessageDialog(null, "El parqueo esta cerrado ahora");
             userCaja.getGanancia();
-            JOptionPane.showMessageDialog(null, "El dinero en caja es:"+userCaja.getDineroCaja()+",y su ganancia fue de:"+userCaja.getGanancia()); 
+            JOptionPane.showMessageDialog(null, "El dinero en caja es:"+Parqueo.getInstance().getUserCaja().getDineroCaja()+",y su ganancia fue de:"+Parqueo.getInstance().getUserCaja().calcularGanancia()); 
         }
         else{
             JOptionPane.showMessageDialog(null, "El parqueo debe estar vacio");
         }
     }
     
-    
     public void encriptarContrasena(){
         
+    }
+
+    /**
+     * @return the factura
+     */
+    public Factura getFactura() {
+        return factura;
+    }
+
+    /**
+     * @param factura the factura to set
+     */
+    public void setFactura(Factura factura) {
+        this.factura = factura;
+    }
+
+    /**
+     * @return the vehiculo
+     */
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    /**
+     * @param vehiculo the vehiculo to set
+     */
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    /**
+     * @return the cantEspacios
+     */
+    public int getCantEspacios() {
+        return cantEspacios;
+    }
+
+    /**
+     * @param cantEspacios the cantEspacios to set
+     */
+    public void setCantEspacios(int cantEspacios) {
+        this.cantEspacios = cantEspacios;
     }
 }
