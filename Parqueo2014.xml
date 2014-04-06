@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Clientes>
 <Parqueo>
-<Nombre_del_Parqueo>juan</Nombre_del_Parqueo>
-<Direccion>cartgao</Direccion>
-<Telefono_Fijo>12554</Telefono_Fijo>
-<Slogan>tu vida puede mejorar</Slogan>
-<Contrasena/>
-<Cedula_jurudica>515fef</Cedula_jurudica>
+<Nombre_del_Parqueo>barby</Nombre_del_Parqueo>
+<Direccion>cartagi</Direccion>
+<Telefono_Fijo>25697</Telefono_Fijo>
+<Slogan>jajaja</Slogan>
+<Monto_minimo_para_abrir_la_Caja>855</Monto_minimo_para_abrir_la_Caja>
+<Contrasena>uwzjgf</Contrasena>
+<Cantidad_de_espacios_de_parqueo>15</Cantidad_de_espacios_de_parqueo>
+<Cedula_jurudica>12134</Cedula_jurudica>
 </Parqueo>
 </Clientes>

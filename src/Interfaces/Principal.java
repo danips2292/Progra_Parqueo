@@ -93,10 +93,11 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void jbAbrirParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAbrirParqueoActionPerformed
-        Parqueo.getInstance().setContrasenaEncriptada(contrasena);
-        System.out.println(Parqueo.getInstance().getContrasenaEncriptada());
-        System.out.println(Parqueo.getInstance().getUserCaja().getContrasena());
-        if(Parqueo.getInstance().getUserCaja().getContrasena()== Parqueo.getInstance().getContrasena()){
+        Parqueo.getInstance().setContrasena(contrasena);
+        //System.out.println(Parqueo.getInstance().getContrasenaEncriptada());
+        //System.out.println(Parqueo.getInstance().getUserCaja().getContrasena());
+        ArchivosXml.getInstance().AbrirXml();
+        if(Parqueo.getInstance().getUserCaja().getContrasena().equals(Parqueo.getInstance().getContrasena())){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
             Ventana_Menu.setVisible(true);
             this.setVisible(false);

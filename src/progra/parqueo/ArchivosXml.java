@@ -26,9 +26,7 @@ import progra.parqueo.*;
 
  public class ArchivosXml {
      private static ArchivosXml XmlInstance; 
-     Factura prueba = new Factura(0, null, null, null, null, null, null);
-     //Vehiculo  ca1= new Vehiculo(null, null, null, null, 0, 0);
-     
+     Factura prueba = new Factura(0, null, null, null, null, null, null); 
      public static ArchivosXml getInstance(){
         if(XmlInstance == null)
             XmlInstance = new ArchivosXml();
@@ -48,13 +46,14 @@ import progra.parqueo.*;
              
              //creo el Tag cliente, que va a tener un nombre y un apellido
              Tag parqueo = new Tag("Parqueo");
+             //Tag pmonto= new Tag("Monto del parqueo para poder Abrir.");
              Tag direccion;
              Tag nombre;
              Tag telefono;
              Tag slogan;
-             //Tag montoMinimo;
+             Tag montoMinimo;
              Tag contrasena;
-             //Tag espaciosParqueo;
+             Tag espaciosParqueo;
              Tag cedulaJuridica;
              
              //construyo los Tags nombre y apellido y le agrego contenido
@@ -62,20 +61,19 @@ import progra.parqueo.*;
              direccion = new Tag("Direccion");
              telefono= new Tag("Telefono_Fijo");
              slogan=new Tag("Slogan");
-             //montoMinimo = new Tag("Monto minimo para abrir el parqueo");
+             montoMinimo = new Tag("Monto_minimo_para_abrir_la_Caja");
              contrasena = new Tag("Contrasena");
-             //espaciosParqueo = new Tag("Cantidad_de_espacios_de_parqueo");
+             espaciosParqueo = new Tag("Cantidad_de_espacios_de_parqueo");
              cedulaJuridica = new Tag("Cedula_jurudica");
              
              nombre.addContenido(prueba.factura.getTitulo());
              direccion.addContenido(prueba.factura.getDireccion());
              telefono.addContenido(prueba.factura.getNumTelefono());
              slogan.addContenido(prueba.factura.getSlogan());
-             //String min=String.valueOf(prueba.userCaja.getMontoCobro());
-             //montoMinimo.addContenido("holaaaaaaaaaaa");
+             montoMinimo.addContenido(prueba.userCaja.getMinimoCaja());
              contrasena.addContenido(prueba.getContrasenaEncriptada());
-             //String converCantidadEspacios = String.valueOf(prueba.getCantEspacios());
-             //espaciosParqueo.addContenido(converCantidadEspacios);
+             String converCantidadEspacios = String.valueOf(prueba.getCantEspacios());
+             espaciosParqueo.addContenido(converCantidadEspacios);
              cedulaJuridica.addContenido(prueba.factura.getCedulaJuridica());
              
              
@@ -84,9 +82,9 @@ import progra.parqueo.*;
              parqueo.addTagHijo(direccion);
              parqueo.addTagHijo(telefono);
              parqueo.addTagHijo(slogan);
-             //parqueo.addTagHijo(montoMinimo);
+             parqueo.addTagHijo(montoMinimo);
              parqueo.addTagHijo(contrasena);
-             //parqueo.addTagHijo(espaciosParqueo);
+             parqueo.addTagHijo(espaciosParqueo);
              parqueo.addTagHijo(cedulaJuridica);
              
              //finalmente agrego al Tag bd, el tag cliente
@@ -97,6 +95,7 @@ import progra.parqueo.*;
 
              //y escribo el archivo XML
              archivo.escribirXML(par);
+             
          } catch (ParserConfigurationException ex) {
              Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
          } catch (TransformerConfigurationException ex) {
@@ -107,10 +106,10 @@ import progra.parqueo.*;
              Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
          }
      }
- }
+ 
      
      
-     /*public void AbrirXml(){
+     public void AbrirXml(){
                   try {
              //Cargo el archivo
              JespXML archivo = new JespXML("Parqueo2014.xml");
@@ -118,20 +117,25 @@ import progra.parqueo.*;
              // es biblioteca
              Tag par = archivo.leerXML();
              //Obtengo los tags que necesito, por el nombre
-             Tag carro = par.getTagHijoByName("Vehiculo");
-             Tag placa = carro.getTagHijoByName("placa");
-             //Tag parqueo = Parqueo.getTagHijoByName("Parqueo");
-             //Tag direccion = parqueo.getTagHijoByName("Direccion");
+             //Tag carro = par.getTagHijoByName("Vehiculo");
+             //Tag placa = carro.getTagHijoByName("placa");
+             Tag usuario = par.getTagHijoByName("Clientes");
+             Tag parque = usuario.getTagHijoByName("Parqueo");
+             Tag dire= parque.getTagHijoByName("Nombre");
              
              
              //puedo obtener los valores de los atributos de un tag específico
-             String paginas = carro.getValorDeAtributo("paginas");
-             
+             //String paginas = carro.getValorDeAtributo("paginas");
+             String direccion = parque.getValorDeAtributo("Direccion");
              //imprimo la información requerida
-             JOptionPane.showInputDialog("placa"+placa.getContenido());
+             //JOptionPane.showInputDialog("placa"+placa.getContenido());
+              System.out.println("Direccion"+parque.getContenido());
+              System.out.println(par.getContenido());
+             //JOptionPane.showInputDialog("Direccion"+par.getContenido());
+             //JOptionPane.showInputDialog("Direccion"+parqueo.getContenido());
              //JOptionPane.showInputDialog("Placa: "+direccion.getContenido());
-             /*System.out.println("Título: "+titulo.getContenido());
-             System.out.println("Autor: "+autor.getContenido());
+             //System.out.println("Título: "+titulo.getContenido());
+             //System.out.println("Autor: "+autor.getContenido());
             } catch (AtributoNotFoundException ex) {
              //exception lanzada cuando no se encuentra el atributo
              Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
@@ -145,8 +149,9 @@ import progra.parqueo.*;
             } catch (IOException ex) {
              Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
          }
-     }*/
-     
+     }
+ }
+                     
      
 
           

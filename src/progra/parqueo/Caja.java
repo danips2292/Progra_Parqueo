@@ -24,7 +24,7 @@ public class Caja {
     private int dineroRetirado;
     private String contrasenaUsuario;
     private String contrasenaCaja;
-    private String minimoCaja="";
+    private String minimoCaja;
     private int totalGanacia;
     private int tarifa;
     private int montoCobro;
