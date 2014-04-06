@@ -22,6 +22,7 @@ import javax.swing.JPasswordField;
 public class Parqueo {
     private static Parqueo parqueoInstance;
     private boolean abierto;
+    private Factura historialFacturas[];
     private String encriptado;
     private String contrasenaEncriptada;
     private String contrasena;
@@ -41,7 +42,7 @@ public class Parqueo {
     private Vehiculo vehiculo = new Vehiculo("","","","",0,0);
     VentanaEstadoParqueo estadoParqueo = new VentanaEstadoParqueo();
     JPasswordField jpf= new JPasswordField();
-    
+    //VentanaFactura ventanaFactura=new VentanaFactura();
 
 
     //comment
@@ -143,8 +144,9 @@ public class Parqueo {
         }
     }
     
+    
     public String getContrasenaEncriptada() {
-        return encriptado;
+        return getEncriptado();
     }
 
     public void setContrasenaEncriptada(String pEncriptado) {
@@ -153,8 +155,8 @@ public class Parqueo {
         for(int i=0;i<array.length;i++){
             array[i]=(char)(array[i]+(char)5);
         }
-        encriptado =  String.valueOf(array);
-        JOptionPane.showMessageDialog(null,encriptado);
+        setEncriptado(String.valueOf(array));
+        JOptionPane.showMessageDialog(null, getEncriptado());
         
     }
     
@@ -212,8 +214,8 @@ public class Parqueo {
             //espacios[numEspacio].setVehiculo(new Vehiculo());
             vehiculo.setHoraIngreso(Integer.parseInt(Reloj.getInstance().getHora())*100 + Integer.parseInt(Reloj.getInstance().getMinutos()));
             espacios[vehiculo.getEspacioOcupado()].setVehiculo(vehiculo);
-            espaciosLibres-=1;//comprobar que siempre sea mayor a cero
-            System.out.println(espaciosLibres);
+            setEspaciosLibres(getEspaciosLibres() - 1);//comprobar que siempre sea mayor a cero
+            System.out.println(getEspaciosLibres());
             System.out.println(espacios[vehiculo.getEspacioOcupado()].getVehiculo().getColor());
             
         }
@@ -224,15 +226,15 @@ public class Parqueo {
     }
     public void vaciarEspacio()
     {
-        numEspacio = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de espacio a vaciar"));
-        if (espacios[numEspacio].isOcupado()== true)
+        setNumEspacio(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de espacio a vaciar")));
+        if (espacios[getNumEspacio()].isOcupado()== true)
         {
-            espacios[numEspacio].getVehiculo().setHoraSalida(Integer.parseInt(Reloj.getInstance().getHora())*100 + Integer.parseInt(Reloj.getInstance().getMinutos()));
-            espacios[numEspacio].setOcupado(false);
-            espaciosLibres+=1;
-            espacios[numEspacio].getVehiculo().setTiempoEstacionado(espacios[numEspacio].getVehiculo().getHoraSalida() -
-                                                                    espacios[numEspacio].getVehiculo().getHoraIngreso());
-            userCaja.calcularTarifa(espacios[numEspacio].getVehiculo().getTiempoEstacionado());
+            espacios[getNumEspacio()].getVehiculo().setHoraSalida(Integer.parseInt(Reloj.getInstance().getHora())*100 + Integer.parseInt(Reloj.getInstance().getMinutos()));
+            espacios[getNumEspacio()].setOcupado(false);
+            setEspaciosLibres(getEspaciosLibres() + 1);
+            espacios[getNumEspacio()].getVehiculo().setTiempoEstacionado(espacios[getNumEspacio()].getVehiculo().getHoraSalida() -
+                                                                    espacios[getNumEspacio()].getVehiculo().getHoraIngreso());
+            userCaja.calcularTarifa(espacios[getNumEspacio()].getVehiculo().getTiempoEstacionado());
             JOptionPane.showMessageDialog(null,"El espacio ha sido vaciado, cancele la cuenta por favor");
             Parqueo.getInstance().getFactura().setNumFactura((Parqueo.getInstance().getFactura().getNumFactura())+1);
         }
@@ -277,11 +279,74 @@ public class Parqueo {
         }
     }
     
-    public void encriptarContrasena(){
-        
-    }
+    
 
     public void setCantEspacios(int cantEspacios) {
         this.cantEspacios = cantEspacios;
     }
+
+    /**
+     * @return the historialFacturas
+     */
+    public Factura[] getHistorialFacturas() {
+        return historialFacturas;
+    }
+
+    /**
+     * @param historialFacturas the historialFacturas to set
+     */
+    public void setHistorialFacturas(Factura nuevaFactura) {
+        int i=0;
+        while(historialFacturas[i]!=null){
+            i++;
+        }
+        historialFacturas[i]=nuevaFactura;
+    }
+
+    /**
+     * @return the encriptado
+     */
+    public String getEncriptado() {
+        return encriptado;
+    }
+
+    /**
+     * @param encriptado the encriptado to set
+     */
+    public void setEncriptado(String encriptado) {
+        this.encriptado = encriptado;
+    }
+
+    /**
+     * @return the espaciosLibres
+     */
+    public int getEspaciosLibres() {
+        return espaciosLibres;
+    }
+
+    /**
+     * @param espaciosLibres the espaciosLibres to set
+     */
+    public void setEspaciosLibres(int espaciosLibres) {
+        this.espaciosLibres = espaciosLibres;
+    }
+
+    /**
+     * @return the numEspacio
+     */
+    public int getNumEspacio() {
+        return numEspacio;
+    }
+
+    /**
+     * @param numEspacio the numEspacio to set
+     */
+    public void setNumEspacio(int numEspacio) {
+        this.numEspacio = numEspacio;
+    }
+
+    
+
+    
+    
 }

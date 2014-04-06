@@ -17,6 +17,8 @@ public class VentanaFactura extends javax.swing.JFrame {
      */
     public VentanaFactura() {
         initComponents();
+        this.setVisible(rootPaneCheckingEnabled);
+        this.setSize(1378, 766);
         lblCedulaJuridica.setText(Parqueo.getInstance().getFactura().getCedulaJuridicaCompleto());
         lblDireccion.setText(Parqueo.getInstance().getFactura().getDireccionCompleto());
         lblFecha.setText(Parqueo.getInstance().getFactura().getFechaComplato());
@@ -31,6 +33,8 @@ public class VentanaFactura extends javax.swing.JFrame {
         Parqueo.getInstance().getUserCaja().setPagoCliente(y);
         String w=String.valueOf(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado())-y);
         JOptionPane.showMessageDialog(null,"Su vuelto es de:"+w+",gracias por su visita");
+        Factura factura= new Factura(Parqueo.getInstance().getFactura().getNumFactura(),Parqueo.getInstance().getFactura().getTitulo(),Parqueo.getInstance().getFactura().getSlogan(),Parqueo.getInstance().getFactura().getNumTelefono(),Parqueo.getInstance().getFactura().getCedulaJuridica(),Parqueo.getInstance().getFactura().getDireccion(),Parqueo.getInstance().getFactura().getHorario());
+        Parqueo.getInstance().setHistorialFacturas(factura);
     }
 
     /**
