@@ -5,7 +5,9 @@
 package Interfaces;
 import progra.parqueo.Parqueo;
 import Interfaces.*;
-import javax.swing.JOptionPane;
+import java.awt.Color;
+import java.awt.Container;
+import javax.swing.*;
 /**
  *
  * @author dani
@@ -17,7 +19,7 @@ public class menu extends javax.swing.JFrame {
      * Creates new form menu
      */
     private Principal vPrincipal;
-
+    //private VentanaEstadoParqueo estadoParqueo = new VentanaEstadoParqueo();
     VentanaCaja VentanaCaja1 = new VentanaCaja();
 
     public menu() {
@@ -81,6 +83,11 @@ public class menu extends javax.swing.JFrame {
         });
 
         jbVerParqueo.setText("Ver Parqueo");
+        jbVerParqueo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVerParqueoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,20 +95,21 @@ public class menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(147, 147, 147)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jbEntrarCaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbSacarCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbMeterCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbVerParqueo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbMeterCarro)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jbEntrarCaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbSacarCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbVerParqueo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(739, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(38, 38, 38)
                 .addComponent(jbMeterCarro)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbSacarCarro)
                 .addGap(12, 12, 12)
                 .addComponent(jbVerParqueo)
@@ -116,8 +124,9 @@ public class menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-        // TODO add your handling code here:
-        
+       // Container ventana = Parqueo.getInstance().getEstadoParqueo().getContentPane();
+        Parqueo.getInstance().getEstadoParqueo().getComponentAt(400, 500).setBackground(Color.red);
+        Parqueo.getInstance().getEstadoParqueo().repaint();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbMeterCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMeterCarroActionPerformed
@@ -136,6 +145,11 @@ public class menu extends javax.swing.JFrame {
     private void jbSacarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSacarCarroActionPerformed
          Parqueo.getInstance().vaciarEspacio();
     }//GEN-LAST:event_jbSacarCarroActionPerformed
+
+    private void jbVerParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerParqueoActionPerformed
+        Parqueo.getInstance().setAgregarBoton();
+        Parqueo.getInstance().getEstadoParqueo().show();
+    }//GEN-LAST:event_jbVerParqueoActionPerformed
 
     /**
      * @param args the command line arguments

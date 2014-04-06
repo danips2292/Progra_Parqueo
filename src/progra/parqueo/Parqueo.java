@@ -2,9 +2,16 @@
 package progra.parqueo;
 
 import Interfaces.DetallesVehiculo;
+import Interfaces.VentanaEstadoParqueo;
+import Interfaces.menu;
 import com.sun.jmx.snmp.BerDecoder;
+import java.awt.Color;
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Calendar;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
@@ -24,7 +31,13 @@ public class Parqueo {
     private Espacio espacios[];//chequear el for
     private int espaciosLibres; // siempre que se inicie el programa se asume que el parqueo esta vacio
     private int numEspacio;//numero de espacio con el cual se trabajara
+    private int posXEspacio = 400;
+    private int posYEspacio = 500;
+    private int posXPlaca = 100;
+    private int posYPlaca = 800;
+    private int etiquetaEspacio = 1;
     Caja userCaja = new Caja(10, 0, 0,0,0,0,0, "hola", 0, 0);
+    VentanaEstadoParqueo estadoParqueo = new VentanaEstadoParqueo();
     JPasswordField jpf= new JPasswordField();
     
 
@@ -40,6 +53,53 @@ public class Parqueo {
         espaciosLibres = cantEspacios;
         setEspacios();
     }
+    public void setAgregarBoton(){
+        //menu.setVisible(true);
+        int i = 0;
+        etiquetaEspacio = 0;
+        estadoParqueo = new VentanaEstadoParqueo();
+        posXEspacio = 400;
+        posYEspacio = 500;
+        posXPlaca = 100; 
+        posYPlaca = 800;
+        while(i<cantEspacios){
+        //Parqueo.getInstance().setAgregarBoton();
+            
+            JButton boton_nuevo = new JButton();
+       
+            posXEspacio+=55;
+        
+            boton_nuevo.setBounds(posXEspacio, posYEspacio, 50,50);
+
+            boton_nuevo.setText(String.valueOf(etiquetaEspacio));
+            if (espacios[i].isOcupado()== true)
+            {
+                boton_nuevo.setBackground(Color.red);
+                JLabel etiquetaPlaca = new JLabel(String.valueOf(i)+"."+"Placa:"+espacios[i].getVehiculo().getPlaca());
+                etiquetaPlaca.setBounds(posXPlaca,posYPlaca, 100,100);
+                posXPlaca+=100;
+                estadoParqueo.add(etiquetaPlaca);
+            }
+            estadoParqueo.add(boton_nuevo);
+            etiquetaEspacio+=1;
+            i+=1;
+        }
+        //int j = 0;
+        
+            estadoParqueo.repaint();
+            
+            
+        //}
+        
+        
+        
+        //boton_nuevo.repaint();
+        
+    }
+
+    public VentanaEstadoParqueo getEstadoParqueo() {
+        return estadoParqueo;
+    }
     
     public static Parqueo getInstance(){
         if(parqueoInstance == null)
@@ -54,6 +114,10 @@ public class Parqueo {
         this.abierto = abierto;
     }
 
+    public int getCantEspacios() {
+        return cantEspacios;
+    }
+    
     public void setEspacios() {
         int i = 0;
         for (i=0;i<cantEspacios;i=i+1){        
@@ -234,6 +298,7 @@ public class Parqueo {
             JOptionPane.showMessageDialog(null, "El parqueo debe estar vacio");
         }
     }
+    
     
     public void encriptarContrasena(){
         

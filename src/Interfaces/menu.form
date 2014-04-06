@@ -25,12 +25,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jbEntrarCaja" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jbSacarCarro" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jbMeterCarro" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jbSalir" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jbVerParqueo" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jbMeterCarro" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jbEntrarCaja" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jbSacarCarro" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jbSalir" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jbVerParqueo" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="739" max="32767" attributes="0"/>
           </Group>
@@ -39,9 +41,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="jbMeterCarro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jbSacarCarro" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="jbVerParqueo" min="-2" max="-2" attributes="0"/>
@@ -91,6 +93,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver Parqueo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbVerParqueoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

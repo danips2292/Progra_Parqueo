@@ -29,7 +29,7 @@ import sun.security.jca.GetInstance;
      public void CrearXml(String pPlaca) {
          try {
              //creo el objeto JespXML con el archivo que quiero crear
-             JespXML archivo = new JespXML("Parqueo.xml");
+             JespXML archivo = new JespXML("Parqueo2014.xml");
              
              //declaro el Tag raiz, que en esta caso se llama bd
              Tag par = new Tag("Clientes");
