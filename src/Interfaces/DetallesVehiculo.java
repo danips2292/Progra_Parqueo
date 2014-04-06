@@ -6,6 +6,9 @@
 
 package Interfaces;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import progra.parqueo.*;
 
 /**
@@ -45,6 +48,10 @@ public class DetallesVehiculo extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         campoColor = new javax.swing.JTextField();
         campoPlaca = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        campoHora = new javax.swing.JTextField();
+        campoMinutos = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         campoEspacio = new javax.swing.JTextField();
         bAceptar = new javax.swing.JButton();
@@ -83,6 +90,10 @@ public class DetallesVehiculo extends javax.swing.JFrame {
                 campoPlacaActionPerformed(evt);
             }
         });
+
+        jLabel5.setText("Hora Ingreso");
+
+        jLabel6.setText(":");
 
         jLabel7.setText("Espacio Ocupado");
 
@@ -178,7 +189,6 @@ public class DetallesVehiculo extends javax.swing.JFrame {
         espacioOcupado = Integer.parseInt(campoEspacio.getText());
         Vehiculo vehiculo = new Vehiculo(placa,marca,color,modelo,0,espacioOcupado);
         Parqueo.getInstance().llenarEspacio(vehiculo);
-        ArchivosXml.getInstance().CrearXml(placa);
         this.hide();
     }//GEN-LAST:event_bAceptarActionPerformed
 
@@ -221,7 +231,9 @@ public class DetallesVehiculo extends javax.swing.JFrame {
     private javax.swing.JButton bAceptar;
     private javax.swing.JTextField campoColor;
     private javax.swing.JTextField campoEspacio;
+    private javax.swing.JTextField campoHora;
     private javax.swing.JTextField campoMarca;
+    private javax.swing.JTextField campoMinutos;
     private javax.swing.JTextField campoModelo;
     private javax.swing.JTextField campoPlaca;
     private javax.swing.JButton jButton2;
@@ -229,6 +241,8 @@ public class DetallesVehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

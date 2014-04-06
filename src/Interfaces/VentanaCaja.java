@@ -39,7 +39,6 @@ public class VentanaCaja extends javax.swing.JFrame {
         jbAgregarDinero = new javax.swing.JButton();
         jbRetirarDinero = new javax.swing.JButton();
         jbVerDinero = new javax.swing.JButton();
-        jbCobrarDinero = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,8 +64,6 @@ public class VentanaCaja extends javax.swing.JFrame {
             }
         });
 
-        jbCobrarDinero.setText("Cobrar");
-
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +80,6 @@ public class VentanaCaja extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jbAgregarDinero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbRetirarDinero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbCobrarDinero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbVerDinero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(153, Short.MAX_VALUE))
@@ -97,11 +93,9 @@ public class VentanaCaja extends javax.swing.JFrame {
                 .addComponent(jbRetirarDinero)
                 .addGap(18, 18, 18)
                 .addComponent(jbVerDinero)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbCobrarDinero)
                 .addGap(18, 18, 18)
                 .addComponent(jbSalir)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         pack();
@@ -192,7 +186,6 @@ public class VentanaCaja extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbAgregarDinero;
-    private javax.swing.JButton jbCobrarDinero;
     private javax.swing.JButton jbRetirarDinero;
     private javax.swing.JButton jbSalir;
     private javax.swing.JButton jbVerDinero;

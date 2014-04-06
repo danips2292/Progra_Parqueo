@@ -6,6 +6,7 @@
 
 package Main;
 import Interfaces.Principal;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import progra.parqueo.*;
 /**
@@ -14,9 +15,12 @@ import progra.parqueo.*;
  */
 public class Main{
 
-public static void main(String[] args) {
+public static void main(String[] args) throws IOException {
     Principal interfaz_Inicial = new Principal();
     interfaz_Inicial.setVisible(true);
+    //String nada = Parqueo.getInstance().getFactura().getDireccion();
+    //ArchivosXml.getInstance().CrearXml(nada);
     //JOptionPane.showInputDialog("carlos");
+   
 }
 }

@@ -36,7 +36,9 @@ public class Parqueo {
     private int posXPlaca = 100;
     private int posYPlaca = 800;
     private int etiquetaEspacio = 1;
-    Caja userCaja = new Caja(10, 0, 0,0,0,0,0, "hola", 0, 0);
+    Caja userCaja = new Caja(10, 0, 0,0,0,0,0, "hola","", 0);
+    Factura factura = new Factura(0,"","","","","","");
+    private Vehiculo vehiculo = new Vehiculo("","","","",0,0);
     VentanaEstadoParqueo estadoParqueo = new VentanaEstadoParqueo();
     JPasswordField jpf= new JPasswordField();
     
@@ -97,6 +99,22 @@ public class Parqueo {
         
     }
 
+    public Factura getFactura() {
+        return factura;
+    }
+
+    public void setFactura(Factura factura) {
+        this.factura = factura;
+    }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+    
     public VentanaEstadoParqueo getEstadoParqueo() {
         return estadoParqueo;
     }
@@ -273,7 +291,7 @@ public class Parqueo {
     public void abrirParqueo(){
         //cargarParametrosIniciales();
         if(espacios.length > 0){
-            if(userCaja.getDineroCaja()>=userCaja.getMinimoCaja()){
+            if(userCaja.getDineroCaja()>=Integer.valueOf(userCaja.getMinimoCaja())){
                 setAbierto(true);
                 JOptionPane.showMessageDialog(null, "El parqueo ha sido abierto");
             }

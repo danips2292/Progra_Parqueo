@@ -24,13 +24,13 @@ public class Caja {
     private int dineroRetirado;
     private String contrasenaUsuario;
     private String contrasenaCaja;
-    private int minimoCaja;
+    private String minimoCaja ="";
     private int totalGanacia;
     private int tarifa;
     private int montoCobro;
     private int numFactura;
     //Parqueo usuario = new Parqueo(true, dineroCaja, dineroCaja, contrasena, vuelto);
-    public Caja(int pTarifa,int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,int pMinimoCaja,int pTotalGanacias){
+    public Caja(int pTarifa,int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,String pMinimoCaja,int pTotalGanacias){
      dineroCaja = pDineroCaja;
      pagoCliente = pPagoCliente;
      vuelto = pVuelto;
@@ -51,12 +51,12 @@ public class Caja {
         tarifa = pTarifa;
     }
     
-    public void setMinimoCaja(int pMinimoCaja){
-        minimoCaja= pMinimoCaja;
-    }
-    
-    public int getMinimoCaja(){
+     public String getMinimoCaja() {
+        
         return minimoCaja;
+     }
+    public void setMinimoCaja(String minimoCaja) {
+        this.minimoCaja = minimoCaja;
     }
     public int getDineroCaja() {
         return dineroCaja;
@@ -102,8 +102,9 @@ public class Caja {
         this.vuelto = vuelto;
     }
     
-    public void calcularVuelto(){
-        
+    public int calcularVuelto(){
+        int t=getPagoCliente()-(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado()));
+        return t;
     }
     public int getDineroInicial() {
         return dineroInicial;
@@ -114,12 +115,18 @@ public class Caja {
     }
 
     public int getGanancia() {
-        return totalGanacia;
+        return getTotalGanacia();
     }
 
     public void setGanancia(int pTotalGanancia) {
-        totalGanacia = pTotalGanancia;
-        totalGanacia= dineroInicial+dineroAgregado-dineroRetirado;
+        setTotalGanacia(pTotalGanancia);
+        
+    }
+    
+    public int calcularGanancia(){
+        int min = Integer.parseInt(minimoCaja);
+        int n=getDineroCaja()-min;
+        return n;
     }
 
     public int getDineroAgregado() {
@@ -149,7 +156,7 @@ public class Caja {
         //contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
         //if(contrasenaUsuario==contrasenaCaja){//funciona comparacion?
             setDineroAgregado(this.dineroAgregado);
-            setDineroCaja(getDineroCaja()+this.dineroAgregado);
+            setDineroCaja(getDineroCaja()+dineroAgregado);
             JOptionPane.showMessageDialog(null, "Se ha agregado:"+getDineroAgregado()+"a la caja exitosamente");
         //}
         //else{
@@ -191,4 +198,23 @@ public class Caja {
     public void setMontoCobro(int montoCobro) {
         this.montoCobro = montoCobro;
     }
+
+    /**
+     * @return the totalGanacia
+     */
+    public int getTotalGanacia() {
+        return totalGanacia;
+    }
+
+    /**
+     * @param totalGanacia the totalGanacia to set
+     */
+    public void setTotalGanacia(int totalGanacia) {
+        this.totalGanacia = totalGanacia;
+    }
+
+    /**
+     * @return the numFactura
+     */
+    
 }
