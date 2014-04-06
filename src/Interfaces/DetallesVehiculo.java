@@ -204,11 +204,6 @@ public class DetallesVehiculo extends javax.swing.JFrame {
         Vehiculo vehiculo = new Vehiculo(placa,marca,color,modelo,0,espacioOcupado);
         Parqueo.getInstance().setVehiculo(vehiculo);
         Parqueo.getInstance().llenarEspacio(vehiculo);
-        try {
-            ArchivosXml.getInstance().CrearXml(placa);
-        } catch (IOException ex) {
-            Logger.getLogger(DetallesVehiculo.class.getName()).log(Level.SEVERE, null, ex);
-        }
         this.hide();
     }//GEN-LAST:event_bAceptarActionPerformed
 

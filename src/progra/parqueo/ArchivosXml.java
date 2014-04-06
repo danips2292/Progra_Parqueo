@@ -4,6 +4,7 @@
  */
 package progra.parqueo;
 
+import Interfaces.VentanaConfiguracion;
 import java.io.FileNotFoundException;
  import java.util.logging.Level;
  import java.util.logging.Logger;
@@ -20,11 +21,13 @@ import javax.swing.JOptionPane;
  import org.jespxml.excepciones.AtributoNotFoundException;
  import org.jespxml.excepciones.TagHijoNotFoundException;
  import org.xml.sax.SAXException;
+import progra.parqueo.*;
  
 
  public class ArchivosXml {
      private static ArchivosXml XmlInstance; 
-     Vehiculo  carro1= new Vehiculo(null, null, null, null, 0, 0);
+     Factura prueba = new Factura(0, null, null, null, null, null, null);
+     //Vehiculo  ca1= new Vehiculo(null, null, null, null, 0, 0);
      
      public static ArchivosXml getInstance(){
         if(XmlInstance == null)
@@ -32,36 +35,66 @@ import javax.swing.JOptionPane;
         return XmlInstance;
 
     }
-     public void CrearXml(String pPlaca) throws IOException {
+    
+    public void CrearXml(Parqueo prueba) {
          try {
-           
-             JespXML archivo = new JespXML("Parqueo.xml");
-             Tag parqueo = archivo.leerXML();
+             //creo el objeto JespXML con el archivo que quiero crear
+             JespXML archivo = new JespXML("Parqueo2014.xml");
+             
              //declaro el Tag raiz, que en esta caso se llama bd
              Tag par = new Tag("Clientes");
              //le agrego un atributo a ese Tag (clientes="3")
-             par.addAtributo(new Atributo("Placa", "1"));
+             //par.addAtributo(new Atributo("Placa", "1"));
              
              //creo el Tag cliente, que va a tener un nombre y un apellido
-             Tag vehiculo = new Tag("Vehiculo");
-             Tag placa;
-             //Tag montoApagar;
+             Tag parqueo = new Tag("Parqueo");
+             Tag direccion;
+             Tag nombre;
+             Tag telefono;
+             Tag slogan;
+             //Tag montoMinimo;
+             Tag contrasena;
+             //Tag espaciosParqueo;
+             Tag cedulaJuridica;
              
              //construyo los Tags nombre y apellido y le agrego contenido
-             placa = new Tag("Placa");
-             //montoApagar = new Tag();
+             nombre= new Tag("Nombre_del_Parqueo");
+             direccion = new Tag("Direccion");
+             telefono= new Tag("Telefono_Fijo");
+             slogan=new Tag("Slogan");
+             //montoMinimo = new Tag("Monto minimo para abrir el parqueo");
+             contrasena = new Tag("Contrasena");
+             //espaciosParqueo = new Tag("Cantidad_de_espacios_de_parqueo");
+             cedulaJuridica = new Tag("Cedula_jurudica");
              
-             //placa.getContenido();
-             placa.addContenido(pPlaca);
-             placa.actualizarValorAtributo(pPlaca,pPlaca);
+             nombre.addContenido(prueba.factura.getTitulo());
+             direccion.addContenido(prueba.factura.getDireccion());
+             telefono.addContenido(prueba.factura.getNumTelefono());
+             slogan.addContenido(prueba.factura.getSlogan());
+             //String min=String.valueOf(prueba.userCaja.getMontoCobro());
+             //montoMinimo.addContenido("holaaaaaaaaaaa");
+             contrasena.addContenido(prueba.getContrasenaEncriptada());
+             //String converCantidadEspacios = String.valueOf(prueba.getCantEspacios());
+             //espaciosParqueo.addContenido(converCantidadEspacios);
+             cedulaJuridica.addContenido(prueba.factura.getCedulaJuridica());
              
              
              //agrego el Tag nombre y apellido al Tag cliente
-             vehiculo.addTagHijo(placa);
-             //vehiculo.addTagHijo(montoApagar);
+             parqueo.addTagHijo(nombre);
+             parqueo.addTagHijo(direccion);
+             parqueo.addTagHijo(telefono);
+             parqueo.addTagHijo(slogan);
+             //parqueo.addTagHijo(montoMinimo);
+             parqueo.addTagHijo(contrasena);
+             //parqueo.addTagHijo(espaciosParqueo);
+             parqueo.addTagHijo(cedulaJuridica);
              
              //finalmente agrego al Tag bd, el tag cliente
-             par.addTagHijo(vehiculo);
+             
+             par.addTagHijo(parqueo);
+             
+             //y escribo el archivo XML
+
              //y escribo el archivo XML
              archivo.escribirXML(par);
          } catch (ParserConfigurationException ex) {
@@ -70,36 +103,38 @@ import javax.swing.JOptionPane;
              Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
          } catch (FileNotFoundException ex) {
              Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
-         } catch (SAXException ex) {
-             Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
          } catch (TransformerException ex) {
              Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
          }
-        }
+     }
+ }
      
      
-     public void AbrirXml(){
+     /*public void AbrirXml(){
                   try {
              //Cargo el archivo
-             JespXML archivo = new JespXML("Parqueo.xml");
+             JespXML archivo = new JespXML("Parqueo2014.xml");
              //leo el archivo y me retorna el tag raiz, que en este caso
              // es biblioteca
              Tag par = archivo.leerXML();
              //Obtengo los tags que necesito, por el nombre
-             Tag vehiculo = par.getTagHijoByName("Vehiculo");
-             Tag placa = vehiculo.getTagHijoByName("placa");
+             Tag carro = par.getTagHijoByName("Vehiculo");
+             Tag placa = carro.getTagHijoByName("placa");
+             //Tag parqueo = Parqueo.getTagHijoByName("Parqueo");
+             //Tag direccion = parqueo.getTagHijoByName("Direccion");
              
              
              //puedo obtener los valores de los atributos de un tag específico
-             //String paginas = vehiculo.getValorDeAtributo("paginas");
+             String paginas = carro.getValorDeAtributo("paginas");
              
              //imprimo la información requerida
-            JOptionPane.showInputDialog("Placa: "+placa.getContenido());
+             JOptionPane.showInputDialog("placa"+placa.getContenido());
+             //JOptionPane.showInputDialog("Placa: "+direccion.getContenido());
              /*System.out.println("Título: "+titulo.getContenido());
-             System.out.println("Autor: "+autor.getContenido());*/
-            /*} catch (AtributoNotFoundException ex) {
+             System.out.println("Autor: "+autor.getContenido());
+            } catch (AtributoNotFoundException ex) {
              //exception lanzada cuando no se encuentra el atributo
-             Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);*/
+             Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
             } catch (TagHijoNotFoundException ex) {
              //exception lanzada cuando no se encuentra el tag hijo
              Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
@@ -110,9 +145,8 @@ import javax.swing.JOptionPane;
             } catch (IOException ex) {
              Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
          }
-     }
+     }*/
      
-     }
- 
-         
- 
+     
+
+          

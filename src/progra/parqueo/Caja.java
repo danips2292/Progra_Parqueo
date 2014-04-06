@@ -24,13 +24,13 @@ public class Caja {
     private int dineroRetirado;
     private String contrasenaUsuario;
     private String contrasenaCaja;
-    private int minimoCaja;
+    private String minimoCaja="";
     private int totalGanacia;
     private int tarifa;
     private int montoCobro;
     private int numFactura;
     //Parqueo usuario = new Parqueo(true, dineroCaja, dineroCaja, contrasena, vuelto);
-    public Caja(int pTarifa,int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,int pMinimoCaja,int pTotalGanacias){
+    public Caja(int pTarifa,int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,String pMinimoCaja,int pTotalGanacias){
      dineroCaja = pDineroCaja;
      pagoCliente = pPagoCliente;
      vuelto = pVuelto;
@@ -51,12 +51,12 @@ public class Caja {
         tarifa = pTarifa;
     }
     
-    public void setMinimoCaja(int pMinimoCaja){
-        minimoCaja= pMinimoCaja;
-    }
-    
-    public int getMinimoCaja(){
+     public String getMinimoCaja() {
+        
         return minimoCaja;
+     }
+    public void setMinimoCaja(String minimoCaja) {
+        this.minimoCaja = minimoCaja;
     }
     public int getDineroCaja() {
         return dineroCaja;
@@ -124,7 +124,8 @@ public class Caja {
     }
     
     public int calcularGanancia(){
-        int n=getDineroCaja()-getMinimoCaja();
+        int min = Integer.parseInt(minimoCaja);
+        int n=getDineroCaja()-min;
         return n;
     }
 
@@ -145,29 +146,39 @@ public class Caja {
     }
     
     public void setContraseña(String pContrasenaCaja){
-        setContrasenaCaja(pContrasenaCaja);
+       contrasenaCaja=pContrasenaCaja;
     }
     public String getContrasena(){
-        return getContrasenaCaja();
+        return contrasenaCaja;
     }
     
     public void agregarDinero(int dineroAgregado){
-        
+        //contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
+        //if(contrasenaUsuario==contrasenaCaja){//funciona comparacion?
             setDineroAgregado(this.dineroAgregado);
             setDineroCaja(getDineroCaja()+dineroAgregado);
             JOptionPane.showMessageDialog(null, "Se ha agregado:"+getDineroAgregado()+"a la caja exitosamente");
-        
+        //}
+        //else{
+          //  JOptionPane.showMessageDialog(null, "Contrasena Invalida");
+        //}
     }
     
     public void retirarDinero(int dineroRetirado){
-        
+        //contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
+        //if(contrasenaUsuario==contrasenaCaja){
             setDineroRetirado(this.dineroRetirado);
             setDineroCaja(getDineroCaja()-this.dineroRetirado);
             JOptionPane.showMessageDialog(null, "Se ha retirado:"+getDineroRetirado()+"de la caja exitosamente");
-       
+        //}
+        //else{
+          //  JOptionPane.showMessageDialog(null, "Contrasena Invalida");
+        //}
     }
     
-    
+    public void recibirTiquete(){
+        
+    }
     
     public void mostrarEfectivo(){
         JOptionPane.showMessageDialog(null, "Efectivo:"+getDineroCaja());
@@ -200,48 +211,6 @@ public class Caja {
      */
     public void setTotalGanacia(int totalGanacia) {
         this.totalGanacia = totalGanacia;
-    }
-
-    /**
-     * @return the contrasenaUsuario
-     */
-    public String getContrasenaUsuario() {
-        return contrasenaUsuario;
-    }
-
-    /**
-     * @param contrasenaUsuario the contrasenaUsuario to set
-     */
-    public void setContrasenaUsuario(String contrasenaUsuario) {
-        this.contrasenaUsuario = contrasenaUsuario;
-    }
-
-    /**
-     * @return the contrasenaCaja
-     */
-    public String getContrasenaCaja() {
-        return contrasenaCaja;
-    }
-
-    /**
-     * @param contrasenaCaja the contrasenaCaja to set
-     */
-    public void setContrasenaCaja(String contrasenaCaja) {
-        this.contrasenaCaja = contrasenaCaja;
-    }
-
-    /**
-     * @return the numFactura
-     */
-    public int getNumFactura() {
-        return numFactura;
-    }
-
-    /**
-     * @param numFactura the numFactura to set
-     */
-    public void setNumFactura(int numFactura) {
-        this.numFactura = numFactura;
     }
 
     /**
