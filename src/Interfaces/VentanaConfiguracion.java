@@ -176,6 +176,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         Parqueo.getInstance().setContrasena(txtContraseña.getText());
         int i=Integer.parseInt(txtEspaciosParqueo.getText());
         Parqueo.getInstance().setCantEspacios(i);
+        System.out.println(txtDireccion);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**

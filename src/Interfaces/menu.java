@@ -53,6 +53,7 @@ public class menu extends javax.swing.JFrame {
         jbSalir = new javax.swing.JButton();
         jbVerParqueo = new javax.swing.JButton();
         btnConfigurar = new javax.swing.JButton();
+        btnHistorialFacturas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +94,13 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
+        btnHistorialFacturas.setText("Historial Facturas");
+        btnHistorialFacturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistorialFacturasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,8 +113,9 @@ public class menu extends javax.swing.JFrame {
                     .addComponent(jbMeterCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbVerParqueo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConfigurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(739, Short.MAX_VALUE))
+                    .addComponent(btnConfigurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnHistorialFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(727, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,8 +131,10 @@ public class menu extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(btnConfigurar)
                 .addGap(18, 18, 18)
+                .addComponent(btnHistorialFacturas)
+                .addGap(13, 13, 13)
                 .addComponent(jbSalir)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,13 +160,19 @@ public class menu extends javax.swing.JFrame {
 
     private void jbSacarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSacarCarroActionPerformed
          Parqueo.getInstance().vaciarEspacio();
-         //ventanaFactura.setVisible(true);
+         VentanaFactura ventanaFactura = new VentanaFactura();
+         ventanaFactura.setVisible(true);
          
     }//GEN-LAST:event_jbSacarCarroActionPerformed
 
     private void btnConfigurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarActionPerformed
         ventanaConfiguracion.setVisible(true);
     }//GEN-LAST:event_btnConfigurarActionPerformed
+
+    private void btnHistorialFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialFacturasActionPerformed
+        VentanaHistorialFacturas ventanaHistorialFacturas =new VentanaHistorialFacturas();
+        ventanaHistorialFacturas.setVisible(true);
+    }//GEN-LAST:event_btnHistorialFacturasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +210,7 @@ public class menu extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfigurar;
+    private javax.swing.JButton btnHistorialFacturas;
     private javax.swing.JButton jbEntrarCaja;
     private javax.swing.JButton jbMeterCarro;
     private javax.swing.JButton jbSacarCarro;

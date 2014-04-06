@@ -145,39 +145,29 @@ public class Caja {
     }
     
     public void setContraseña(String pContrasenaCaja){
-       contrasenaCaja=pContrasenaCaja;
+        setContrasenaCaja(pContrasenaCaja);
     }
     public String getContrasena(){
-        return contrasenaCaja;
+        return getContrasenaCaja();
     }
     
     public void agregarDinero(int dineroAgregado){
-        //contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
-        //if(contrasenaUsuario==contrasenaCaja){//funciona comparacion?
+        
             setDineroAgregado(this.dineroAgregado);
             setDineroCaja(getDineroCaja()+dineroAgregado);
             JOptionPane.showMessageDialog(null, "Se ha agregado:"+getDineroAgregado()+"a la caja exitosamente");
-        //}
-        //else{
-          //  JOptionPane.showMessageDialog(null, "Contrasena Invalida");
-        //}
+        
     }
     
     public void retirarDinero(int dineroRetirado){
-        //contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
-        //if(contrasenaUsuario==contrasenaCaja){
+        
             setDineroRetirado(this.dineroRetirado);
             setDineroCaja(getDineroCaja()-this.dineroRetirado);
             JOptionPane.showMessageDialog(null, "Se ha retirado:"+getDineroRetirado()+"de la caja exitosamente");
-        //}
-        //else{
-          //  JOptionPane.showMessageDialog(null, "Contrasena Invalida");
-        //}
+       
     }
     
-    public void recibirTiquete(){
-        
-    }
+    
     
     public void mostrarEfectivo(){
         JOptionPane.showMessageDialog(null, "Efectivo:"+getDineroCaja());
@@ -210,6 +200,48 @@ public class Caja {
      */
     public void setTotalGanacia(int totalGanacia) {
         this.totalGanacia = totalGanacia;
+    }
+
+    /**
+     * @return the contrasenaUsuario
+     */
+    public String getContrasenaUsuario() {
+        return contrasenaUsuario;
+    }
+
+    /**
+     * @param contrasenaUsuario the contrasenaUsuario to set
+     */
+    public void setContrasenaUsuario(String contrasenaUsuario) {
+        this.contrasenaUsuario = contrasenaUsuario;
+    }
+
+    /**
+     * @return the contrasenaCaja
+     */
+    public String getContrasenaCaja() {
+        return contrasenaCaja;
+    }
+
+    /**
+     * @param contrasenaCaja the contrasenaCaja to set
+     */
+    public void setContrasenaCaja(String contrasenaCaja) {
+        this.contrasenaCaja = contrasenaCaja;
+    }
+
+    /**
+     * @return the numFactura
+     */
+    public int getNumFactura() {
+        return numFactura;
+    }
+
+    /**
+     * @param numFactura the numFactura to set
+     */
+    public void setNumFactura(int numFactura) {
+        this.numFactura = numFactura;
     }
 
     /**
