@@ -171,8 +171,8 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         Parqueo.getInstance().getFactura().setNumTelefono(txtTelefono.getText());
         Parqueo.getInstance().getFactura().setSlogan(txtEslogan.getText());
         Parqueo.getInstance().getFactura().setCedulaJuridica(txtCedulaJuridica.getText());
-        int u=Integer.parseInt(txtMontoMinimo.getText());
-        Parqueo.getInstance().getUserCaja().setMinimoCaja(u);
+        //int u=Integer.parseInt(txtMontoMinimo.getText());
+        Parqueo.getInstance().getUserCaja().setMinimoCaja(txtMontoMinimo.getText());
         Parqueo.getInstance().setContrasena(txtContraseña.getText());
         int i=Integer.parseInt(txtEspaciosParqueo.getText());
         Parqueo.getInstance().setCantEspacios(i);

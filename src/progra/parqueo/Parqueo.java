@@ -2,6 +2,7 @@
 package progra.parqueo;
 
 import Interfaces.DetallesVehiculo;
+import Interfaces.VentanaFactura;
 import com.sun.jmx.snmp.BerDecoder;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -29,7 +30,7 @@ public class Parqueo {
     Factura factura= new Factura(0,"","","","","","");
     private Vehiculo vehiculo=new Vehiculo("", "", "", "", 0, 0);
     JPasswordField jpf= new JPasswordField();
-    
+    //VentanaFactura ventanaFactura=new VentanaFactura();
 
 
     //comment
@@ -296,6 +297,8 @@ public class Parqueo {
     public void setNumEspacio(int numEspacio) {
         this.numEspacio = numEspacio;
     }
+
+    
 
     
     

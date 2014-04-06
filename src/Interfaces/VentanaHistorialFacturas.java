@@ -18,7 +18,8 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
      */
     public VentanaHistorialFacturas() {
         initComponents();
-        
+        this.setVisible(rootPaneCheckingEnabled);
+        this.setSize(1378, 766);
         
         
         while(factura[i]!=null){
@@ -144,7 +145,8 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        while(factura[i]!=null){
+        
+        /*while(factura[i]!=null){
         lblCedulaJuridica.setText(Parqueo.getInstance().getFactura().getCedulaJuridicaCompleto());
         lblDireccion.setText(Parqueo.getInstance().getFactura().getDireccionCompleto());
         lblFecha.setText(Parqueo.getInstance().getFactura().getFechaComplato());
@@ -156,7 +158,10 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
         String x= String.valueOf(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado()));
         lblTotalNum.setText(x);
         i++;
-        }
+        }*/
+        VentanaHistorialFacturas ventanaHistorialFacturas =new VentanaHistorialFacturas();
+        ventanaHistorialFacturas.setVisible(true);
+        //JOptionPane.showMessageDialog(rootPane, "kk");
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     /**

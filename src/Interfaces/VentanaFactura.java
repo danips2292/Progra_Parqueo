@@ -17,6 +17,8 @@ public class VentanaFactura extends javax.swing.JFrame {
      */
     public VentanaFactura() {
         initComponents();
+        this.setVisible(rootPaneCheckingEnabled);
+        this.setSize(1378, 766);
         lblCedulaJuridica.setText(Parqueo.getInstance().getFactura().getCedulaJuridicaCompleto());
         lblDireccion.setText(Parqueo.getInstance().getFactura().getDireccionCompleto());
         lblFecha.setText(Parqueo.getInstance().getFactura().getFechaComplato());

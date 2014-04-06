@@ -19,7 +19,7 @@ public class menu extends javax.swing.JFrame {
     private Principal vPrincipal;
     //VentanaFactura ventanaFactura = new VentanaFactura();
     VentanaCaja VentanaCaja1 = new VentanaCaja();
-    
+    //VentanaFactura ventanaFactura;
     VentanaConfiguracion ventanaConfiguracion = new VentanaConfiguracion();
     //VentanaFactura ventanaFactura = new VentanaFactura();
 
@@ -160,8 +160,12 @@ public class menu extends javax.swing.JFrame {
 
     private void jbSacarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSacarCarroActionPerformed
          Parqueo.getInstance().vaciarEspacio();
+         
          VentanaFactura ventanaFactura = new VentanaFactura();
-         ventanaFactura.setVisible(true);
+         ventanaFactura.show();
+         
+         //Parqueo.getInstance().getVentanaFactura().show();
+         
          
     }//GEN-LAST:event_jbSacarCarroActionPerformed
 
