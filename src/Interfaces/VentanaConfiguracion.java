@@ -182,6 +182,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         this.setVisible(false);
         
         ArchivosXml.getInstance().CrearXml(Parqueo.getInstance());
+        ArchivosXml.getInstance().AbrirXml();
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**

@@ -36,7 +36,7 @@ public class Parqueo {
     private int posXPlaca = 100;
     private int posYPlaca = 800;
     private int etiquetaEspacio = 1;
-    Caja userCaja = new Caja(10, 0, 0,0,0,0,0, "hola","", 0);
+    Caja userCaja = new Caja(10, 0, 0,0,0,0,0, "prueba","", 0);
     Factura factura = new Factura(0,"","","","","","");
     private Vehiculo vehiculo = new Vehiculo("","","","",0,0);
     VentanaEstadoParqueo estadoParqueo = new VentanaEstadoParqueo();
@@ -260,15 +260,20 @@ public class Parqueo {
     }
     
     public void cerrarParqueo(){
-        JOptionPane.showInputDialog(null, "Seguro que desea cerrar el parqueo??");
-        if((espaciosLibres==0)||(espacios.length==espaciosLibres)){
-            setAbierto(false);
-            JOptionPane.showMessageDialog(null, "El parqueo esta cerrado ahora");
-            userCaja.getGanancia();
-            JOptionPane.showMessageDialog(null, "El dinero en caja es:"+Parqueo.getInstance().getUserCaja().getDineroCaja()+",y su ganancia fue de:"+Parqueo.getInstance().getUserCaja().calcularGanancia()); 
+        String respuesta=JOptionPane.showInputDialog(null, "Seguro que desea cerrar el parqueo??");
+        
+        if ("si".equals(respuesta)){
+            if(espaciosLibres==getCantEspacios()){
+                
+                JOptionPane.showMessageDialog(null, "El parqueo tiene:"+Parqueo.getInstance().userCaja.getDineroCaja()+" y su ganancia es de: "+Parqueo.getInstance().userCaja.getGanancia());
+            }
+            
+            else{
+                JOptionPane.showMessageDialog(null, "El parqueo debe estar vacio");
+                }
         }
-        else{
-            JOptionPane.showMessageDialog(null, "El parqueo debe estar vacio");
+        else {
+            JOptionPane.showMessageDialog(null, "El parqueo no se ha cerrado.");
         }
     }
     

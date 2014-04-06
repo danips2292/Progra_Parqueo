@@ -114,31 +114,31 @@ import progra.parqueo.*;
              //Cargo el archivo
              JespXML archivo = new JespXML("Parqueo2014.xml");
              //leo el archivo y me retorna el tag raiz, que en este caso
-             // es biblioteca
+             // es parqueo
              Tag par = archivo.leerXML();
              //Obtengo los tags que necesito, por el nombre
-             //Tag carro = par.getTagHijoByName("Vehiculo");
-             //Tag placa = carro.getTagHijoByName("placa");
-             Tag usuario = par.getTagHijoByName("Clientes");
-             Tag parque = usuario.getTagHijoByName("Parqueo");
-             Tag dire= parque.getTagHijoByName("Nombre");
              
+             Tag parque = par.getTagHijoByName("Parqueo");
+             Tag nombre= parque.getTagHijoByName("Nombre_del_Parqueo");
+             Tag direecion = parque.getTagHijoByName("Direccion");
+             Tag telefono = parque.getTagHijoByName("Telefono_Fijo");
+             Tag slogan=parque.getTagHijoByName("Slogan");
+             Tag montoMinimo=parque.getTagHijoByName("Monto_minimo_para_abrir_la_Caja");
+             Tag contrasena=parque.getTagHijoByName("Contrasena");
+             Tag espacios=parque.getTagHijoByName("Cantidad_de_espacios_de_parqueo");
+             Tag cedulaJuri=parque.getTagHijoByName("Cedula_jurudica");
              
-             //puedo obtener los valores de los atributos de un tag específico
-             //String paginas = carro.getValorDeAtributo("paginas");
-             String direccion = parque.getValorDeAtributo("Direccion");
-             //imprimo la información requerida
-             //JOptionPane.showInputDialog("placa"+placa.getContenido());
-              System.out.println("Direccion"+parque.getContenido());
-              System.out.println(par.getContenido());
-             //JOptionPane.showInputDialog("Direccion"+par.getContenido());
-             //JOptionPane.showInputDialog("Direccion"+parqueo.getContenido());
-             //JOptionPane.showInputDialog("Placa: "+direccion.getContenido());
-             //System.out.println("Título: "+titulo.getContenido());
-             //System.out.println("Autor: "+autor.getContenido());
-            } catch (AtributoNotFoundException ex) {
+             System.out.println("Nombre:"+nombre.getContenido());
+             System.out.println("Direccion:"+direecion.getContenido()); 
+             System.out.println("Telefono:"+telefono.getContenido());
+             System.out.println("Slogan:"+slogan.getContenido());
+             System.out.println("Monto para abrir la caja:"+montoMinimo.getContenido());
+             System.out.println("Contrasena:"+contrasena.getContenido());
+             System.out.println("Espacios en el parqueo:"+espacios.getContenido());
+             System.out.println("Cedula Juridica:"+cedulaJuri.getContenido());         
+             //} catch (AtributoNotFoundException ex) {
              //exception lanzada cuando no se encuentra el atributo
-             Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
+             //Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
             } catch (TagHijoNotFoundException ex) {
              //exception lanzada cuando no se encuentra el tag hijo
              Logger.getLogger(ArchivosXml.class.getName()).log(Level.SEVERE, null, ex);
