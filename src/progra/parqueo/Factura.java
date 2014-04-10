@@ -6,8 +6,8 @@ package progra.parqueo;
 
 public class Factura {
     
-    private String titulo = "Parqueo Morazan";
-    private String slogan = "Abierto las 24 horas.";
+    private String titulo = getTitulo(); 
+    private String slogan = getSlogan();
     private String numTelefono = "48657348";
     private String msjTelefono = "Tel:"+ getNumTelefono();
     private String cedulaJuridica = "1-1111-1112";
@@ -15,7 +15,7 @@ public class Factura {
     private String direccion= "Costado norte del Parque Morazán, San José";
     private String direccionCompleto= "Dirección:"+getDireccion();
     private String fechaComplato= "Fecha:"+Reloj.getInstance().getFecha();
-    private String horario="Abierto de 7 a.m. a 7 p.m.";
+    private String horario=getHorario();
     private int numFactura;
     private int cobro;
     

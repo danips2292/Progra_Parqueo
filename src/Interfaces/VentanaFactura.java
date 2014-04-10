@@ -20,6 +20,8 @@ public class VentanaFactura extends javax.swing.JFrame {
         initComponents();
         this.setVisible(rootPaneCheckingEnabled);
         this.setSize(1378, 766);
+        /*
+        lblTitulo.setText(Parqueo.getInstance().getFactura().getTitulo());
         lblCedulaJuridica.setText(Parqueo.getInstance().getFactura().getCedulaJuridicaCompleto());
         lblDireccion.setText(Parqueo.getInstance().getFactura().getDireccionCompleto());
         lblFecha.setText(Parqueo.getInstance().getFactura().getFechaComplato());
@@ -27,15 +29,27 @@ public class VentanaFactura extends javax.swing.JFrame {
         String n=String.valueOf(Parqueo.getInstance().getFactura().getNumFactura());
         lblNumFactura.setText(n);
         lblTelefono.setText(Parqueo.getInstance().getFactura().getMsjTelefono());
-        lblTitulo.setText(Parqueo.getInstance().getFactura().getTitulo());
-        String x= String.valueOf(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado()));
-        lblTotalNum.setText(x);
-        int y=Integer.parseInt(txtPagacon.getText());
-        Parqueo.getInstance().getUserCaja().setPagoCliente(y);
-        String w=String.valueOf(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado())-y);
-        JOptionPane.showMessageDialog(null,"Su vuelto es de:"+w+",gracias por su visita");
-        Factura factura= new Factura(Parqueo.getInstance().getFactura().getNumFactura(),Parqueo.getInstance().getFactura().getTitulo(),Parqueo.getInstance().getFactura().getSlogan(),Parqueo.getInstance().getFactura().getNumTelefono(),Parqueo.getInstance().getFactura().getCedulaJuridica(),Parqueo.getInstance().getFactura().getDireccion(),Parqueo.getInstance().getFactura().getHorario());
-        Parqueo.getInstance().setHistorialFacturas(factura);
+        */
+        lblCedulaJuridica.setText("Cedula Juridica: "+Parqueo.getInstance().getFactura().getCedulaJuridica());
+        
+        lblDireccion.setText("Direccion: "+Parqueo.getInstance().getFactura().getDireccion());
+        lblFecha.setText("Fecha: "+Parqueo.getInstance().getFactura().getFechaComplato());
+        lblHorario.setText("Horario: "+Parqueo.getInstance().getFactura().getHorario());
+        String numeroFact=String.valueOf(Parqueo.getInstance().getFactura().getNumFactura());
+        lblNumFactura.setText("Numero de factura: "+numeroFact);
+        lblTelefono.setText("Telefono: "+Parqueo.getInstance().getFactura().getNumTelefono());
+        lblTitulo.setText("Titulo: "+Parqueo.getInstance().getFactura().getTitulo());
+        
+        //Parqueo.getInstance().getVehiculo().setTiempoEstacionado(Parqueo.getInstance().getVehiculo().getHoraSalida()-Parqueo.getInstance().getVehiculo().getHoraIngreso());
+        
+        String cobro= String.valueOf(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado()));
+        lblTotalNum.setText(cobro);
+        
+        //String x= String.valueOf(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado()));
+        //lblTotalNum.setText(x);
+        
+        
+        
     }
     public static VentanaFactura getInstance(){
         if(VentanaFact == null)
@@ -64,6 +78,7 @@ public class VentanaFactura extends javax.swing.JFrame {
         lblTotalNum = new javax.swing.JLabel();
         lblPagacon = new javax.swing.JLabel();
         txtPagacon = new javax.swing.JTextField();
+        btnAceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +108,13 @@ public class VentanaFactura extends javax.swing.JFrame {
             }
         });
 
+        btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,27 +125,32 @@ public class VentanaFactura extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTitulo)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblFecha)
                             .addComponent(lblDireccion)
                             .addComponent(lblCedulaJuridica)
-                            .addComponent(lblHorario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblTelefono)
-                            .addComponent(lblNumFactura)
+                            .addComponent(lblHorario)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblPagacon)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPagacon)))
-                        .addGap(152, 152, 152))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(lblTotal)
-                .addGap(56, 56, 56)
-                .addComponent(lblTotalNum)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(41, 41, 41)
+                                .addComponent(lblTotal)
+                                .addGap(56, 56, 56)
+                                .addComponent(lblTotalNum)
+                                .addGap(46, 46, 46)
+                                .addComponent(lblPagacon)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTelefono)
+                                    .addComponent(lblNumFactura))
+                                .addGap(41, 41, 41))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtPagacon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnAceptar)
+                        .addGap(38, 38, 38))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,13 +169,14 @@ public class VentanaFactura extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFecha)
                     .addComponent(lblNumFactura))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotal)
                     .addComponent(lblTotalNum)
                     .addComponent(lblPagacon)
-                    .addComponent(txtPagacon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                    .addComponent(txtPagacon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAceptar))
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -157,6 +185,17 @@ public class VentanaFactura extends javax.swing.JFrame {
     private void txtPagaconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPagaconActionPerformed
         
     }//GEN-LAST:event_txtPagaconActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        this.hide();
+        int y=Integer.parseInt(txtPagacon.getText());
+        Parqueo.getInstance().getUserCaja().setPagoCliente(y);
+        String w=String.valueOf(Parqueo.getInstance().getUserCaja().calcularVuelto());
+        JOptionPane.showMessageDialog(null,"Su vuelto es de:"+w+",gracias por su visita");
+        Factura factura= new Factura(Parqueo.getInstance().getFactura().getNumFactura(),Parqueo.getInstance().getFactura().getTitulo(),Parqueo.getInstance().getFactura().getSlogan(),Parqueo.getInstance().getFactura().getNumTelefono(),Parqueo.getInstance().getFactura().getCedulaJuridica(),Parqueo.getInstance().getFactura().getDireccion(),Parqueo.getInstance().getFactura().getHorario());
+        Parqueo.getInstance().setHistorialFacturas(factura);
+        menu.getInstance().setVisible(true);
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +232,7 @@ public class VentanaFactura extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JLabel lblCedulaJuridica;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblFecha;

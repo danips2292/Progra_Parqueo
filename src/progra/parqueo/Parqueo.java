@@ -37,11 +37,12 @@ public class Parqueo {
     private int posXPlaca = 100;
     private int posYPlaca = 800;
     private int etiquetaEspacio = 1;
-    Caja userCaja = new Caja(10, 0, 0,0,0,0,0, "prueba","", 0);
+    Caja userCaja = new Caja(300, 0, 0,0,0,0,0, "prueba","", 0);
     Factura factura = new Factura(0,"","","","","","");
     private Vehiculo vehiculo = new Vehiculo("","","","",0,0);
     VentanaEstadoParqueo estadoParqueo = new VentanaEstadoParqueo();
     JPasswordField jpf= new JPasswordField();
+    private int i=0;
     //VentanaFactura ventanaFactura=new VentanaFactura();
 
 
@@ -234,7 +235,7 @@ public class Parqueo {
             setEspaciosLibres(getEspaciosLibres() + 1);
             espacios[getNumEspacio()].getVehiculo().setTiempoEstacionado(espacios[getNumEspacio()].getVehiculo().getHoraSalida() -
                                                                     espacios[getNumEspacio()].getVehiculo().getHoraIngreso());
-            userCaja.calcularTarifa(espacios[getNumEspacio()].getVehiculo().getTiempoEstacionado());
+            //userCaja.calcularTarifa(espacios[getNumEspacio()].getVehiculo().getTiempoEstacionado());
             JOptionPane.showMessageDialog(null,"El espacio ha sido vaciado, cancele la cuenta por favor");
             Parqueo.getInstance().getFactura().setNumFactura((Parqueo.getInstance().getFactura().getNumFactura())+1);
         }
@@ -343,6 +344,20 @@ public class Parqueo {
      */
     public void setNumEspacio(int numEspacio) {
         this.numEspacio = numEspacio;
+    }
+
+    /**
+     * @return the i
+     */
+    public int getI() {
+        return i;
+    }
+
+    /**
+     * @param i the i to set
+     */
+    public void setI(int i) {
+        this.i = i;
     }
 
     

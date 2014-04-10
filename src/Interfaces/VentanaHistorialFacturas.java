@@ -12,8 +12,8 @@ import progra.parqueo.*;
  */
 public class VentanaHistorialFacturas extends javax.swing.JFrame {
     private static VentanaHistorialFacturas VentanaHistorial;
-    Factura factura[]=Parqueo.getInstance().getHistorialFacturas();
-    int i=0;
+    //Factura factura[]=Parqueo.getInstance().getHistorialFacturas();
+    //int i=0;
     /**
      * Creates new form VentanaFactura
      */
@@ -52,7 +52,6 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
         lblNumFactura = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
         lblTotalNum = new javax.swing.JLabel();
-        btnSiguiente = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnActualizarInfo = new javax.swing.JButton();
 
@@ -76,13 +75,6 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
 
         lblTotalNum.setText("60000");
 
-        btnSiguiente.setText("Siguiente");
-        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteActionPerformed(evt);
-            }
-        });
-
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +82,7 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
             }
         });
 
-        btnActualizarInfo.setText("Actualizar");
+        btnActualizarInfo.setText("Siguiente");
         btnActualizarInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarInfoActionPerformed(evt);
@@ -101,38 +93,31 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitulo)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTitulo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFecha)
-                                    .addComponent(lblDireccion)
-                                    .addComponent(lblCedulaJuridica)
-                                    .addComponent(lblHorario))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblNumFactura)
-                                        .addGap(152, 152, 152))
-                                    .addComponent(lblTelefono)))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(lblTotal)
-                        .addGap(56, 56, 56)
-                        .addComponent(lblTotalNum)
+                            .addComponent(lblFecha)
+                            .addComponent(lblDireccion)
+                            .addComponent(lblCedulaJuridica)
+                            .addComponent(lblHorario))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnActualizarInfo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnVolver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSiguiente)))
-                .addGap(65, 65, 65))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNumFactura)
+                            .addComponent(lblTelefono))
+                        .addGap(217, 217, 217))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(lblTotal)
+                .addGap(56, 56, 56)
+                .addComponent(lblTotalNum)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnActualizarInfo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVolver)
+                .addGap(152, 152, 152))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +140,6 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotal)
                     .addComponent(lblTotalNum)
-                    .addComponent(btnSiguiente)
                     .addComponent(btnVolver)
                     .addComponent(btnActualizarInfo))
                 .addGap(23, 23, 23))
@@ -164,29 +148,10 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        
-        /*while(factura[i]!=null){
-        lblCedulaJuridica.setText(Parqueo.getInstance().getFactura().getCedulaJuridicaCompleto());
-        lblDireccion.setText(Parqueo.getInstance().getFactura().getDireccionCompleto());
-        lblFecha.setText(Parqueo.getInstance().getFactura().getFechaComplato());
-        lblHorario.setText(Parqueo.getInstance().getFactura().getHorario());
-        String n=String.valueOf(Parqueo.getInstance().getFactura().getNumFactura());
-        lblNumFactura.setText(n);
-        lblTelefono.setText(Parqueo.getInstance().getFactura().getMsjTelefono());
-        lblTitulo.setText(Parqueo.getInstance().getFactura().getTitulo());
-        String x= String.valueOf(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado()));
-        lblTotalNum.setText(x);
-        i++;
-        }*/
-        VentanaHistorialFacturas ventanaHistorialFacturas =new VentanaHistorialFacturas();
-        ventanaHistorialFacturas.setVisible(true);
-        //JOptionPane.showMessageDialog(rootPane, "kk");
-    }//GEN-LAST:event_btnSiguienteActionPerformed
-
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         this.hide();
+        menu.getInstance().show(true);
         
     }//GEN-LAST:event_btnVolverActionPerformed
 
@@ -195,18 +160,18 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
         
         //while(factura[i]!=null){
         
-        lblCedulaJuridica.setText("Cedula Juridica: "+Parqueo.getInstance().getFactura().getCedulaJuridica());
+        lblCedulaJuridica.setText("Cedula Juridica: "+Parqueo.getInstance().getHistorialFacturas()[Parqueo.getInstance().getI()].getCedulaJuridica());
         
-        lblDireccion.setText("Direccion: "+Parqueo.getInstance().getFactura().getDireccion());
-        lblFecha.setText("Fecha: "+Parqueo.getInstance().getFactura().getFechaComplato());
-        lblHorario.setText("Horario: "+Parqueo.getInstance().getFactura().getHorario());
-        String numeroFact=String.valueOf(Parqueo.getInstance().getFactura().getNumFactura());
+        lblDireccion.setText("Direccion: "+Parqueo.getInstance().getHistorialFacturas()[Parqueo.getInstance().getI()].getDireccion());
+        lblFecha.setText("Fecha: "+Parqueo.getInstance().getHistorialFacturas()[Parqueo.getInstance().getI()].getFechaComplato());
+        lblHorario.setText("Horario: "+Parqueo.getInstance().getHistorialFacturas()[Parqueo.getInstance().getI()].getHorario());
+        String numeroFact=String.valueOf(Parqueo.getInstance().getHistorialFacturas()[Parqueo.getInstance().getI()].getNumFactura());
         lblNumFactura.setText("Numero de factura: "+numeroFact);
-        lblTelefono.setText("Telefono: "+Parqueo.getInstance().getFactura().getNumTelefono());
-        lblTitulo.setText("Titulo: "+Parqueo.getInstance().getFactura().getTitulo());
-        String cobro= String.valueOf(Parqueo.getInstance().getFactura().getCobro());
+        lblTelefono.setText("Telefono: "+Parqueo.getInstance().getHistorialFacturas()[Parqueo.getInstance().getI()].getNumTelefono());
+        lblTitulo.setText("Titulo: "+Parqueo.getInstance().getHistorialFacturas()[Parqueo.getInstance().getI()].getTitulo());
+        String cobro= String.valueOf(Parqueo.getInstance().getHistorialFacturas()[Parqueo.getInstance().getI()].getCobro());
         lblTotalNum.setText("Cobro: "+cobro);
-        
+        Parqueo.getInstance().setI(Parqueo.getInstance().getI()+1);
         //}
         
     }//GEN-LAST:event_btnActualizarInfoActionPerformed
@@ -247,7 +212,6 @@ public class VentanaHistorialFacturas extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarInfo;
-    private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblCedulaJuridica;
     private javax.swing.JLabel lblDireccion;

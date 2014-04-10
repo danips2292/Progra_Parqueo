@@ -110,11 +110,13 @@ public class VentanaCaja extends javax.swing.JFrame {
 
     private void jbAgregarDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarDineroActionPerformed
         // TODO add your handling code here:
+        contrasena2=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
+        
         Parqueo.getInstance().setContrasenaEncriptada(contrasena2);
-        //contrasena2=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
-        if(Parqueo.getInstance().getUserCaja().getContrasena()==Parqueo.getInstance().getContrasena()){
+        //
+        if(Parqueo.getInstance().getUserCaja().getContrasena().equals(Parqueo.getInstance().getContrasena())){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
-            montoAgregar=JOptionPane.showInputDialog("Ingrese el monto a ingresar: ");
+            montoAgregar=JOptionPane.showInputDialog("Ingrese el monto a agregar: ");
             int monto2 = Integer.parseInt(montoAgregar);
             Parqueo.getInstance().getUserCaja().setDineroAgregado(monto2);
             Parqueo.getInstance().getUserCaja().agregarDinero( monto2);
@@ -128,9 +130,9 @@ public class VentanaCaja extends javax.swing.JFrame {
 
     private void jbRetirarDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRetirarDineroActionPerformed
         // TODO add your handling code here:
-        //contrasena2=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
+        contrasena2=JOptionPane.showInputDialog("Digite la contrasena de Usuario: ");
         Parqueo.getInstance().setContrasenaEncriptada(contrasena2);
-        if(Parqueo.getInstance().getUserCaja().getContrasena()==Parqueo.getInstance().getContrasena()){
+        if(Parqueo.getInstance().getUserCaja().getContrasena().equals(Parqueo.getInstance().getContrasena())){
             JOptionPane.showMessageDialog(rootPane,"Contrasena correcta.");
             montoRetirar=JOptionPane.showInputDialog("Ingrese el monto a retirar: ");
             int monto3 = Integer.parseInt(montoRetirar);
@@ -146,7 +148,7 @@ public class VentanaCaja extends javax.swing.JFrame {
 
     private void jbVerDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerDineroActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, Parqueo.getInstance().getUserCaja().getDineroCaja());
+        JOptionPane.showMessageDialog(rootPane,"$"+ Parqueo.getInstance().getUserCaja().getDineroCaja());
     }//GEN-LAST:event_jbVerDineroActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed

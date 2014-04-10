@@ -8,6 +8,7 @@ import Interfaces.*;
 import java.awt.Color;
 import java.awt.Container;
 import javax.swing.*;
+import progra.parqueo.Reloj;
 /**
  *
  * @author dani
@@ -153,14 +154,16 @@ public class menu extends javax.swing.JFrame {
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
        // Container ventana = Parqueo.getInstance().getEstadoParqueo().getContentPane();
-        Parqueo.getInstance().getEstadoParqueo().getComponentAt(400, 500).setBackground(Color.red);
-        Parqueo.getInstance().getEstadoParqueo().repaint();
+       // Parqueo.getInstance().getEstadoParqueo().getComponentAt(400, 500).setBackground(Color.red);
+//        Parqueo.getInstance().getEstadoParqueo().repaint();
+        //Parqueo.getInstance().cerrarParqueo();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbMeterCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMeterCarroActionPerformed
         //Parqueo.getInstance().llenarEspacio();
         DetallesVehiculo vDetallesVehiculo = new DetallesVehiculo();
         vDetallesVehiculo.show();
+        
     }//GEN-LAST:event_jbMeterCarroActionPerformed
 
     private void jbEntrarCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarCajaActionPerformed
@@ -171,8 +174,12 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jbEntrarCajaActionPerformed
 
     private void jbSacarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSacarCarroActionPerformed
-         Parqueo.getInstance().vaciarEspacio();
          
+        Parqueo.getInstance().vaciarEspacio();
+         int hSalida =Integer.parseInt(Reloj.getInstance().getHorMin());
+         Parqueo.getInstance().getVehiculo().setHoraSalida(hSalida);
+         Parqueo.getInstance().getVehiculo().setTiempoEstacionado(Parqueo.getInstance().getVehiculo().getHoraSalida()-Parqueo.getInstance().getVehiculo().getHoraIngreso());
+        
          VentanaFactura.getInstance().show(true);
          this.hide();
          

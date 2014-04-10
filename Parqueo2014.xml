@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Clientes>
 <Parqueo>
-<Nombre_del_Parqueo>daniel</Nombre_del_Parqueo>
-<Direccion>perez</Direccion>
-<Telefono_Fijo>258963</Telefono_Fijo>
-<Slogan>yeah</Slogan>
+<Nombre_del_Parqueo>kkita</Nombre_del_Parqueo>
+<Direccion>kkita norte</Direccion>
+<Telefono_Fijo>3565666</Telefono_Fijo>
+<Slogan>vamos kk</Slogan>
 <Monto_minimo_para_abrir_la_Caja>5000</Monto_minimo_para_abrir_la_Caja>
 <Contrasena>uwzjgf</Contrasena>
-<Cantidad_de_espacios_de_parqueo>6</Cantidad_de_espacios_de_parqueo>
-<Cedula_jurudica>123456789</Cedula_jurudica>
+<Cantidad_de_espacios_de_parqueo>15</Cantidad_de_espacios_de_parqueo>
+<Cedula_jurudica>1234</Cedula_jurudica>
 </Parqueo>
 </Clientes>

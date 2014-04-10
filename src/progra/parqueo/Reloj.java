@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 
 public class Reloj extends JLabel implements Runnable { 
 private static Reloj relojInstance;
-private String dia, mes, año, hora, minutos, segundos, fecha; 
+private String dia, mes, año, hora, minutos, segundos, fecha,HorMin; 
 private Calendar calendario = new GregorianCalendar(); 
 Thread hilo; 
 
@@ -60,6 +60,9 @@ Thread hilo;
     setDia(calendario.get(Calendar.DATE) > 9 ? "" + calendario.get(Calendar.DATE) : "0" + calendario.get(Calendar.DATE)); 
     setMes(calendario.get(Calendar.MONTH) > 9 ? "" + calendario.get(Calendar.MONTH) : "0" + calendario.get(Calendar.MONTH)); 
     setAño(calendario.get(Calendar.YEAR) > 9 ? "" + calendario.get(Calendar.YEAR) : "0" + calendario.get(Calendar.YEAR)); 
+    int hora2 = Integer.parseInt(hora);
+    String horMinVar =String.valueOf((hora2*100)+minutos);
+    setHorMin(horMinVar);
     setFecha(getDia()+"/"+getMes()+"/"+getAño());
     } 
 
@@ -111,6 +114,20 @@ Thread hilo;
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    /**
+     * @return the HorMin
+     */
+    public String getHorMin() {
+        return HorMin;
+    }
+
+    /**
+     * @param HorMin the HorMin to set
+     */
+    public void setHorMin(String HorMin) {
+        this.HorMin = HorMin;
     }
     
 } 

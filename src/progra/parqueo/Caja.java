@@ -30,7 +30,7 @@ public class Caja {
      dineroCaja = pDineroCaja;
      pagoCliente = pPagoCliente;
      vuelto = pVuelto;
-     tarifa = pTarifa;
+     tarifa=pTarifa;
      dineroInicial = pDineroInicial;
      dineroAgregado = pDineroAgregado;
      dineroRetirado =pDineroRetirado;
@@ -71,13 +71,20 @@ public class Caja {
     }
     
     public int calcularTarifa(int tEstacionado){
+        setMontoCobro((getTarifa()*5)+getTarifa());
+        System.out.println("monto:" + montoCobro+1);
+        
         if(tEstacionado%15!=0){
+            System.out.println(tEstacionado);
             int n= tEstacionado/15;
+            System.out.println(n);
             setMontoCobro((getTarifa()*n)+getTarifa());
-            System.out.println("monto:" + montoCobro);
+            
+            System.out.println("monto:" + montoCobro+"kk");
             return montoCobro;
         }
         else{
+            System.out.println(tEstacionado);
             int n= tEstacionado/15;
             setMontoCobro(getTarifa()*n);
             System.out.println("monto:" + montoCobro);
