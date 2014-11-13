@@ -4,10 +4,7 @@
  */
 package progra.parqueo;
 
-/**
- *
- * @author Gato
- */
+
 public class Espacio {
     private boolean ocupado;
     private Vehiculo vehiculo;
@@ -20,6 +17,7 @@ public class Espacio {
         //cantidadLugaresDisponibles=pCantidadLugaresDisponibles;
     }
     
+    //se encarga de decir si esta ocupado o no por medio de un true o false, no recibe parametros, salidas bool para ocupado o no
     public boolean isOcupado() {
         return ocupado;
     }

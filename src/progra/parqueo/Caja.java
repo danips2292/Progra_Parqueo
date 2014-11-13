@@ -7,10 +7,7 @@ package progra.parqueo;
 import javax.swing.JOptionPane;
 
 
-/**
- *
- * @author Gato
- */
+
 public class Caja {
     private int dineroCaja;
     private int pagoCliente;
@@ -25,7 +22,7 @@ public class Caja {
     private int tarifa;
     private int montoCobro;
     private int numFactura;
-    //Parqueo usuario = new Parqueo(true, dineroCaja, dineroCaja, contrasena, vuelto);
+    
     public Caja(int pTarifa,int pDineroCaja,int pPagoCliente,int pVuelto,int pDineroInicial,int pDineroAgregado,int pDineroRetirado,String pContrasenaCaja,String pMinimoCaja,int pTotalGanacias){
      dineroCaja = pDineroCaja;
      pagoCliente = pPagoCliente;
@@ -61,6 +58,8 @@ public class Caja {
     public void setDineroCaja(int dineroCaja) {
         this.dineroCaja = dineroCaja;
     }
+    
+    //informa si existe dinero en la caja, no recibe parametros, salidas bool, si hay o no dinero
     public boolean isDineroEnCaja(){
         if(getDineroCaja()>0){
             return true;
@@ -70,24 +69,25 @@ public class Caja {
         }
     }
     
+    //se encarga de calcular el monto que debe pagar el ususario segun el tiempo en el parqueo, recibe el tiempo esatcionado del vehiculo, salidas retorna el valor que debe pagar
     public int calcularTarifa(int tEstacionado){
         setMontoCobro((getTarifa()*5)+getTarifa());
-        System.out.println("monto:" + montoCobro+1);
+        
         
         if(tEstacionado%15!=0){
-            System.out.println(tEstacionado);
+            
             int n= tEstacionado/15;
-            System.out.println(n);
+           
             setMontoCobro((getTarifa()*n)+getTarifa());
             
-            System.out.println("monto:" + montoCobro+"kk");
+            
             return montoCobro;
         }
         else{
-            System.out.println(tEstacionado);
+            
             int n= tEstacionado/15;
             setMontoCobro(getTarifa()*n);
-            System.out.println("monto:" + montoCobro);
+            
             return montoCobro;
         }
     }
@@ -105,9 +105,11 @@ public class Caja {
         this.vuelto = vuelto;
     }
     
+    //calcula el vuelto del pago del cliente y lo que debe este pagar por el servivio, no recibe parametros, salidas retorna el vuelto
     public int calcularVuelto(){
-        int t=getPagoCliente()-(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado()));
-        return t;
+        int calculoVuelto=getPagoCliente()-(Parqueo.getInstance().getUserCaja().
+        calcularTarifa(Parqueo.getInstance().getEspacios()[Parqueo.getInstance().getNumEspacio()].getVehiculo().getTiempoEstacionado()));
+        return calculoVuelto;
     }
     public int getDineroInicial() {
         return dineroInicial;
@@ -126,6 +128,7 @@ public class Caja {
         
     }
     
+    //calcula la ganacia de un dia en la caja al cerrar parqueo, no recibe parametros, salidas valor de ganancia del dia
     public int calcularGanancia(){
         int min = Integer.parseInt(minimoCaja);
         int n=getDineroCaja()-min;
@@ -155,34 +158,26 @@ public class Caja {
         return contrasenaCaja;
     }
     
+    //se encarga de agregar cierto monto al dinero que esta en la caja, recibe un monto para agregar, salidas void
     public void agregarDinero(int dineroAgregado){
-        //contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
-        //if(contrasenaUsuario==contrasenaCaja){//funciona comparacion?
+        
             setDineroAgregado(this.dineroAgregado);
             setDineroCaja(getDineroCaja()+dineroAgregado);
             JOptionPane.showMessageDialog(null, "Se ha agregado:"+getDineroAgregado()+"a la caja exitosamente");
-        //}
-        //else{
-          //  JOptionPane.showMessageDialog(null, "Contrasena Invalida");
-        //}
-    }
-    
-    public void retirarDinero(int dineroRetirado){
-        //contrasenaUsuario = JOptionPane.showInputDialog("Digite la contraseña: ");
-        //if(contrasenaUsuario==contrasenaCaja){
-            setDineroRetirado(this.dineroRetirado);
-            setDineroCaja(getDineroCaja()-this.dineroRetirado);
-            JOptionPane.showMessageDialog(null, "Se ha retirado:"+getDineroRetirado()+"de la caja exitosamente");
-        //}
-        //else{
-          //  JOptionPane.showMessageDialog(null, "Contrasena Invalida");
-        //}
-    }
-    
-    public void recibirTiquete(){
         
     }
     
+    //se encarga de retirar cierto monto al dinero que esta en la caja, recibe un monto para retirar, salidas void
+    public void retirarDinero(int dineroRetirado){
+       
+            setDineroRetirado(this.dineroRetirado);
+            setDineroCaja(getDineroCaja()-this.dineroRetirado);
+            JOptionPane.showMessageDialog(null, "Se ha retirado:"+getDineroRetirado()+"de la caja exitosamente");
+       
+    }
+    
+    
+    //se encarga de mandar una pantalla con el dinero que existe en la caja, no recibe parametros, salidas void
     public void mostrarEfectivo(){
         JOptionPane.showMessageDialog(null, "Efectivo:"+getDineroCaja());
     }

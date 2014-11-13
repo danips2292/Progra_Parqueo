@@ -6,10 +6,7 @@
 
 package progra.parqueo;
 
-/**
- *
- * @author Gilberto
- */
+
 public class Main {
 
   

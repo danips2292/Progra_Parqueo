@@ -6,10 +6,6 @@ package Interfaces;
 
 import progra.parqueo.*;
 
-/**
- *
- * @author Gato
- */
 public class VentanaConfiguracion extends javax.swing.JFrame {
 
     /**

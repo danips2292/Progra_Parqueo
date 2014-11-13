@@ -49,7 +49,7 @@
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Component id="lblTotalNum" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnActualizarInfo" min="-2" max="-2" attributes="0"/>
+              <Component id="btnSiguiente" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
@@ -80,7 +80,7 @@
                   <Component id="lblTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblTotalNum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnVolver" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnActualizarInfo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSiguiente" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
@@ -90,37 +90,37 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblTitulo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Parqueo LiCaSa"/>
+        <Property name="text" type="java.lang.String" value="Parqueo "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblHorario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Abierto de 7 a.m. a 7 p.m."/>
+        <Property name="text" type="java.lang.String" value="Abierto "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTelefono">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tel: 86667777"/>
+        <Property name="text" type="java.lang.String" value="Tel: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCedulaJuridica">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xe9;dula Jur&#xed;dica: 1-6942-8181"/>
+        <Property name="text" type="java.lang.String" value="C&#xe9;dula Jur&#xed;dica: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDireccion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Direcci&#xf3;n: Del mercado 100 metros norte,Cartago "/>
+        <Property name="text" type="java.lang.String" value="Direcci&#xf3;n: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblFecha">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha: 31/02/2014"/>
+        <Property name="text" type="java.lang.String" value="Fecha: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNumFactura">
       <Properties>
-        <Property name="text" type="java.lang.String" value="N&#xfa;mero Factura: 0000001"/>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero Factura:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTotal">
@@ -129,9 +129,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTotalNum">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="60000"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnVolver">
       <Properties>
@@ -141,12 +138,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnActualizarInfo">
+    <Component class="javax.swing.JButton" name="btnSiguiente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Siguiente"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarInfoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -34,6 +34,7 @@ import progra.parqueo.*;
 
     }
     
+     //crea un xml para ser accesado, recibe un paqueo, salidas void
     public void CrearXml(Parqueo prueba) {
          try {
              //creo el objeto JespXML con el archivo que quiero crear
@@ -108,7 +109,7 @@ import progra.parqueo.*;
      }
  
      
-     
+     //abre el xml para ser poder utilizar sus variables, no recibe nada, salidas void
      public void AbrirXml(){
                   try {
              //Cargo el archivo

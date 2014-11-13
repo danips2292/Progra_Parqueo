@@ -1,4 +1,4 @@
-//CAT CODE
+
 package progra.parqueo;
 
 import Interfaces.DetallesVehiculo;
@@ -15,10 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
-/**
- *
- * @author Gato
- */
+
 public class Parqueo {
     private static Parqueo parqueoInstance;
     private boolean abierto;
@@ -32,13 +29,13 @@ public class Parqueo {
     private Espacio espacios[];//chequear el for
     private int espaciosLibres; // siempre que se inicie el programa se asume que el parqueo esta vacio
     private int numEspacio;//numero de espacio con el cual se trabajara
-    private int posXEspacio = 400;
+    private int posXEspacio = 50;
     private int posYEspacio = 500;
     private int posXPlaca = 100;
     private int posYPlaca = 800;
     private int etiquetaEspacio = 1;
     Caja userCaja = new Caja(300, 0, 0,0,0,0,0, "prueba","", 0);
-    Factura factura = new Factura(0,"","","","","","");
+    Factura factura = new Factura(-1,"","","","1234","1234","");
     private Vehiculo vehiculo = new Vehiculo("","","","",0,0);
     VentanaEstadoParqueo estadoParqueo = new VentanaEstadoParqueo();
     JPasswordField jpf= new JPasswordField();
@@ -54,15 +51,18 @@ public class Parqueo {
         contrasena = pContrasena; 
         cantEspacios = pCantEspacios;
         espacios= new Espacio[cantEspacios];
+        historialFacturas = new Factura[1000];
         espaciosLibres = cantEspacios;
         setEspacios();
     }
+    
+    //se encarga de agregar botones en caso de que sea necesario en el parqueo, no recibe parametros, salidas void
     public void setAgregarBoton(){
         //menu.setVisible(true);
         int i = 0;
         etiquetaEspacio = 0;
         estadoParqueo = new VentanaEstadoParqueo();
-        posXEspacio = 400;
+        posXEspacio = 100;
         posYEspacio = 500;
         posXPlaca = 100; 
         posYPlaca = 800;
@@ -121,6 +121,7 @@ public class Parqueo {
         return estadoParqueo;
     }
     
+    //seencraga de crear instancia de parqueo y si existe ya, la retorna , no recibe parametros, salidas instancia del parqueo
     public static Parqueo getInstance(){
         if(parqueoInstance == null)
             parqueoInstance = new Parqueo(true,null,15);
@@ -138,11 +139,20 @@ public class Parqueo {
         return cantEspacios;
     }
     
+    //se encarga de agregar espacios, no recibe parametros, salidas void
     public void setEspacios() {
         int i = 0;
         for (i=0;i<cantEspacios;i=i+1){        
             espacios[i]=new Espacio(false);
         }
+    }
+
+    public Espacio[] getEspacios() {
+        return espacios;
+    }
+
+    public void setEspacios(Espacio[] espacios) {
+        this.espacios = espacios;
     }
     
     
@@ -150,6 +160,7 @@ public class Parqueo {
         return getEncriptado();
     }
 
+    //se encarga de encriptar una contrasena, recibe una contrasena a encriptar, salidas contrasena encriptada
     public void setContrasenaEncriptada(String pEncriptado) {
         encriptado=pEncriptado;
         char array[]= pEncriptado.toCharArray();
@@ -165,6 +176,7 @@ public class Parqueo {
         return contrasena;
     }
 
+    //se encarga de llamar al metodo que encripta esta contrasena, recibe una contrasena, salidas void
     public void setContrasena(String pContrasena) {
         JOptionPane.showConfirmDialog (null, new Object[]{"Digite la contrasena", jpf}, "Inicio de sesión", JOptionPane.OK_CANCEL_OPTION);
         pContrasena=jpf.getText();
@@ -205,7 +217,7 @@ public class Parqueo {
     }
     
     
-    //Terminar esta funcio falta ponerle el else
+    //se encarga de llenar un espacio determinado en el parqueo y que pase a ocupado, recibe un vehiculo, salidas void
     public void llenarEspacio(Vehiculo vehiculo)
     {
        // numEspacio = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de espacio"));
@@ -216,8 +228,8 @@ public class Parqueo {
             vehiculo.setHoraIngreso(Integer.parseInt(Reloj.getInstance().getHora())*100 + Integer.parseInt(Reloj.getInstance().getMinutos()));
             espacios[vehiculo.getEspacioOcupado()].setVehiculo(vehiculo);
             setEspaciosLibres(getEspaciosLibres() - 1);//comprobar que siempre sea mayor a cero
-            System.out.println(getEspaciosLibres());
-            System.out.println(espacios[vehiculo.getEspacioOcupado()].getVehiculo().getColor());
+            
+           
             
         }
         else
@@ -225,6 +237,8 @@ public class Parqueo {
             JOptionPane.showMessageDialog(null,"El espacio esta ocupado");
         }
     }
+    
+    //se encarga de vaciar un espacio ocupado, no recibe parametros, salidas void
     public void vaciarEspacio()
     {
         setNumEspacio(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de espacio a vaciar")));
@@ -238,6 +252,7 @@ public class Parqueo {
             //userCaja.calcularTarifa(espacios[getNumEspacio()].getVehiculo().getTiempoEstacionado());
             JOptionPane.showMessageDialog(null,"El espacio ha sido vaciado, cancele la cuenta por favor");
             Parqueo.getInstance().getFactura().setNumFactura((Parqueo.getInstance().getFactura().getNumFactura())+1);
+            Parqueo.getInstance().getFactura().setCobro(String.valueOf(userCaja.calcularTarifa( espacios[getNumEspacio()].getVehiculo().getTiempoEstacionado())));
         }
         else
         {
@@ -245,6 +260,8 @@ public class Parqueo {
             JOptionPane.showMessageDialog(null,"El espacio ya está vacío");
         }
     } 
+    
+    //se encarga de validar las condiciones para poder abrir el parqueo, no recibe parametros, salidas void
     public void abrirParqueo(){
         //cargarParametrosIniciales();
         int min=Integer.parseInt(userCaja.getMinimoCaja());
@@ -262,6 +279,7 @@ public class Parqueo {
         }
     }
     
+    //se encarga de validar para cerrar el parqueo, no recibe parametros, salidas void
     public void cerrarParqueo(){
         String respuesta=JOptionPane.showInputDialog(null, "Seguro que desea cerrar el parqueo??");
         
@@ -286,19 +304,15 @@ public class Parqueo {
         this.cantEspacios = cantEspacios;
     }
 
-    /**
-     * @return the historialFacturas
-     */
+ 
     public Factura[] getHistorialFacturas() {
         return historialFacturas;
     }
 
-    /**
-     * @param historialFacturas the historialFacturas to set
-     */
+    //se encarga de agregar una factura al historial, recibe una factura, salidas void
     public void setHistorialFacturas(Factura nuevaFactura) {
         int i=0;
-        while(historialFacturas[i]!=null){
+        while(i<historialFacturas.length & historialFacturas[i]!= null){
             i++;
         }
         historialFacturas[i]=nuevaFactura;

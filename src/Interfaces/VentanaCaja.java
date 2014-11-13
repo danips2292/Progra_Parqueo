@@ -154,7 +154,8 @@ public class VentanaCaja extends javax.swing.JFrame {
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
         //venMenu.setVisible(true);
-        this.show(false);
+        //this.dispose();
+        menu.getInstance().show(true);
         
           
     }//GEN-LAST:event_jbSalirActionPerformed

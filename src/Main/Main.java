@@ -9,10 +9,7 @@ import Interfaces.Principal;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import progra.parqueo.*;
-/**
- *
- * @author Gilberto
- */
+
 public class Main{
 
 public static void main(String[] args) throws IOException {

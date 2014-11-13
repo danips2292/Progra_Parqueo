@@ -4,10 +4,7 @@
  */
 package progra.parqueo;
 
-/**
- *
- * @author Gato
- */
+
 public class Vehiculo {
     
     private String placa;

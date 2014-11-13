@@ -9,10 +9,7 @@ import java.awt.Color;
 import java.awt.Container;
 import javax.swing.*;
 import progra.parqueo.Reloj;
-/**
- *
- * @author dani
- */
+
 public class menu extends javax.swing.JFrame {
 
 
@@ -153,10 +150,8 @@ public class menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-       // Container ventana = Parqueo.getInstance().getEstadoParqueo().getContentPane();
-       // Parqueo.getInstance().getEstadoParqueo().getComponentAt(400, 500).setBackground(Color.red);
-//        Parqueo.getInstance().getEstadoParqueo().repaint();
-        //Parqueo.getInstance().cerrarParqueo();
+       Principal.getInstance().show();
+       this.hide();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbMeterCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMeterCarroActionPerformed
@@ -176,12 +171,8 @@ public class menu extends javax.swing.JFrame {
     private void jbSacarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSacarCarroActionPerformed
          
         Parqueo.getInstance().vaciarEspacio();
-         int hSalida =Integer.parseInt(Reloj.getInstance().getHorMin());
-         Parqueo.getInstance().getVehiculo().setHoraSalida(hSalida);
-         Parqueo.getInstance().getVehiculo().setTiempoEstacionado(Parqueo.getInstance().getVehiculo().getHoraSalida()-Parqueo.getInstance().getVehiculo().getHoraIngreso());
-        
-         VentanaFactura.getInstance().show(true);
-         this.hide();
+        VentanaFactura.getInstance().show();
+        this.hide();
          
          //Parqueo.getInstance().getVentanaFactura().show();
          
@@ -200,8 +191,9 @@ public class menu extends javax.swing.JFrame {
 
     private void btnHistorialFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialFacActionPerformed
         // TODO add your handling code here:
-        VentanaHistorialFacturas.getInstance().show(true);
-        this.show(false);
+        VentanaHistorialFacturas.getInstance().show();
+        this.hide();
+        //this.show(false);
     }//GEN-LAST:event_btnHistorialFacActionPerformed
 
     /**

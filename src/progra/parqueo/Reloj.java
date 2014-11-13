@@ -42,13 +42,14 @@ Thread hilo;
     } 
 
 } 
-
+    //se encarga de dar una insatncai de reloj o crearla en su defecto, no recibe parametros, salidas instancia de reloj
     public static  Reloj getInstance(){
         if(relojInstance == null)
             relojInstance = new Reloj(0,0,0,0);
         return relojInstance;
     }
-
+    
+    //se encarga de dar valores a las variables respecto a fecha y hora, no recibe parametros, salidas void
     public void actualiza() { 
 
     Date fechaHoraActual = new Date(); 

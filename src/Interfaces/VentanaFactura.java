@@ -6,10 +6,6 @@ package Interfaces;
 import javax.swing.JOptionPane;
 import progra.parqueo.*;
 
-/**
- *
- * @author Gato
- */
 public class VentanaFactura extends javax.swing.JFrame {
     private static VentanaFactura VentanaFact;
     
@@ -17,9 +13,8 @@ public class VentanaFactura extends javax.swing.JFrame {
      * Creates new form VentanaFactura
      */
     public VentanaFactura() {
-        initComponents();
-        this.setVisible(rootPaneCheckingEnabled);
-        this.setSize(1378, 766);
+        
+        
         /*
         lblTitulo.setText(Parqueo.getInstance().getFactura().getTitulo());
         lblCedulaJuridica.setText(Parqueo.getInstance().getFactura().getCedulaJuridicaCompleto());
@@ -30,20 +25,9 @@ public class VentanaFactura extends javax.swing.JFrame {
         lblNumFactura.setText(n);
         lblTelefono.setText(Parqueo.getInstance().getFactura().getMsjTelefono());
         */
-        lblCedulaJuridica.setText("Cedula Juridica: "+Parqueo.getInstance().getFactura().getCedulaJuridica());
-        
-        lblDireccion.setText("Direccion: "+Parqueo.getInstance().getFactura().getDireccion());
-        lblFecha.setText("Fecha: "+Parqueo.getInstance().getFactura().getFechaComplato());
-        lblHorario.setText("Horario: "+Parqueo.getInstance().getFactura().getHorario());
-        String numeroFact=String.valueOf(Parqueo.getInstance().getFactura().getNumFactura());
-        lblNumFactura.setText("Numero de factura: "+numeroFact);
-        lblTelefono.setText("Telefono: "+Parqueo.getInstance().getFactura().getNumTelefono());
-        lblTitulo.setText("Titulo: "+Parqueo.getInstance().getFactura().getTitulo());
-        
-        //Parqueo.getInstance().getVehiculo().setTiempoEstacionado(Parqueo.getInstance().getVehiculo().getHoraSalida()-Parqueo.getInstance().getVehiculo().getHoraIngreso());
-        
-        String cobro= String.valueOf(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado()));
-        lblTotalNum.setText(cobro);
+        this.setVisible(rootPaneCheckingEnabled);
+        this.setSize(1378, 766);
+        initComponents();
         
         //String x= String.valueOf(Parqueo.getInstance().getUserCaja().calcularTarifa(Parqueo.getInstance().getVehiculo().getTiempoEstacionado()));
         //lblTotalNum.setText(x);
@@ -79,26 +63,25 @@ public class VentanaFactura extends javax.swing.JFrame {
         lblPagacon = new javax.swing.JLabel();
         txtPagacon = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
+        bCalcular = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTitulo.setText("Parqueo LiCaSa");
+        lblTitulo.setText("Parqueo ");
 
-        lblHorario.setText("Abierto de 7 a.m. a 7 p.m.");
+        lblHorario.setText("Abierto ");
 
-        lblTelefono.setText("Tel: 86667777");
+        lblTelefono.setText("Tel: ");
 
-        lblCedulaJuridica.setText("Cédula Jurídica: 1-6942-8181");
+        lblCedulaJuridica.setText("Cédula Jurídica: ");
 
-        lblDireccion.setText("Dirección: Del mercado 100 metros norte,Cartago ");
+        lblDireccion.setText("Dirección:  ");
 
-        lblFecha.setText("Fecha: 31/02/2014");
+        lblFecha.setText("Fecha: ");
 
-        lblNumFactura.setText("Número Factura: 0000001");
+        lblNumFactura.setText("Número Factura: ");
 
         lblTotal.setText("Total:");
-
-        lblTotalNum.setText("60000");
 
         lblPagacon.setText("Paga con:");
 
@@ -112,6 +95,13 @@ public class VentanaFactura extends javax.swing.JFrame {
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
+            }
+        });
+
+        bCalcular.setText("Calcular");
+        bCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcularActionPerformed(evt);
             }
         });
 
@@ -148,7 +138,9 @@ public class VentanaFactura extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtPagacon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bCalcular)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(btnAceptar)
                         .addGap(38, 38, 38))))
         );
@@ -175,7 +167,8 @@ public class VentanaFactura extends javax.swing.JFrame {
                     .addComponent(lblTotalNum)
                     .addComponent(lblPagacon)
                     .addComponent(txtPagacon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAceptar))
+                    .addComponent(btnAceptar)
+                    .addComponent(bCalcular))
                 .addGap(23, 23, 23))
         );
 
@@ -187,15 +180,39 @@ public class VentanaFactura extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPagaconActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        
+        int pago=Integer.parseInt(txtPagacon.getText());
+        Parqueo.getInstance().getUserCaja().setPagoCliente(pago);
+        
+        String vuelto=String.valueOf(Parqueo.getInstance().getUserCaja().calcularVuelto());
+        JOptionPane.showMessageDialog(null,"Su vuelto es de:"+vuelto+",gracias por su visita");
+        
+        Parqueo.getInstance().getHistorialFacturas()[Parqueo.getInstance().getFactura().getNumFactura()]=Parqueo.getInstance().getFactura();
+        //System.out.print("Cobrito"+Parqueo.getInstance().getHistorialFacturas()[0].getCobro());
+       // Parqueo.getInstance().getHistorialFacturas()
         this.hide();
-        int y=Integer.parseInt(txtPagacon.getText());
-        Parqueo.getInstance().getUserCaja().setPagoCliente(y);
-        String w=String.valueOf(Parqueo.getInstance().getUserCaja().calcularVuelto());
-        JOptionPane.showMessageDialog(null,"Su vuelto es de:"+w+",gracias por su visita");
-        Factura factura= new Factura(Parqueo.getInstance().getFactura().getNumFactura(),Parqueo.getInstance().getFactura().getTitulo(),Parqueo.getInstance().getFactura().getSlogan(),Parqueo.getInstance().getFactura().getNumTelefono(),Parqueo.getInstance().getFactura().getCedulaJuridica(),Parqueo.getInstance().getFactura().getDireccion(),Parqueo.getInstance().getFactura().getHorario());
-        Parqueo.getInstance().setHistorialFacturas(factura);
-        menu.getInstance().setVisible(true);
+        menu.getInstance().show();
+        
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void bCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcularActionPerformed
+        lblCedulaJuridica.setText("Cedula Juridica: "+Parqueo.getInstance().getFactura().getCedulaJuridica());
+        
+        lblDireccion.setText("Direccion: "+Parqueo.getInstance().getFactura().getDireccion());
+        lblFecha.setText("Fecha: "+Parqueo.getInstance().getFactura().getFechaComplato());
+        lblHorario.setText("Horario: "+Parqueo.getInstance().getFactura().getHorario());
+        String numeroFact=String.valueOf(Parqueo.getInstance().getFactura().getNumFactura());
+        lblNumFactura.setText("Numero de factura: "+numeroFact);
+        lblTelefono.setText("Telefono: "+Parqueo.getInstance().getFactura().getNumTelefono());
+        lblTitulo.setText("Titulo: "+Parqueo.getInstance().getFactura().getTitulo());
+        
+        //Parqueo.getInstance().getVehiculo().setTiempoEstacionado(Parqueo.getInstance().getVehiculo().getHoraSalida()-Parqueo.getInstance().getVehiculo().getHoraIngreso());
+        //int i = Parqueo.getInstance().getFactura().getNumFactura();
+        String cobro= Parqueo.getInstance().getFactura().getCobro();
+        lblTotalNum.setText(cobro);
+        
+        this.repaint();
+    }//GEN-LAST:event_bCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,6 +249,7 @@ public class VentanaFactura extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bCalcular;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JLabel lblCedulaJuridica;
     private javax.swing.JLabel lblDireccion;

@@ -13,7 +13,6 @@ import progra.parqueo.*;
 
 /**
  *
- * @author Gilberto
  */
 public class DetallesVehiculo extends javax.swing.JFrame {
     private String placa;
@@ -105,6 +104,11 @@ public class DetallesVehiculo extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,6 +197,10 @@ public class DetallesVehiculo extends javax.swing.JFrame {
         Parqueo.getInstance().getVehiculo().setHoraIngreso(hIngreso);
         this.hide();
     }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.hide();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

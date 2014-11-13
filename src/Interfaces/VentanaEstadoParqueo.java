@@ -6,10 +6,7 @@ package Interfaces;
 
 import progra.parqueo.Parqueo;
 
-/**
- *
- * @author Gato
- */
+
 public class VentanaEstadoParqueo extends javax.swing.JFrame {
     private static VentanaEstadoParqueo estadoParqueoInstance;
     /**

@@ -17,8 +17,10 @@ public class Factura {
     private String fechaComplato= "Fecha:"+Reloj.getInstance().getFecha();
     private String horario=getHorario();
     private int numFactura;
-    private int cobro;
+    private String cobro;
+    private boolean ocupado;
     
+   //se inicializan variables y se hacen gets y sets, recibe parametros para igualar a variables o no recibe parametros, salidas las variables y void en sets
     public Factura(int pNumFactura,String pTitulo,String pSlogan,String pNumTelefono,String pCedulaJuridica,String pDireccion,String pHorario ){
         titulo=pTitulo;
         slogan=pSlogan;
@@ -29,11 +31,11 @@ public class Factura {
         numFactura=pNumFactura;
     }
 
-    public int getCobro() {
+    public String getCobro() {
         return cobro;
     }
 
-    public void setCobro(int cobro) {
+    public void setCobro(String cobro) {
         this.cobro = cobro;
     }
     
@@ -187,6 +189,20 @@ public class Factura {
      */
     public void setHorario(String horario) {
         this.horario = horario;
+    }
+
+    /**
+     * @return the ocupado
+     */
+    public boolean isOcupado() {
+        return ocupado;
+    }
+
+    /**
+     * @param ocupado the ocupado to set
+     */
+    public void setOcupado(boolean ocupado) {
+        this.ocupado = ocupado;
     }
    
 }

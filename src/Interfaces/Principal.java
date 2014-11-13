@@ -7,7 +7,7 @@ import javax.swing.JOptionPane.*;
 import javax.swing.JPasswordField;
 
 public class Principal extends javax.swing.JFrame {
-
+    private static Principal principal;
 
   //Parqueo userParqueo= new Parqueo(true,0,"",0,15);
 
@@ -27,6 +27,13 @@ public class Principal extends javax.swing.JFrame {
         this.setVisible(rootPaneCheckingEnabled);
         this.setSize(1378, 766);
         
+    }
+    
+    public static Principal getInstance(){
+        if(principal == null)
+            principal = new Principal();
+        return principal;
+
     }
     
     /**
